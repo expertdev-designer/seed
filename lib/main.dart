@@ -3,7 +3,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/connection_list.dart';
 import 'package:seedapp/connections.dart';
+import 'package:seedapp/my_connections.dart';
 import 'package:seedapp/schedule.dart';
+import 'package:seedapp/seed_detail.dart';
 
 
 void main() {
@@ -83,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(top: 22,left: 256),
+                        padding: const EdgeInsets.only(top: 22,left: 210),
                         child: Container(
                           //alignment: Alignment.center,
                             height:24.96 ,
@@ -96,6 +98,20 @@ class _MyHomePageState extends State<MyHomePage> {
                                 //child:SvgPicture.asset('assets/images/Fill22.svg'),),
                         ),
                       ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 22,left: 20),
+                          child: InkWell(
+                            onTap: (){
+                              AlertDialog(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius value as needed
+                                ),
+                              );
+                            },
+                              child: Image.asset('assets/images/delete_icon.png')),
+                        ),
+
+
                     ],
                   ),
 
@@ -108,13 +124,22 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 4),
-                    child: Text(
-                        'Mad Family',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    padding: const EdgeInsets.only(top: 4,left: 100),
+                    child: Row(
+                      children: [
+                        Text(
+                            'Mad Family',
+                          style: GoogleFonts.poppins(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10),
+                          child: Image.asset('assets/images/edit_icon.png',width: 20,height: 20,),
+                        ),
+
+                      ],
                     ),
                   ),
                 ],
@@ -126,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               children:[
                 Padding(
-                  padding: const EdgeInsets.only(top: 245,left: 50,right: 10),
+                  padding: const EdgeInsets.only(top: 245,left: 40,right: 10),
                   child: Column(
                     children: [
                       Text('24',
@@ -136,7 +161,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                       InkWell(
-                        onTap: (){},
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context )=>MyConnections()));
+                        },
                         child: Text('Total Seeds',style: GoogleFonts.poppins(
                             fontSize: 15,
                             fontWeight: FontWeight.w300,
@@ -177,14 +204,94 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Text('connections',style: GoogleFonts.poppins(fontSize: 15,fontWeight: FontWeight.w300,decoration: TextDecoration.underline),))
                     ],
                   ),
-                ),
+                )
               ],
             ),
           ),
+           
            Padding(
-             padding: const EdgeInsets.only(top:331 ),
-             child: SingleChildScrollView(child: Image.asset('assets/images/Photo-library.png',width: double.infinity, fit: BoxFit.cover,)),
+             padding: const EdgeInsets.only(top: 331),
+             child: GridView.count(crossAxisCount: 3,
+               children: [
+                 Container(
+                   width:100,
+                     height: 100,
+                     child: Image.asset('assets/images/1.png'),
+                 ),
+                 Container(
+                   width: 100,
+                     height: 100,
+                     child: Image.asset('assets/images/7.png'),
+                 ),
+                 Container(
+                   width: 100,
+                     height: 100,
+                     child: Image.asset('assets/images/13.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/2.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/8.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/14.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/3.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/9.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/15.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/4.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/10.png'),
+                 ),
+                 Container(
+                   width: 100,
+                   height: 100,
+                   child: Image.asset('assets/images/16.png'),
+                 ),
+               ],
+             ),
            ),
+
+           // Padding(
+           //   padding: const EdgeInsets.only(top:331 ),
+           //   child: InkWell(
+           //     onTap: (){
+           //       Navigator.push(context, MaterialPageRoute(builder: (context)=>SeedDetail()));
+           //     },
+           //       child: SingleChildScrollView(
+           //           child: Image.asset(
+           //             'assets/images/Photo-library.png',
+           //             width: double.infinity,
+           //             fit: BoxFit.cover,
+           //           ),
+           //       ),
+           //   ),
+           // ),
         ],
       ),
 

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/main.dart';
+import 'package:seedapp/seed_detail.dart';
 
 class Schedule extends StatelessWidget{
 
@@ -176,7 +177,9 @@ class Schedule extends StatelessWidget{
             
             Padding(
               padding: const EdgeInsets.only(top: 40,bottom: 24),
-              child: ElevatedButton(onPressed: (){},
+              child: ElevatedButton(onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SeedDetail()));
+              },
                 style: ElevatedButton.styleFrom(
                   // padding: EdgeInsets.only(top: 1),
                   fixedSize: Size(300, 50),

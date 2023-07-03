@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:seedapp/main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:seedapp/new_connections.dart';
 import 'package:seedapp/new_group.dart';
 import 'package:seedapp/search_user.dart';
 
@@ -18,16 +19,16 @@ class ListItem {
 }
 
 
-class ConnectionList extends StatefulWidget {
-  const ConnectionList({super.key});
+class MyConnections extends StatefulWidget {
+  const MyConnections({super.key});
 
 
   @override
-    _ConnectionList createState() => _ConnectionList();
+  _MyConnections createState() => _MyConnections();
 }
 
 
-  class _ConnectionList extends State<ConnectionList> {
+class _MyConnections extends State<MyConnections> {
   final List<ListItem> items = [
     ListItem('assets/images/Bitmap.png', 'Albert Smith', trainling: true),
     ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: false),
@@ -39,15 +40,6 @@ class ConnectionList extends StatefulWidget {
     ListItem('assets/images/albertimage.png', 'Oswald Dean', trainling: false),
     ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
   ];
-
-
-  bool isImageToggled = true;
-
-  void _toggleImage() {
-    setState(() {
-      isImageToggled = !isImageToggled;
-    });
-  }
 
 
   @override
@@ -73,15 +65,11 @@ class ConnectionList extends StatefulWidget {
                       },
                       child: Icon(Icons.arrow_back,),
 
-                      // child: Image.asset('assets/images/back_arrow.png',
-                      //   width: 25,
-                      //   height: 25,
-                      // ),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 57,left:70),
-                    child: Text('Share With',
+                    padding: const EdgeInsets.only(top: 57,left:30),
+                    child: Text('My Connections',
                       style: GoogleFonts.poppins(
                         fontSize: 21,
                         fontWeight: FontWeight.w700,
@@ -89,26 +77,56 @@ class ConnectionList extends StatefulWidget {
                       ),
                     ),
                   ),
+
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 57,left: 35),
+                        child: CircleAvatar(
+                          radius: 8,
+                          backgroundColor: Color(0xfff01B701),
+                          child: Container(
+                            child: Text('1'),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left:30),
+                        child: SvgPicture.asset('assets/images/Vector.svg'),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 57,left:20),
+                    child: InkWell(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>NewConnections()));
+                      },
+                        child: SvgPicture.asset('assets/images/circleaddsign.svg'
+                        )
+                    ),
+                  ),
+
                 ],
               ),
 
               Padding(
                 padding: EdgeInsets.all(16.0),
-                  child: Container(
-                    width: 320,
-                    height: 36,
+                child: Container(
+                  width: 320,
+                  height: 36,
 
-                    child: TextField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: const Color(0xfffD8D8D8),
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: const Color(0xfffD8D8D8),
+                      prefixIcon: Icon(Icons.search),
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
+                      ),
                     ),
-              ),
-              ),
                   ),
+                ),
               ),
 
               Padding(
@@ -128,6 +146,7 @@ class ConnectionList extends StatefulWidget {
                     padding: const EdgeInsets.only(left: 15,top: 10),
                     child: InkWell(
                       onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>NewGroup(),),);
                       },
                       child: Column(
                         children: [
@@ -155,38 +174,26 @@ class ConnectionList extends StatefulWidget {
 
                   Padding(
                     padding: const EdgeInsets.only(left: 15,top: 10),
-                    child: GestureDetector(
-                      onTap: _toggleImage,
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                             radius: 25,
-                             backgroundColor: Color(0xfff01B701),
-                        child: Container(
-                          width: 50, // Set the desired width
-                          height: 50, // Set the desired height
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-
-                            image: DecorationImage(
-                              image: isImageToggled
-                                  ? AssetImage('assets/images/Bitmap.png')
-                                  : AssetImage('assets/images/Select.png'),
-                              fit: BoxFit.cover,
-                            ),
+                    child: Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 25,
+                          backgroundColor: Color(0xfff01B701),
+                          child: Container(
+                            width: 50, // Set the desired width
+                            height: 50, // Set the desired height
+                            child: Image.asset('assets/images/Bitmap.png'),
                           ),
                         ),
-                          ),
 
-                          Text('Mad Family',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              color: Color(0xfff5B5B5B),
-                            ),
+                        Text('Mad Family',
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                            color: Color(0xfff5B5B5B),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
 
@@ -366,8 +373,8 @@ class ConnectionList extends StatefulWidget {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:10,right: 200),
-                child: Text('My Connections',
+                padding: const EdgeInsets.only(top:10,right: 210),
+                child: Text('Connections',
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -387,106 +394,43 @@ class ConnectionList extends StatefulWidget {
                           width: 62.63,
                           height: 62.39,
                           child: CircleAvatar(
-                             backgroundImage: AssetImage(items[index].leading),
-                             radius: 100,
+                            backgroundImage: AssetImage(items[index].leading),
+                            radius: 100,
                           ),
                         ),
                         title: Text(
                           items[index].title,
                           style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
                           ),
                         ),
-                        trailing: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              items[index].isTapped = !items[index].isTapped;
-                            });
-                          },
-                          child: Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(2),
-                              border: items[index].isTapped
-                                  ? Border.all(
-                                color: Color(0xfff00BD00),
-                                width: 2.0,
-                              )
-                                  : null,
-                              shape:BoxShape.rectangle,
-                              color: Colors.grey,
-
-
-                              // image: const DecorationImage(
-                              //   image: AssetImage('assets/images/top.png'),
-                              //   fit: BoxFit.cover,
-                              // ),
-                            ),
-                            child: items[index].isTapped
-                                ?  Stack(
-                              children: [
-                                // BackdropFilter(
-                                //   filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                                //   child: Container(
-                                //     color: Colors.grey.withOpacity(0.3),
-                                //   ),
-                                // ),
-                                Positioned.fill(
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child:SvgPicture.asset('assets/images/Select.svg',width: 8,height: 8,color: Color(0xfff00BD00),) ,
-                                    // Icon(
-                                    //   Icons.check_box,
-                                    //   color: Colors.white,
-                                    //   size: 18,
-                                    // ),
-                                  ),
-                                ),
-                              ],
-                            )
-                                : null,
-                          ),
+                        trailing: const Column(
+                          children: [
+                            Icon(Icons.perm_contact_cal,color: Color(0xfffE3E3E3),),
+                            Text('India'),
+                          ],
                         ),
                       );
-                      },
-                      separatorBuilder: (context, index) {
-                         return const Divider(
-                           indent: 20,
-                           endIndent: 20,
-                           height: 50,
-                           thickness: 1,
-                        );
-                      },
-                      itemCount: items.length,
-                   ),
-
-                ),
-              ),
-
-
-              Padding(
-                padding: const EdgeInsets.only(top: 15,bottom: 24),
-                child: ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchUser()));
-                },
-                  style: ElevatedButton.styleFrom(
-                    // padding: EdgeInsets.only(top: 1),
-                      fixedSize: Size(300, 50),
-                      backgroundColor: Color(0xfff00C900),
-                      shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
-                  ), child:  Text('Next',
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                      color:Colors.white,
-                    ),
+                    },
+                    separatorBuilder: (context, index) {
+                      return const Divider(
+                        indent: 20,
+                        endIndent: 20,
+                        height: 50,
+                        thickness: 1,
+                      );
+                    },
+                    itemCount: items.length,
                   ),
+
                 ),
               ),
 
-    ],
+
+              
+
+            ],
           ),
         ),
       ),
