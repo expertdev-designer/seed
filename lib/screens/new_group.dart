@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:seedapp/connection_list.dart';
-import 'package:seedapp/group_name.dart';
+import 'package:seedapp/screens/connection_list.dart';
+import 'package:seedapp/data/group_name.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
 

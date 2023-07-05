@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:seedapp/my_connections.dart';
+import 'package:seedapp/screens/my_connections.dart';
 
 class NewConnections extends StatelessWidget{
   @override

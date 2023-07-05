@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:seedapp/main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:seedapp/new_group.dart';
-import 'package:seedapp/search_user.dart';
+import 'package:seedapp/screens/new_group.dart';
+import 'package:seedapp/data/search_user.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
 class ListItem {
@@ -57,14 +57,15 @@ class ConnectionList extends StatefulWidget {
     return  Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: 756.0,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
 
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 65,left: 22),
+                    padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
                     child: InkWell(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(
@@ -81,7 +82,7 @@ class ConnectionList extends StatefulWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 57,left:70),
+                    padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.20),
                     child: Text('Share With',
                       style: GoogleFonts.poppins(
                         fontSize: 21,
@@ -94,26 +95,28 @@ class ConnectionList extends StatefulWidget {
               ),
 
               Padding(
-                padding: EdgeInsets.all(16.0),
-                  child: Container(
-                    width: 320,
-                    height: 36,
+                padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+                  child: Expanded(
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      height: MediaQuery.of(context).size.height * 0.05,
 
-                    child: TextField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: AppColors.searchbarBackground,
-                        prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: AppColors.searchbarBackground,
+                          prefixIcon: Icon(Icons.search),
+                          border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                      ),
+              ),
+              ),
                     ),
-              ),
-              ),
                   ),
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:10,right: 270),
+                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.35),
                 child: Text('Groups',
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
@@ -126,7 +129,7 @@ class ConnectionList extends StatefulWidget {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: InkWell(
                       onTap: (){
                       },
@@ -137,8 +140,8 @@ class ConnectionList extends StatefulWidget {
                             backgroundColor: AppColors.colorGreen,
                             child: SvgPicture.asset(
                               'assets/images/Group.svg', // Replace with your SVG file path
-                              width: 30.0, // Set the desired width
-                              height: 30.0,
+                              width: MediaQuery.of(context).size.width * 0.04,
+                              height: MediaQuery.of(context).size.height * 0.04,
                             ),
                           ),
 
@@ -155,7 +158,7 @@ class ConnectionList extends StatefulWidget {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: GestureDetector(
                       onTap: _toggleImage,
                       child: Column(
@@ -164,8 +167,8 @@ class ConnectionList extends StatefulWidget {
                              radius: 25,
                              backgroundColor: AppColors.colorGreen,
                         child: Container(
-                          width: 50, // Set the desired width
-                          height: 50, // Set the desired height
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.2,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
 
@@ -193,7 +196,7 @@ class ConnectionList extends StatefulWidget {
 
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -201,8 +204,8 @@ class ConnectionList extends StatefulWidget {
                           // backgroundColor: Color(0xfff01B701),
                           child: Image.asset(
                             'assets/images/Bitmap.png', // Replace with your SVG file path
-                            width: 200.0, // Set the desired width
-                            height: 200.0,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
@@ -218,7 +221,7 @@ class ConnectionList extends StatefulWidget {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         InkWell(
@@ -230,8 +233,8 @@ class ConnectionList extends StatefulWidget {
                             // backgroundColor: Color(0xfff01B701),
                             child: Image.asset(
                               'assets/images/Bitmap.png', // Replace with your SVG file path
-                              width: 200.0, // Set the desired width
-                              height: 200.0,
+                              width: MediaQuery.of(context).size.width * 0.2,
+                              height: MediaQuery.of(context).size.height * 0.2,
                             ),
                           ),
                         ),
@@ -251,7 +254,7 @@ class ConnectionList extends StatefulWidget {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:10,right: 238),
+                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.30),
                 child: Text('Broadcasts',
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
@@ -264,7 +267,7 @@ class ConnectionList extends StatefulWidget {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -272,8 +275,8 @@ class ConnectionList extends StatefulWidget {
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
@@ -289,7 +292,7 @@ class ConnectionList extends StatefulWidget {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -297,8 +300,8 @@ class ConnectionList extends StatefulWidget {
                           backgroundColor:AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
@@ -314,7 +317,7 @@ class ConnectionList extends StatefulWidget {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -322,8 +325,8 @@ class ConnectionList extends StatefulWidget {
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
@@ -339,7 +342,7 @@ class ConnectionList extends StatefulWidget {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -347,8 +350,8 @@ class ConnectionList extends StatefulWidget {
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
@@ -367,7 +370,7 @@ class ConnectionList extends StatefulWidget {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:10,right: 200),
+                padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.25),
                 child: Text('My Connections',
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
@@ -385,8 +388,8 @@ class ConnectionList extends StatefulWidget {
                     itemBuilder: (context, index) {
                       return ListTile(
                         leading: Container(
-                          width: 62.63,
-                          height: 62.39,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.2,
                           child: CircleAvatar(
                              backgroundImage: AssetImage(items[index].leading),
                              radius: 100,
@@ -437,7 +440,7 @@ class ConnectionList extends StatefulWidget {
                                 Positioned.fill(
                                   child: Align(
                                     alignment: Alignment.center,
-                                    child:SvgPicture.asset('assets/images/Select.svg',width: 8,height: 8,color:AppColors.borderColor) ,
+                                    child:SvgPicture.asset('assets/images/Select.svg',width: 8,height: 8,color: AppColors.borderColor) ,
                                     // Icon(
                                     //   Icons.check_box,
                                     //   color: Colors.white,
@@ -468,7 +471,7 @@ class ConnectionList extends StatefulWidget {
 
 
               Padding(
-                padding: const EdgeInsets.only(top: 15,bottom: 24),
+                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,bottom:MediaQuery.of(context).size.height * 0.03,),
                 child: ElevatedButton(onPressed: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchUser()));
                 },

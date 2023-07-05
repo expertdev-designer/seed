@@ -41,7 +41,7 @@ class _ConnectionsState extends State<Connections> {
             Row(
               children: [
                 Padding(
-                  padding:  EdgeInsets.only(top: _media.size.height * 0.08,left: _media.size.width* 0.06,),
+                  padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left: MediaQuery.of(context).size.width* 0.06,),
                   child: InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(
@@ -56,7 +56,7 @@ class _ConnectionsState extends State<Connections> {
                   ),
                 ),
                  Padding(
-                   padding:  EdgeInsets.only(top: _media.size.height * 0.08,left:_media.size.height * 0.1,),
+                   padding:  EdgeInsets.only(top: _media.size.height * 0.08,left:_media.size.width * 0.2,),
                    child: Text('Connections',
                     style: GoogleFonts.poppins(
                       fontSize: 21,
@@ -72,7 +72,7 @@ class _ConnectionsState extends State<Connections> {
 
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.only(top: 10),
+                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.005,),
                 child: Container(
                   child: ListView.separated(
                     itemBuilder: (context, index) {
@@ -129,7 +129,7 @@ class _ConnectionsState extends State<Connections> {
                                                  ),),
 
                                                  Padding(
-                                                   padding: const EdgeInsets.only(top: 2),
+                                                   padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005,),
                                                    child: Text('Are you sure you want to remove Albert Smith from this group',
                                                      style: GoogleFonts.poppins(
                                                        fontWeight: FontWeight.w700,
@@ -140,10 +140,10 @@ class _ConnectionsState extends State<Connections> {
                                                  ),
 
                                                  Padding(
-                                                   padding: const EdgeInsets.only(top: 14),
+                                                   padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.009,),
                                                    child: Container(
-                                                     width: 400,
-                                                     height: 1.0,
+                                                     width: MediaQuery.of(context).size.width,
+                                                     height: MediaQuery.of(context).size.height * 0.001,
                                                      color: Colors.grey,
                                                    ),
                                                  ),
@@ -173,8 +173,8 @@ class _ConnectionsState extends State<Connections> {
                                                    )),
 
                                                    Container(
-                                                     width: 1.0,
-                                                     height: 60.0,
+                                                     width: MediaQuery.of(context).size.width * 0.001,
+                                                     height: MediaQuery.of(context).size.height * 0.09,
                                                      color: Colors.grey,
                                                    ),
 

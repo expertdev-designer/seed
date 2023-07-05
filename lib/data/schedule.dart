@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/main.dart';
-import 'package:seedapp/seed_detail.dart';
+import 'package:seedapp/screens/seed_detail.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
 class Schedule extends StatelessWidget{
@@ -21,7 +21,7 @@ class Schedule extends StatelessWidget{
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 57,left: 24),
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left: MediaQuery.of(context).size.width* 0.06,),
                   child: InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage(),),);
@@ -29,7 +29,7 @@ class Schedule extends StatelessWidget{
                       child: Image.asset('assets/images/back_arrow.png')),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 57,left: 91),
+                  padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left:MediaQuery.of(context).size.width * 0.25,),
                   child: Text('Schedule',
                     style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color: AppColors.textColorBlack),
                   ),

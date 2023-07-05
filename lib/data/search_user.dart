@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'connection_list.dart';
+import '../screens/connection_list.dart';
 
 class SearchList{
   final String leading;

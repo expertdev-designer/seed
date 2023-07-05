@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:seedapp/new_group.dart';
+import 'package:seedapp/screens/new_group.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
 class GroupName extends StatefulWidget{
