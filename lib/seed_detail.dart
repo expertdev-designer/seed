@@ -159,18 +159,22 @@ class SeedDetail extends StatelessWidget{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(right: 290,top: 5),
+              padding: const EdgeInsets.only(top: 5),
               child: Container(
-                width: double.infinity,
+                width: 800,
                 height: 35,
                 color: Color(0xffF5F5F5),
-                child: Text('chat(4)',
-                  style: GoogleFonts.poppins(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xfff3C3C3C),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 280),
+                    child: Text('chat(4)',
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xfff3C3C3C),
+                      ),
+                    ),
                   ),
-                  textAlign: TextAlign.center,
                 ),
               ),
             ),
@@ -239,27 +243,39 @@ class SeedDetail extends StatelessWidget{
 
                 Padding(
                   padding: const EdgeInsets.all(16.0),
-                     child: Column(
+                     child: Stack(
                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40.0),
-                            color: Colors.grey[200],
-                            ),
-                             child: TextField(
-                               onChanged: (value) {
-                             },
-                             decoration: const InputDecoration(
-                               hintText: 'Write here..',
-                               contentPadding: EdgeInsets.all(16.0),
-                               border: InputBorder.none,
-                            ),
+                        Container(
+                          decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(40.0),
+                          color: Colors.grey[200],
                           ),
+                           child: TextField(
+                             onChanged: (value) {
+                           },
+                           decoration: const InputDecoration(
+                             hintText: 'Write here..',
+                             contentPadding: EdgeInsets.all(16.0),
+                             border: InputBorder.none,
+                          ),
+                        ),
+                           ),
+
+                           Positioned(
+                             right: 10,
+                             bottom: 5,
+                               child: TextButton(onPressed: (){},
+                                 child: Text('Send',
+                                   style: GoogleFonts.poppins(
+                                     fontSize: 14,
+                                     fontWeight: FontWeight.w600,
+                                     color: Colors.green,
+                                   ),
+                                 ),
                          ),
-
-
+                           ),
                      ],
-                    ),
+                     ),
                  ),
 
               ],

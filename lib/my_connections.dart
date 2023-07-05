@@ -8,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:seedapp/new_connections.dart';
 import 'package:seedapp/new_group.dart';
 import 'package:seedapp/search_user.dart';
+import 'package:seedapp/utils/app_colors.dart';
 
 class ListItem {
   final String leading;
@@ -73,7 +74,7 @@ class _MyConnections extends State<MyConnections> {
                       style: GoogleFonts.poppins(
                         fontSize: 21,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xfff3C3C3C),
+                        color: AppColors.textColorBlack,
                       ),
                     ),
                   ),
@@ -84,7 +85,7 @@ class _MyConnections extends State<MyConnections> {
                         padding: const EdgeInsets.only(top: 57,left: 35),
                         child: CircleAvatar(
                           radius: 8,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Container(
                             child: Text('1'),
                           ),
@@ -119,7 +120,7 @@ class _MyConnections extends State<MyConnections> {
                   child: TextField(
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: const Color(0xfffD8D8D8),
+                      fillColor:  AppColors.searchbarBackground,
                       prefixIcon: Icon(Icons.search),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
@@ -135,7 +136,7 @@ class _MyConnections extends State<MyConnections> {
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: Color(0xfff979797),
+                    color: AppColors.textColorLightGrey,
                   ),
                 ),
               ),
@@ -152,7 +153,7 @@ class _MyConnections extends State<MyConnections> {
                         children: [
                           CircleAvatar(
                             radius: 25,
-                            backgroundColor: Color(0xfff01B701),
+                            backgroundColor: AppColors.colorGreen,
                             child: SvgPicture.asset(
                               'assets/images/Group.svg', // Replace with your SVG file path
                               width: 30.0, // Set the desired width
@@ -164,7 +165,7 @@ class _MyConnections extends State<MyConnections> {
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               fontSize: 12,
-                              color: Color(0xfff979797),
+                              color: AppColors.textColorLightGrey,
                             ),
                           ),
                         ],
@@ -178,7 +179,7 @@ class _MyConnections extends State<MyConnections> {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Container(
                             width: 50, // Set the desired width
                             height: 50, // Set the desired height
@@ -190,7 +191,7 @@ class _MyConnections extends State<MyConnections> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -216,7 +217,7 @@ class _MyConnections extends State<MyConnections> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -246,7 +247,7 @@ class _MyConnections extends State<MyConnections> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -262,7 +263,7 @@ class _MyConnections extends State<MyConnections> {
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: Color(0xfff979797),
+                    color:AppColors.textColorLightGrey,
                   ),
                 ),
               ),
@@ -287,7 +288,7 @@ class _MyConnections extends State<MyConnections> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff979797),
+                            color: AppColors.textColorLightGrey,
                           ),
                         ),
                       ],
@@ -300,7 +301,7 @@ class _MyConnections extends State<MyConnections> {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
                             width: 30.0, // Set the desired width
@@ -312,7 +313,7 @@ class _MyConnections extends State<MyConnections> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -325,7 +326,7 @@ class _MyConnections extends State<MyConnections> {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
                             width: 30.0, // Set the desired width
@@ -337,7 +338,7 @@ class _MyConnections extends State<MyConnections> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -350,7 +351,7 @@ class _MyConnections extends State<MyConnections> {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
                             width: 30.0, // Set the desired width
@@ -362,7 +363,7 @@ class _MyConnections extends State<MyConnections> {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -378,7 +379,7 @@ class _MyConnections extends State<MyConnections> {
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: Color(0xfff979797),
+                    color: AppColors.textColorLightGrey,
                   ),
                 ),
               ),
@@ -407,7 +408,7 @@ class _MyConnections extends State<MyConnections> {
                         ),
                         trailing: const Column(
                           children: [
-                            Icon(Icons.perm_contact_cal,color: Color(0xfffE3E3E3),),
+                            Icon(Icons.perm_contact_cal,color: AppColors.contactIconClr),
                             Text('India'),
                           ],
                         ),

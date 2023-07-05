@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/main.dart';
 import 'package:seedapp/seed_detail.dart';
+import 'package:seedapp/utils/app_colors.dart';
 
 class Schedule extends StatelessWidget{
 
   final seedType=['one','two','three'];
+
+   Schedule({super.key});
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -27,7 +31,7 @@ class Schedule extends StatelessWidget{
                 Padding(
                   padding: const EdgeInsets.only(top: 57,left: 91),
                   child: Text('Schedule',
-                    style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color: Color(0xfff3C3C3C)),
+                    style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color: AppColors.textColorBlack),
                   ),
                 ),
               ],
@@ -71,7 +75,7 @@ class Schedule extends StatelessWidget{
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  color: Color(0xfff535353),
+                  color: AppColors.darkGrey,
                   decoration: TextDecoration.underline,
                 ),
               ),
@@ -99,7 +103,7 @@ class Schedule extends StatelessWidget{
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  color: Color(0xfff535353)
+                  color: AppColors.darkGrey,
                 ),
               ),
             ),
@@ -169,7 +173,7 @@ class Schedule extends StatelessWidget{
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  color:Color(0xfff535353),
+                  color:AppColors.darkGrey,
                   decoration: TextDecoration.underline
                 ),
               ),
@@ -183,7 +187,7 @@ class Schedule extends StatelessWidget{
                 style: ElevatedButton.styleFrom(
                   // padding: EdgeInsets.only(top: 1),
                   fixedSize: Size(300, 50),
-                  backgroundColor: Color(0xfff00C900),
+                  backgroundColor: AppColors.colorButton,
                   shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
                 ), child:  Text('Share Seed',
                 style: GoogleFonts.poppins(

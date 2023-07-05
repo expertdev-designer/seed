@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/new_group.dart';
+import 'package:seedapp/utils/app_colors.dart';
 
 class GroupName extends StatefulWidget{
   const GroupName({super.key});
@@ -37,7 +38,7 @@ class _GroupName extends State<GroupName>{
                     style: GoogleFonts.poppins(
                       fontSize: 21,
                       fontWeight: FontWeight.w700,
-                      color: Color(0xfff3C3C3C),
+                      color: AppColors.textColorBlack,
                     ),
                   ),
                 ),
@@ -62,7 +63,7 @@ class _GroupName extends State<GroupName>{
                     child: const TextField(
                       decoration: InputDecoration(
                         labelText: 'Group Name',
-                        labelStyle: TextStyle(color: Colors.grey),
+                        labelStyle: TextStyle(color: AppColors.textColorLightGrey),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: BorderSide(color: Colors.green),
                         ),
@@ -83,7 +84,7 @@ class _GroupName extends State<GroupName>{
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  color: Color(0xfff979797),
+                  color: AppColors.textColorLightGrey,
                 ),
               ),
             ),
@@ -107,7 +108,7 @@ class _GroupName extends State<GroupName>{
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -127,7 +128,7 @@ class _GroupName extends State<GroupName>{
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -152,7 +153,7 @@ class _GroupName extends State<GroupName>{
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -176,7 +177,7 @@ class _GroupName extends State<GroupName>{
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -200,7 +201,7 @@ class _GroupName extends State<GroupName>{
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                             fontWeight:FontWeight.w600,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -219,7 +220,7 @@ class _GroupName extends State<GroupName>{
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight:FontWeight.w600,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -238,7 +239,7 @@ class _GroupName extends State<GroupName>{
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight:FontWeight.w600,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -257,7 +258,7 @@ class _GroupName extends State<GroupName>{
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight:FontWeight.w600,
-                          color: Color(0xfff5B5B5B),
+                          color: AppColors.textColorGrey,
                         ),
                       ),
                     ],
@@ -275,7 +276,7 @@ class _GroupName extends State<GroupName>{
                 style: ElevatedButton.styleFrom(
                   // padding: EdgeInsets.only(top: 1),
                     fixedSize: Size(300, 50),
-                    backgroundColor: Color(0xfff00C900),
+                    backgroundColor: AppColors.colorButton,
                     shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
                 ), child:  Text('Done',
                   style: GoogleFonts.poppins(

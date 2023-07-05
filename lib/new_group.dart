@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/connection_list.dart';
 import 'package:seedapp/group_name.dart';
+import 'package:seedapp/utils/app_colors.dart';
 
 
 class ListItem {
@@ -56,8 +57,9 @@ class _NewGroup extends State<NewGroup>{
               Padding(
                 padding: const EdgeInsets.only(top: 57,left: 91),
                 child: Text('New Group',
-                  style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color: Color(0xfff3C3C3C)),
+                  style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color:AppColors.textColorBlack,
                 ),
+              ),
               ),
             ],
           ),
@@ -68,7 +70,7 @@ class _NewGroup extends State<NewGroup>{
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
-                color: Color(0xfff979797),
+                color:AppColors.textColorLightGrey,
               ),
             ),
           ),
@@ -126,7 +128,7 @@ class _NewGroup extends State<NewGroup>{
               style: ElevatedButton.styleFrom(
                 // padding: EdgeInsets.only(top: 1),
                   fixedSize: Size(300, 50),
-                  backgroundColor: Color(0xfff00C900),
+                  backgroundColor: AppColors.colorButton,
                   shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
               ), child:  Text('Next',
                 style: GoogleFonts.poppins(

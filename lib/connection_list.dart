@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:seedapp/new_group.dart';
 import 'package:seedapp/search_user.dart';
+import 'package:seedapp/utils/app_colors.dart';
 
 class ListItem {
   final String leading;
@@ -85,7 +86,7 @@ class ConnectionList extends StatefulWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 21,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xfff3C3C3C),
+                        color: AppColors.textColorBlack,
                       ),
                     ),
                   ),
@@ -101,7 +102,7 @@ class ConnectionList extends StatefulWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: const Color(0xfffD8D8D8),
+                        fillColor: AppColors.searchbarBackground,
                         prefixIcon: Icon(Icons.search),
                         border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10.0),
@@ -117,7 +118,7 @@ class ConnectionList extends StatefulWidget {
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: Color(0xfff979797),
+                    color: AppColors.textColorLightGrey,
                   ),
                 ),
               ),
@@ -133,7 +134,7 @@ class ConnectionList extends StatefulWidget {
                         children: [
                           CircleAvatar(
                             radius: 25,
-                            backgroundColor: Color(0xfff01B701),
+                            backgroundColor: AppColors.colorGreen,
                             child: SvgPicture.asset(
                               'assets/images/Group.svg', // Replace with your SVG file path
                               width: 30.0, // Set the desired width
@@ -145,7 +146,7 @@ class ConnectionList extends StatefulWidget {
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               fontSize: 12,
-                              color: Color(0xfff979797),
+                              color: AppColors.textColorLightGrey,
                             ),
                           ),
                         ],
@@ -161,7 +162,7 @@ class ConnectionList extends StatefulWidget {
                         children: [
                           CircleAvatar(
                              radius: 25,
-                             backgroundColor: Color(0xfff01B701),
+                             backgroundColor: AppColors.colorGreen,
                         child: Container(
                           width: 50, // Set the desired width
                           height: 50, // Set the desired height
@@ -182,7 +183,7 @@ class ConnectionList extends StatefulWidget {
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               fontSize: 12,
-                              color: Color(0xfff5B5B5B),
+                              color: AppColors.textColorsGrey
                             ),
                           ),
                         ],
@@ -209,7 +210,7 @@ class ConnectionList extends StatefulWidget {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorsGrey,
                           ),
                         ),
                       ],
@@ -239,7 +240,7 @@ class ConnectionList extends StatefulWidget {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorsGrey,
                           ),
                         ),
                       ],
@@ -255,7 +256,7 @@ class ConnectionList extends StatefulWidget {
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: Color(0xfff979797),
+                    color: AppColors.textColorLightGrey,
                   ),
                 ),
               ),
@@ -268,7 +269,7 @@ class ConnectionList extends StatefulWidget {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
                             width: 30.0, // Set the desired width
@@ -280,7 +281,7 @@ class ConnectionList extends StatefulWidget {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff979797),
+                            color: AppColors.textColorLightGrey,
                           ),
                         ),
                       ],
@@ -293,7 +294,7 @@ class ConnectionList extends StatefulWidget {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor:AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
                             width: 30.0, // Set the desired width
@@ -305,7 +306,7 @@ class ConnectionList extends StatefulWidget {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -318,7 +319,7 @@ class ConnectionList extends StatefulWidget {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
                             width: 30.0, // Set the desired width
@@ -330,7 +331,7 @@ class ConnectionList extends StatefulWidget {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey
                           ),
                         ),
                       ],
@@ -343,7 +344,7 @@ class ConnectionList extends StatefulWidget {
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
                             'assets/images/Group.png', // Replace with your SVG file path
                             width: 30.0, // Set the desired width
@@ -355,7 +356,7 @@ class ConnectionList extends StatefulWidget {
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
-                            color: Color(0xfff5B5B5B),
+                            color: AppColors.textColorGrey,
                           ),
                         ),
                       ],
@@ -371,7 +372,7 @@ class ConnectionList extends StatefulWidget {
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
-                    color: Color(0xfff979797),
+                    color: AppColors.textColorLightGrey,
                   ),
                 ),
               ),
@@ -411,7 +412,7 @@ class ConnectionList extends StatefulWidget {
                               borderRadius: BorderRadius.circular(2),
                               border: items[index].isTapped
                                   ? Border.all(
-                                color: Color(0xfff00BD00),
+                                color: AppColors.borderColor,
                                 width: 2.0,
                               )
                                   : null,
@@ -436,7 +437,7 @@ class ConnectionList extends StatefulWidget {
                                 Positioned.fill(
                                   child: Align(
                                     alignment: Alignment.center,
-                                    child:SvgPicture.asset('assets/images/Select.svg',width: 8,height: 8,color: Color(0xfff00BD00),) ,
+                                    child:SvgPicture.asset('assets/images/Select.svg',width: 8,height: 8,color:AppColors.borderColor) ,
                                     // Icon(
                                     //   Icons.check_box,
                                     //   color: Colors.white,
@@ -474,7 +475,7 @@ class ConnectionList extends StatefulWidget {
                   style: ElevatedButton.styleFrom(
                     // padding: EdgeInsets.only(top: 1),
                       fixedSize: Size(300, 50),
-                      backgroundColor: Color(0xfff00C900),
+                      backgroundColor: AppColors.colorButton,
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
                   ), child:  Text('Next',
                     style: GoogleFonts.poppins(

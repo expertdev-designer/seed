@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/main.dart';
+import 'package:seedapp/utils/app_colors.dart';
 
 class ListItem {
   final String leading;
@@ -31,6 +32,7 @@ class _ConnectionsState extends State<Connections> {
 
   @override
   Widget build(BuildContext context) {
+    var _media = MediaQuery.of(context);
     return Scaffold(
       body: Center(
         child: Column(
@@ -39,7 +41,7 @@ class _ConnectionsState extends State<Connections> {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 65,left: 22),
+                  padding:  EdgeInsets.only(top: _media.size.height * 0.08,left: _media.size.width* 0.06,),
                   child: InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(
@@ -54,7 +56,7 @@ class _ConnectionsState extends State<Connections> {
                   ),
                 ),
                  Padding(
-                   padding: const EdgeInsets.only(top: 57,left:70),
+                   padding:  EdgeInsets.only(top: _media.size.height * 0.08,left:_media.size.height * 0.1,),
                    child: Text('Connections',
                     style: GoogleFonts.poppins(
                       fontSize: 21,
@@ -166,7 +168,7 @@ class _ConnectionsState extends State<Connections> {
                                                      style: GoogleFonts.poppins(
                                                        fontWeight: FontWeight.w700,
                                                        fontSize: 16,
-                                                       color: Color(0xfffE44B4B),
+                                                       color: AppColors.textColorRed,
                                                      ),
                                                    )),
 
@@ -188,7 +190,7 @@ class _ConnectionsState extends State<Connections> {
                                                      style: GoogleFonts.poppins(
                                                        fontWeight: FontWeight.w700,
                                                        fontSize: 16,
-                                                       color: Color(0xfff1C70DD),
+                                                       color: AppColors.textColorBlue,
                                                      ),
                                                    )),
                                                  ],
@@ -209,7 +211,7 @@ class _ConnectionsState extends State<Connections> {
                                 width: 100,
                                 height: 20,
                                 decoration: BoxDecoration(
-                                color: const Color(0xfff5AE225),
+                                color:  AppColors.lightGreen,
                                 borderRadius: BorderRadius.circular(20),
                                ),
                                child: Center(
