@@ -79,8 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
             body: Stack(
               children: <Widget>[
                 Image.asset('assets/images/top.png',
-                  //    width: _media.size.width*1.0,
-                  //  height: _media.size.height*0.3,
+                      width: _media.size.width*1.0,
+                      height: _media.size.height*0.3,
                   fit: BoxFit.cover,
                 ),
                 SafeArea(
