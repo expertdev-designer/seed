@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
   static const textColorsGrey = Color(0xfff5B5B5B);
   static const colorButton = Color(0xfff00C900);
   static const greyColorButton = Color(0xfffF5F5F5);
+  static const grey=Color(0xfff01C601);
+  static const rejectcolor=Color(0xfffF5F5F5);
   static const textColorLightGrey = Color(0xfff979797);
   static const searchbarBackground= Color(0xfffD8D8D8);
   static const borderColor=Color(0xfff00BD00);

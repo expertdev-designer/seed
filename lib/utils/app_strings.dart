@@ -9,6 +9,7 @@ class AppStrings {
   static String tom='Tomes Joge';
   static String jack='Jack Tim';
   static String next='Next';
+  static String you='You';
   static String alt='Atleast 1 connection  must be selected';
   static String addCon='Add Connections';
   static String newgroup='New Group';
@@ -25,16 +26,26 @@ class AppStrings {
   static String developer='Developer..';
   static String salesT='Sales Team';
   static String myCon='My Connections';
+  static String confirm='Confirmation!';
   static String schedule='Schedule';
   static String titleseed='Title of Seed';
   static String desc='Description';
   static String manageSeed='Manage Seed Type';
   static String dateTime='Choose Date and Time';
+  static String d= '| d';
+  static String w= '| w';
+  static String m= '| m';
+  static String y= '| y';
+  static String mdy= "MM DD YYYY";
   static String seedtype='Seed Type';
+  static String seedtypetrip='Seed Type: Trip';
+  static String num14='14';
   static String setRecurring='Set Recurring (Optional)';
   static String shareseed='Share Seed';
   static String grpname='Group Name';
   static String connections='Connections:';
+  static String connections8='Connections: 8';
+  static String connection='Connections';
   static String albertsmi='Albert Smi..';
   static String stehanpa='Stehan Pa...';
   static String done='Done';
@@ -62,5 +73,6 @@ class AppStrings {
   static String writehere='Write here...';
   static String chat='chat(4)';
   static String hi='Hi';
+  static String india= 'India';
   static String send='Send';
 }

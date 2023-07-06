@@ -9,6 +9,9 @@ import 'package:seedapp/screens/new_group.dart';
 import 'package:seedapp/data/search_user.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
+import '../utils/app_strings.dart';
+import '../utils/images.dart';
+
 class ListItem {
   final String leading;
   final String title;
@@ -30,15 +33,15 @@ class ConnectionList extends StatefulWidget {
 
   class _ConnectionList extends State<ConnectionList> {
   final List<ListItem> items = [
-    ListItem('assets/images/Bitmap.png', 'Albert Smith', trainling: true),
-    ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Oswald Dean', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Tomes Joge', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Jack Tim', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Oswald Dean', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
+    ListItem(AppImages.profileImage, AppStrings.albert, trainling: true),
+    ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.dean, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.tom, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.jack, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
+    ListItem(AppImages.profileImage, AppStrings.dean, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
   ];
 
 
@@ -83,7 +86,7 @@ class ConnectionList extends StatefulWidget {
                   ),
                   Padding(
                     padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.20),
-                    child: Text('Share With',
+                    child: Text(AppStrings.sharewith,
                       style: GoogleFonts.poppins(
                         fontSize: 21,
                         fontWeight: FontWeight.w700,
@@ -98,7 +101,7 @@ class ConnectionList extends StatefulWidget {
                 padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
                   child: Expanded(
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.05,
 
                       child: TextField(
@@ -117,7 +120,7 @@ class ConnectionList extends StatefulWidget {
 
               Padding(
                 padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.35),
-                child: Text('Groups',
+                child: Text( AppStrings.group,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -139,13 +142,13 @@ class ConnectionList extends StatefulWidget {
                             radius: 25,
                             backgroundColor: AppColors.colorGreen,
                             child: SvgPicture.asset(
-                              'assets/images/Group.svg', // Replace with your SVG file path
+                              AppImages.groupsvg, // Replace with your SVG file path
                               width: MediaQuery.of(context).size.width * 0.04,
                               height: MediaQuery.of(context).size.height * 0.04,
                             ),
                           ),
 
-                          Text('New Group',
+                          Text(AppStrings.newgroup,
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               fontSize: 12,
@@ -174,15 +177,15 @@ class ConnectionList extends StatefulWidget {
 
                             image: DecorationImage(
                               image: isImageToggled
-                                  ? AssetImage('assets/images/Bitmap.png')
-                                  : AssetImage('assets/images/Select.png'),
+                                  ? AssetImage(AppImages.profileImage)
+                                  : AssetImage(AppImages.selectIcon),
                               fit: BoxFit.cover,
                             ),
                           ),
                         ),
                           ),
 
-                          Text('Mad Family',
+                          Text(AppStrings.madfmly,
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               fontSize: 12,
@@ -203,13 +206,13 @@ class ConnectionList extends StatefulWidget {
                           radius: 25,
                           // backgroundColor: Color(0xfff01B701),
                           child: Image.asset(
-                            'assets/images/Bitmap.png', // Replace with your SVG file path
+                            AppImages.profileImage, // Replace with your SVG file path
                             width: MediaQuery.of(context).size.width * 0.2,
                             height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Justice le..',
+                        Text(AppStrings.justice,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -232,14 +235,14 @@ class ConnectionList extends StatefulWidget {
                             radius: 25,
                             // backgroundColor: Color(0xfff01B701),
                             child: Image.asset(
-                              'assets/images/Bitmap.png', // Replace with your SVG file path
+                              AppImages.profileImage, // Replace with your SVG file path
                               width: MediaQuery.of(context).size.width * 0.2,
                               height: MediaQuery.of(context).size.height * 0.2,
                             ),
                           ),
                         ),
 
-                        Text('Back Benc..',
+                        Text(AppStrings.backbenc,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -255,7 +258,7 @@ class ConnectionList extends StatefulWidget {
 
               Padding(
                 padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.30),
-                child: Text('Broadcasts',
+                child: Text(AppStrings.broadcasts,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -274,13 +277,13 @@ class ConnectionList extends StatefulWidget {
                           radius: 25,
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
+                            AppImages.groupIcon, // Replace with your SVG file path
                             width: MediaQuery.of(context).size.width * 0.2,
                             height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('New Broad..',
+                        Text(AppStrings.nBroad,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -299,13 +302,13 @@ class ConnectionList extends StatefulWidget {
                           radius: 25,
                           backgroundColor:AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
+                            AppImages.groupIcon, // Replace with your SVG file path
                             width: MediaQuery.of(context).size.width * 0.2,
                             height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Developer..',
+                        Text(AppStrings.developer,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -324,13 +327,13 @@ class ConnectionList extends StatefulWidget {
                           radius: 25,
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
+                            AppImages.groupIcon, // Replace with your SVG file path
                             width: MediaQuery.of(context).size.width * 0.2,
                             height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Designer..',
+                        Text(AppStrings.designer,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -349,13 +352,13 @@ class ConnectionList extends StatefulWidget {
                           radius: 25,
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
+                            AppImages.groupIcon, // Replace with your SVG file path
                             width: MediaQuery.of(context).size.width * 0.2,
                             height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Sales Team',
+                        Text(AppStrings.salesT,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -371,7 +374,7 @@ class ConnectionList extends StatefulWidget {
 
               Padding(
                 padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.25),
-                child: Text('My Connections',
+                child: Text(AppStrings.myCon,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -392,7 +395,7 @@ class ConnectionList extends StatefulWidget {
                           height: MediaQuery.of(context).size.height * 0.2,
                           child: CircleAvatar(
                              backgroundImage: AssetImage(items[index].leading),
-                             radius: 100,
+                             radius: MediaQuery.of(context).size.width*0.2,
                           ),
                         ),
                         title: Text(
@@ -440,7 +443,7 @@ class ConnectionList extends StatefulWidget {
                                 Positioned.fill(
                                   child: Align(
                                     alignment: Alignment.center,
-                                    child:SvgPicture.asset('assets/images/Select.svg',width: 8,height: 8,color: AppColors.borderColor) ,
+                                    child:SvgPicture.asset(AppImages.selectsvg,width: 8,height: 8,color: AppColors.borderColor) ,
                                     // Icon(
                                     //   Icons.check_box,
                                     //   color: Colors.white,
@@ -480,7 +483,7 @@ class ConnectionList extends StatefulWidget {
                       fixedSize: Size(300, 50),
                       backgroundColor: AppColors.colorButton,
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
-                  ), child:  Text('Next',
+                  ), child:  Text(AppStrings.next,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,

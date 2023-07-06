@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/data/schedule.dart';
+import 'package:seedapp/utils/app_colors.dart';
+
+import '../utils/app_strings.dart';
+import '../utils/images.dart';
 
 class SeedDetail extends StatelessWidget{
   @override
@@ -12,9 +16,12 @@ class SeedDetail extends StatelessWidget{
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top:55,left: 20,right: 20),
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.08,
+                left: MediaQuery.of(context).size.width* 0.05,
+              ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
                     onTap:(){
@@ -22,7 +29,12 @@ class SeedDetail extends StatelessWidget{
                     },
                       child: Icon(Icons.arrow_back),
                   ),
-                  SvgPicture.asset('assets/images/share_icon.svg'),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.00,left: MediaQuery.of(context).size.width* 0.75,
+                    ),
+                    child: SvgPicture.asset(AppImages.shareIconsvg),
+                  ),
                 ],
               ),
             ),
@@ -31,21 +43,30 @@ class SeedDetail extends StatelessWidget{
 
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 10,left: 20),
-                  child: Image.asset('assets/images/albertimage.png',),
+                  padding: EdgeInsets.only(
+                    //top: MediaQuery.of(context).size.height * 0.00,
+                    left: MediaQuery.of(context).size.width* 0.05,
+                  ),
+                  child: Image.asset(AppImages.profileImage2,
+                   // width: MediaQuery.of(context).size.width*0.2,
+                    //height: MediaQuery.of(context).size.height*0.2,
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20,left: 10),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.00,
+                    left: MediaQuery.of(context).size.width* 0.04,
+                  ),
                   child: Column(
                     children: [
-                      Text('Denis Dean',
+                      Text(AppStrings.dennis,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
                           color: Colors.black,
                         ),
                       ),
-                      Text('5 hours ago',
+                      Text(AppStrings.hourago,
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
@@ -56,12 +77,18 @@ class SeedDetail extends StatelessWidget{
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:20,left: 90),
-                  child: SvgPicture.asset('assets/images/profile_icon.svg'),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.00,
+                    left: MediaQuery.of(context).size.width* 0.25,
+                  ),
+                  child: SvgPicture.asset(AppImages.profileIcon),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 20,left: 5),
-                  child: Text('14',
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.00,
+                    left: MediaQuery.of(context).size.width* 0.01,
+                  ),
+                  child: Text(AppStrings.num14,
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
@@ -69,8 +96,11 @@ class SeedDetail extends StatelessWidget{
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(top:20,),
+                 Padding(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.00,
+                    left: MediaQuery.of(context).size.width* 0.001,
+                  ),
                   child: Icon(Icons.arrow_drop_down),
                 ),
 
@@ -80,24 +110,30 @@ class SeedDetail extends StatelessWidget{
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 10,left: 20),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.00,
+                    left: MediaQuery.of(context).size.width* 0.05,
+                  ),
                   child: Column(
                     children: [
-                      Text('Vacation in Brazil',
+                      Text(AppStrings.vactiontxt,
                         style: GoogleFonts.poppins(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: Color(0xfff3C3C3C),
+                          color: AppColors.textColorBlack,
                         ),
                       ),
 
                       Padding(
-                        padding: const EdgeInsets.only(right: 30),
-                        child: Text('Seed Type: Trip',
+                        padding: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.00,
+                          right: MediaQuery.of(context).size.width* 0.08,
+                        ),
+                        child: Text(AppStrings.seedtypetrip,
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xfff3C3C3C),
+                            color: AppColors.textColorBlack,
                           ),
                         ),
                       ),
@@ -106,14 +142,19 @@ class SeedDetail extends StatelessWidget{
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(top:10,left: 50),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.00,
+                    left: MediaQuery.of(context).size.width* 0.15,
+                  ),
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(left: 100),
-                        child: SvgPicture.asset('assets/images/download_file_icon.svg'),
+                        padding: EdgeInsets.only(
+                          left: MediaQuery.of(context).size.width* 0.28,
+                        ),
+                        child: SvgPicture.asset(AppImages.download),
                       ),
-                      Text('Created : July 16,2021'),
+                      Text(AppStrings.datetxt,),
                     ],
                   ),
                 ),
@@ -121,57 +162,66 @@ class SeedDetail extends StatelessWidget{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top:10),
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.004,
+              ),
               child: Stack(
                 children:[
                   Container(
                     child: Image.asset(
-                        'assets/images/7.png',
-                      width: 377,
-                      height: 303,
+                       AppImages.image5,
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      width: MediaQuery.of(context).size.width* 1.0,
                       fit: BoxFit.cover,
                     ),
                 ),
                   Positioned(
-                    top: 25,
-                    right: 25,
-                    child:Image.asset('assets/images/heart_icon.png'),
+                    top: MediaQuery.of(context).size.height * 0.03,
+                    right: MediaQuery.of(context).size.width* 0.06,
+                    child:Image.asset(AppImages.heart),
                   ),
 
                   Positioned(
-                    right: 25,
-                    bottom: 25,
-                    child: Image.asset('assets/images/fill.png',
+                    right: MediaQuery.of(context).size.height * 0.03,
+                    bottom: MediaQuery.of(context).size.width* 0.07,
+                    child: Image.asset(AppImages.seedLogo,
                     ),),
               ],
               ),
             ),
             
             Padding(
-              padding: const EdgeInsets.only(left: 10,top: 5),
-              child: Text('Arctic fox cub curiously looking in to my camera. Was amazing to spend the last days in the remote areas markup trip',
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.01,
+                left: MediaQuery.of(context).size.width* 0.03,
+              ),
+              child: Text(AppStrings.seeddetailtxt,
                 style: GoogleFonts.poppins(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xfff3C3C3C),
+                  color: AppColors.textColorBlack,
                 ),
               ),
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 5),
+              padding:  EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.015,
+              ),
               child: Container(
-                width: 800,
-                height: 35,
-                color: Color(0xffF5F5F5),
+                width: MediaQuery.of(context).size.width*1.0,
+                height: MediaQuery.of(context).size.height*0.05,
+                color: AppColors.greyColorButton,
                 child: Center(
                   child: Padding(
-                    padding: const EdgeInsets.only(right: 280),
-                    child: Text('chat(4)',
+                    padding: EdgeInsets.only(
+                      right: MediaQuery.of(context).size.width* 0.8,
+                    ),
+                    child: Text(AppStrings.chat,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xfff3C3C3C),
+                        color: AppColors.textColorBlack,
                       ),
                     ),
                   ),
@@ -182,19 +232,22 @@ class SeedDetail extends StatelessWidget{
               children: [
                 Row(
                   children: [
-                    Image.asset('assets/images/Oval.png',width: 62,height: 62,),
+                    Image.asset(AppImages.profileImage4,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      width: MediaQuery.of(context).size.width* 0.15,
+                    ),
                     Column(
                       children: [
-                        Text('Roy McKenzie',
+                        Text(AppStrings.roy,
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xfff3C3C3C),
+                            color: AppColors.textColorBlack,
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 70),
-                          child: Text('Hi',
+                          padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.19),
+                          child: Text(AppStrings.hi,
                             style: GoogleFonts.poppins(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
@@ -208,26 +261,29 @@ class SeedDetail extends StatelessWidget{
                   ],
                 ),
                 Container(
-                  width: 327,
-                  height: 2,
+                  height: MediaQuery.of(context).size.height * 0.001,
+                  width: MediaQuery.of(context).size.width* 0.9,
                   color: Colors.grey,
                 ),
 
                 Row(
                   children: [
-                    Image.asset('assets/images/Oval.png',width: 62,height: 62,),
+                    Image.asset(AppImages.profileImage4,
+                      height: MediaQuery.of(context).size.height * 0.1,
+                      width: MediaQuery.of(context).size.width* 0.15,
+                    ),
                     Column(
                       children: [
-                        Text('Roy McKenzie',
+                        Text(AppStrings.roy,
                           style: GoogleFonts.poppins(
                             fontSize: 14,
                             fontWeight: FontWeight.w600,
-                            color: Color(0xfff3C3C3C),
+                            color: AppColors.textColorBlack,
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 70),
-                          child: Text('Hi',
+                          padding: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.19),
+                          child: Text(AppStrings.hi,
                             style: GoogleFonts.poppins(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
@@ -242,7 +298,7 @@ class SeedDetail extends StatelessWidget{
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding:  EdgeInsets.all(MediaQuery.of(context).size.height*0.01),
                      child: Stack(
                        children: [
                         Container(
@@ -253,8 +309,8 @@ class SeedDetail extends StatelessWidget{
                            child: TextField(
                              onChanged: (value) {
                            },
-                           decoration: const InputDecoration(
-                             hintText: 'Write here..',
+                           decoration:  InputDecoration(
+                             hintText: AppStrings.writehere,
                              contentPadding: EdgeInsets.all(16.0),
                              border: InputBorder.none,
                           ),
@@ -262,10 +318,10 @@ class SeedDetail extends StatelessWidget{
                            ),
 
                            Positioned(
-                             right: 10,
-                             bottom: 5,
+                             right: MediaQuery.of(context).size.height*0.02,
+                             bottom: MediaQuery.of(context).size.height*0.003,
                                child: TextButton(onPressed: (){},
-                                 child: Text('Send',
+                                 child: Text(AppStrings.send,
                                    style: GoogleFonts.poppins(
                                      fontSize: 14,
                                      fontWeight: FontWeight.w600,

@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/screens/new_group.dart';
 import 'package:seedapp/utils/app_colors.dart';
+import 'package:seedapp/utils/app_strings.dart';
+import 'package:seedapp/utils/images.dart';
 
 class GroupName extends StatefulWidget{
   const GroupName({super.key});
@@ -28,13 +30,16 @@ class _GroupName extends State<GroupName>{
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>NewGroup()));
                   },
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 50,left: 20),
-                      child: Image.asset('assets/images/back_arrow.png'),
+                      padding:  EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.08,
+                        left: MediaQuery.of(context).size.width* 0.06,),
+                      child: Image.asset(AppImages.backArrowBlack),
                     )),
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 57,left:70),
-                  child: Text('New Group ',
+                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,
+                    left:MediaQuery.of(context).size.width * 0.25,),
+                  child: Text(AppStrings.newgroup,
                     style: GoogleFonts.poppins(
                       fontSize: 21,
                       fontWeight: FontWeight.w700,
@@ -49,14 +54,14 @@ class _GroupName extends State<GroupName>{
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 20,),
+                  padding: EdgeInsets.only(left:MediaQuery.of(context).size.width * 0.05,),
                   child: CircleAvatar(
                     radius: 25,
-                      child: Image.asset('assets/images/Vector.png')),
+                      child: Image.asset(AppImages.camera)),
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(left: 30),
+                  padding: EdgeInsets.only(left:MediaQuery.of(context).size.width * 0.07),
                   child: Container(
                     width: 230,
                     height: 100,
@@ -65,10 +70,10 @@ class _GroupName extends State<GroupName>{
                         labelText: 'Group Name',
                         labelStyle: TextStyle(color: AppColors.textColorLightGrey),
                         enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.green),
+                          borderSide: BorderSide(color: AppColors.colorGreen),
                         ),
                         focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(color: Colors.green),
+                          borderSide: BorderSide(color: AppColors.colorGreen),
                         ),
                       ),
                     ),
@@ -79,8 +84,8 @@ class _GroupName extends State<GroupName>{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(right: 190),
-              child: Text('Connections: 8',
+              padding:  EdgeInsets.only(right:MediaQuery.of(context).size.width * 0.57),
+              child: Text(AppStrings.connections8,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
@@ -92,19 +97,21 @@ class _GroupName extends State<GroupName>{
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 15,top: 10),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
+                        radius: MediaQuery.of(context).size.height*0.035,
                         child: Image.asset(
-                          'assets/images/albertimage.png', // Replace with your SVG file path
-                          width: 200.0, // Set the desired width
-                          height: 200.0,
+                          AppImages.profileImage2, // Replace with your SVG file path
+                          width: MediaQuery.of(context).size.width*2, // Set the desired width
+                          height: MediaQuery.of(context).size.height*2,
                         ),
                       ),
 
-                      Text('Albert Smi..',
+                      Text(AppStrings.albertsmi,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
@@ -116,15 +123,21 @@ class _GroupName extends State<GroupName>{
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(left: 15,top: 10),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,
+                  ),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
-                        child:Image.asset('assets/images/Photographer.png'),
+                        radius: MediaQuery.of(context).size.height*0.035,
+                        child:Image.asset(AppImages.profileImage3,
+                          width: MediaQuery.of(context).size.width*2, // Set the desired width
+                          height: MediaQuery.of(context).size.height*2,
+                        ),
                       ),
 
-                      Text('Stehan Pa..',
+                      Text(AppStrings.stehanpa,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
@@ -137,19 +150,22 @@ class _GroupName extends State<GroupName>{
 
 
                 Padding(
-                  padding: const EdgeInsets.only(left: 15,top: 10),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,
+                  ),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
+                        radius: MediaQuery.of(context).size.height*0.035,
                         child: Image.asset(
-                          'assets/images/Bitmap.png', // Replace with your SVG file path
-                          width: 200.0, // Set the desired width
-                          height: 200.0,
+                          AppImages.profileImage, // Replace with your SVG file path
+                          width: MediaQuery.of(context).size.width*2, // Set the desired width
+                          height: MediaQuery.of(context).size.height*2,
                         ),
                       ),
 
-                      Text('Justice le..',
+                      Text(AppStrings.justice,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
@@ -161,19 +177,22 @@ class _GroupName extends State<GroupName>{
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(left: 15,top: 10),
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,
+                  ),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
+                        radius: MediaQuery.of(context).size.height*0.035,
                         child: Image.asset(
-                          'assets/images/albertimage.png', // Replace with your SVG file path
-                          width: 200.0, // Set the desired width
-                          height: 200.0,
+                          AppImages.profileImage2, // Replace with your SVG file path
+                          width: MediaQuery.of(context).size.width*2, // Set the desired width
+                          height: MediaQuery.of(context).size.height*2,
                         ),
                       ),
 
-                      Text('Back Benc..',
+                      Text(AppStrings.backbenc,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
@@ -190,14 +209,20 @@ class _GroupName extends State<GroupName>{
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 15,left: 15),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,
+                  ),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
-                          child: Image.asset('assets/images/albertimage.png'),
+                        radius: MediaQuery.of(context).size.height*0.035,
+                          child: Image.asset(AppImages.profileImage2,
+                            width: MediaQuery.of(context).size.width*2, // Set the desired width
+                            height: MediaQuery.of(context).size.height*2,
+                          ),
                       ),
-                      Text('Back Benc..',
+                      Text(AppStrings.backbenc,
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                             fontWeight:FontWeight.w600,
@@ -209,14 +234,20 @@ class _GroupName extends State<GroupName>{
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 15,left: 15),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,
+                  ),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
-                        child: Image.asset('assets/images/Bitmap.png'),
+                        radius: MediaQuery.of(context).size.height*0.035,
+                        child: Image.asset(AppImages.profileImage,
+                          width: MediaQuery.of(context).size.width*2, // Set the desired width
+                          height: MediaQuery.of(context).size.height*2,
+                        ),
                       ),
-                      Text('Justice le..',
+                      Text(AppStrings.justice,
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight:FontWeight.w600,
@@ -228,14 +259,20 @@ class _GroupName extends State<GroupName>{
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 15,left: 15),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,
+                  ),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
-                        child: Image.asset('assets/images/albertimage.png'),
+                        radius: MediaQuery.of(context).size.height*0.035,
+                        child: Image.asset(AppImages.profileImage2,
+                          width: MediaQuery.of(context).size.width*2, // Set the desired width
+                          height: MediaQuery.of(context).size.height*2,
+                        ),
                       ),
-                      Text('Albert Smi..',
+                      Text(AppStrings.albertsmi,
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight:FontWeight.w600,
@@ -247,14 +284,20 @@ class _GroupName extends State<GroupName>{
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(top: 15,left: 15),
+                  padding:  EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    left: MediaQuery.of(context).size.width* 0.03,
+                  ),
                   child: Column(
                     children: [
                       CircleAvatar(
-                        radius: 25,
-                        child: Image.asset('assets/images/Photographer.png'),
+                        radius: MediaQuery.of(context).size.height*0.035,
+                        child: Image.asset(AppImages.profileImage3,
+                          width: MediaQuery.of(context).size.width*2, // Set the desired width
+                          height: MediaQuery.of(context).size.height*2,
+                        ),
                       ),
-                      Text('Stehan Pa..',
+                      Text(AppStrings.stehanpa,
                         style:GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight:FontWeight.w600,
@@ -269,7 +312,10 @@ class _GroupName extends State<GroupName>{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 310,bottom: 24),
+              padding:  EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.4,
+                bottom: MediaQuery.of(context).size.height* 0.002,
+              ),
               child: ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>GroupName()));
               },
@@ -278,7 +324,7 @@ class _GroupName extends State<GroupName>{
                     fixedSize: Size(300, 50),
                     backgroundColor: AppColors.colorButton,
                     shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
-                ), child:  Text('Done',
+                ), child:  Text(AppStrings.done,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,

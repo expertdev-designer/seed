@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seedapp/utils/app_strings.dart';
 
 import '../screens/connection_list.dart';
+import '../utils/images.dart';
 
 class SearchList{
   final String leading;
@@ -25,22 +27,23 @@ class _SearchUser extends State<SearchUser>{
 
 
   final List<SearchList> items=[
-    SearchList('assets/images/Bitmap.png', 'Mad Family','group', true),
-    SearchList('assets/images/albertimage.png', 'John William','group', true),
-    SearchList('assets/images/Photographer.png', 'Developer Team','group', true),
+    SearchList(AppImages.profileImage, AppStrings.madfmly,AppStrings.grp, true),
+    SearchList(AppImages.profileImage2, AppStrings.john,AppStrings.grp, true),
+    SearchList(AppImages.profileImage3, AppStrings.developer,AppStrings.grp, true),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: 756,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 65,left: 22),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
                     child: InkWell(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(
@@ -54,10 +57,10 @@ class _SearchUser extends State<SearchUser>{
                   ),
 
                   Padding(
-                    padding: EdgeInsets.only(top: 65,left: 20),
+                    padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
                     child: Container(
-                      width: 270,
-                      height: 36,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.05,
                       child: TextField(
                         decoration: InputDecoration(
                           filled: true,

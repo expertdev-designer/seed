@@ -6,6 +6,9 @@ import 'package:seedapp/main.dart';
 import 'package:seedapp/screens/seed_detail.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
+import '../utils/app_strings.dart';
+import '../utils/images.dart';
+
 class Schedule extends StatelessWidget{
 
   final seedType=['one','two','three'];
@@ -26,21 +29,24 @@ class Schedule extends StatelessWidget{
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage(),),);
                     },
-                      child: Image.asset('assets/images/back_arrow.png')),
+                      child: Image.asset(AppImages.backArrowBlack)),
                 ),
                 Padding(
                   padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left:MediaQuery.of(context).size.width * 0.25,),
-                  child: Text('Schedule',
+                  child: Text(AppStrings.schedule,
                     style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color: AppColors.textColorBlack),
                   ),
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 25,left: 25,right: 25),
+              padding:  EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height*0.02,
+                  left: MediaQuery.of(context).size.width*0.06,
+                  right: MediaQuery.of(context).size.width*0.06),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Title of Seed',
+                  hintText: AppStrings.titleseed,
                   hintStyle:GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16
@@ -53,11 +59,14 @@ class Schedule extends StatelessWidget{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 25,left: 25,right: 25),
+              padding:  EdgeInsets.only(
+                top: MediaQuery.of(context).size.height*0.02,
+                left: MediaQuery.of(context).size.width*0.06,
+                right: MediaQuery.of(context).size.width*0.06),
               child: TextField(
                 maxLines: 5,
                 decoration: InputDecoration(
-                  hintText: "Description",
+                  hintText: AppStrings.desc,
                   hintStyle: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.w600
@@ -70,8 +79,11 @@ class Schedule extends StatelessWidget{
             ),
             
             Padding(
-              padding: const EdgeInsets.only(top:22,left: 150 ),
-              child: Text('Manage Seed Type',
+              padding:  EdgeInsets.only(
+                  top:MediaQuery.of(context).size.height*0.025,
+                  left: MediaQuery.of(context).size.width*0.4,
+              ),
+              child: Text(AppStrings.manageSeed,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
@@ -82,10 +94,14 @@ class Schedule extends StatelessWidget{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 25,left: 25,right: 25),
+              padding:  EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height*0.02,
+                  left: MediaQuery.of(context).size.width*0.06,
+                  right: MediaQuery.of(context).size.width*0.06
+              ),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Seed Type',
+                  hintText: AppStrings.seedtype,
                   hintStyle:GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 16
@@ -98,8 +114,11 @@ class Schedule extends StatelessWidget{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top:22,right: 120),
-              child: Text('Choose Date and Time',
+              padding:  EdgeInsets.only(
+                top:MediaQuery.of(context).size.height*0.025,
+                right: MediaQuery.of(context).size.width*0.35,
+              ),
+              child: Text(AppStrings.dateTime,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
@@ -114,9 +133,9 @@ class Schedule extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CircleAvatar(
-                    radius: 25,
+                    radius: MediaQuery.of(context).size.height*0.035,
 
-                    child: Text('| d',style: GoogleFonts.poppins(
+                    child: Text(AppStrings.d,style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
 
@@ -124,24 +143,24 @@ class Schedule extends StatelessWidget{
                   ),
 
                   CircleAvatar(
-                    radius: 25,
-                    child: Text('| w',style: GoogleFonts.poppins(
+                    radius: MediaQuery.of(context).size.height*0.035,
+                    child: Text(AppStrings.w,style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),),
                   ),
 
                   CircleAvatar(
-                    radius: 25,
-                    child: Text('| m',style: GoogleFonts.poppins(
+                    radius: MediaQuery.of(context).size.height*0.035,
+                    child: Text(AppStrings.m,style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),),
                   ),
 
                   CircleAvatar(
-                    radius: 25,
-                    child: Text('| y',style: GoogleFonts.poppins(
+                    radius: MediaQuery.of(context).size.height*0.035,
+                    child: Text(AppStrings.y,style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),),
@@ -152,10 +171,14 @@ class Schedule extends StatelessWidget{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 25,left: 25,right: 25),
+              padding:  EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height*0.02,
+                  left: MediaQuery.of(context).size.width*0.06,
+                  right: MediaQuery.of(context).size.width*0.06
+              ),
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: "MM DD YYYY",
+                  hintText: AppStrings.mdy,
                   hintStyle: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.w600
@@ -168,8 +191,11 @@ class Schedule extends StatelessWidget{
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top:22,left: 115 ),
-              child: Text('Set Recurring (Optional)',
+              padding: EdgeInsets.only(
+                top:MediaQuery.of(context).size.height*0.025,
+                left: MediaQuery.of(context).size.width*0.3,
+              ),
+              child: Text(AppStrings.setRecurring,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
@@ -180,7 +206,10 @@ class Schedule extends StatelessWidget{
             ),
             
             Padding(
-              padding: const EdgeInsets.only(top: 40,bottom: 24),
+              padding:  EdgeInsets.only(
+                top:MediaQuery.of(context).size.height*0.025,
+                bottom: MediaQuery.of(context).size.height*0.03,
+              ),
               child: ElevatedButton(onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>SeedDetail()));
               },
@@ -189,7 +218,7 @@ class Schedule extends StatelessWidget{
                   fixedSize: Size(300, 50),
                   backgroundColor: AppColors.colorButton,
                   shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
-                ), child:  Text('Share Seed',
+                ), child:  Text(AppStrings.shareseed,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,

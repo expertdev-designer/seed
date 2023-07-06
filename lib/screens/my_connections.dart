@@ -10,6 +10,9 @@ import 'package:seedapp/screens/new_group.dart';
 import 'package:seedapp/data/search_user.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
+import '../utils/app_strings.dart';
+import '../utils/images.dart';
+
 class ListItem {
   final String leading;
   final String title;
@@ -31,15 +34,15 @@ class MyConnections extends StatefulWidget {
 
 class _MyConnections extends State<MyConnections> {
   final List<ListItem> items = [
-    ListItem('assets/images/Bitmap.png', 'Albert Smith', trainling: true),
-    ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Oswald Dean', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Tomes Joge', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Jack Tim', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Oswald Dean', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
+    ListItem(AppImages.profileImage, AppStrings.albert, trainling: true),
+    ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.dean, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.tom, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.jack, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.dean, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
   ];
 
 
@@ -49,14 +52,15 @@ class _MyConnections extends State<MyConnections> {
     return  Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: 756.0,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
 
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 65,left: 22),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
                     child: InkWell(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(
@@ -69,8 +73,8 @@ class _MyConnections extends State<MyConnections> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 57,left:30),
-                    child: Text('My Connections',
+                    padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.10),
+                    child: Text(AppStrings.myCon,
                       style: GoogleFonts.poppins(
                         fontSize: 21,
                         fontWeight: FontWeight.w700,
@@ -82,9 +86,9 @@ class _MyConnections extends State<MyConnections> {
                   Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 57,left: 35),
+                        padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.08),
                         child: CircleAvatar(
-                          radius: 8,
+                          radius: MediaQuery.of(context).size.width*0.02,
                           backgroundColor: AppColors.colorGreen,
                           child: Container(
                             child: Text('1'),
@@ -92,18 +96,18 @@ class _MyConnections extends State<MyConnections> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left:30),
-                        child: SvgPicture.asset('assets/images/Vector.svg'),
+                        padding: EdgeInsets.only(left:MediaQuery.of(context).size.width*0.06),
+                        child: SvgPicture.asset(AppImages.addPerson,),
                       ),
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 57,left:20),
+                    padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.05),
                     child: InkWell(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>NewConnections()));
                       },
-                        child: SvgPicture.asset('assets/images/circleaddsign.svg'
+                        child: SvgPicture.asset(AppImages.circleAddSign,
                         )
                     ),
                   ),
@@ -112,10 +116,10 @@ class _MyConnections extends State<MyConnections> {
               ),
 
               Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
                 child: Container(
-                  width: 320,
-                  height: 36,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: MediaQuery.of(context).size.height * 0.05,
 
                   child: TextField(
                     decoration: InputDecoration(
@@ -131,8 +135,8 @@ class _MyConnections extends State<MyConnections> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:10,right: 270),
-                child: Text('Groups',
+                padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.35),
+                child: Text(AppStrings.group,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -144,7 +148,7 @@ class _MyConnections extends State<MyConnections> {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: InkWell(
                       onTap: (){
                         Navigator.push(context, MaterialPageRoute(builder: (context)=>NewGroup(),),);
@@ -155,13 +159,13 @@ class _MyConnections extends State<MyConnections> {
                             radius: 25,
                             backgroundColor: AppColors.colorGreen,
                             child: SvgPicture.asset(
-                              'assets/images/Group.svg', // Replace with your SVG file path
-                              width: 30.0, // Set the desired width
-                              height: 30.0,
+                              AppImages.groupsvg, // Replace with your SVG file path
+                              width: MediaQuery.of(context).size.width * 0.04,
+                              height: MediaQuery.of(context).size.height * 0.04,
                             ),
                           ),
 
-                          Text('New Group',
+                          Text(AppStrings.newgroup,
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
                               fontSize: 12,
@@ -174,20 +178,20 @@ class _MyConnections extends State<MyConnections> {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
                           radius: 25,
                           backgroundColor: AppColors.colorGreen,
                           child: Container(
-                            width: 50, // Set the desired width
-                            height: 50, // Set the desired height
-                            child: Image.asset('assets/images/Bitmap.png'),
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            child: Image.asset(AppImages.profileImage),
                           ),
                         ),
 
-                        Text('Mad Family',
+                        Text(AppStrings.madfmly,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -200,20 +204,20 @@ class _MyConnections extends State<MyConnections> {
 
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
                           radius: 25,
                           // backgroundColor: Color(0xfff01B701),
                           child: Image.asset(
-                            'assets/images/Bitmap.png', // Replace with your SVG file path
-                            width: 200.0, // Set the desired width
-                            height: 200.0,
+                            AppImages.profileImage, // Replace with your SVG file path
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Justice le..',
+                        Text(AppStrings.justice,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -225,7 +229,7 @@ class _MyConnections extends State<MyConnections> {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         InkWell(
@@ -236,14 +240,14 @@ class _MyConnections extends State<MyConnections> {
                             radius: 25,
                             // backgroundColor: Color(0xfff01B701),
                             child: Image.asset(
-                              'assets/images/Bitmap.png', // Replace with your SVG file path
-                              width: 200.0, // Set the desired width
-                              height: 200.0,
+                              AppImages.profileImage, // Replace with your SVG file path
+                              width: MediaQuery.of(context).size.width * 0.2,
+                              height: MediaQuery.of(context).size.height * 0.2,
                             ),
                           ),
                         ),
 
-                        Text('Back Benc..',
+                        Text(AppStrings.backbenc,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -258,8 +262,8 @@ class _MyConnections extends State<MyConnections> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:10,right: 238),
-                child: Text('Broadcasts',
+                padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.30),
+                child: Text(AppStrings.broadcasts,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -271,20 +275,20 @@ class _MyConnections extends State<MyConnections> {
               Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
                           radius: 25,
-                          backgroundColor: Color(0xfff01B701),
+                          backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            AppImages.groupIcon, // Replace with your SVG file path
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('New Broad..',
+                        Text(AppStrings.nBroad,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -296,20 +300,20 @@ class _MyConnections extends State<MyConnections> {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
                           radius: 25,
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            AppImages.groupIcon, // Replace with your SVG file path
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Developer..',
+                        Text(AppStrings.developer,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -321,20 +325,20 @@ class _MyConnections extends State<MyConnections> {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
                           radius: 25,
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            AppImages.groupIcon, // Replace with your SVG file path
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Designer..',
+                        Text(AppStrings.designer,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -346,20 +350,20 @@ class _MyConnections extends State<MyConnections> {
                   ),
 
                   Padding(
-                    padding: const EdgeInsets.only(left: 15,top: 10),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
                     child: Column(
                       children: [
                         CircleAvatar(
                           radius: 25,
                           backgroundColor: AppColors.colorGreen,
                           child: Image.asset(
-                            'assets/images/Group.png', // Replace with your SVG file path
-                            width: 30.0, // Set the desired width
-                            height: 30.0,
+                            AppImages.groupIcon, // Replace with your SVG file path
+                            width: MediaQuery.of(context).size.width * 0.2,
+                            height: MediaQuery.of(context).size.height * 0.2,
                           ),
                         ),
 
-                        Text('Sales Team',
+                        Text(AppStrings.salesT,
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
                             fontSize: 12,
@@ -374,8 +378,8 @@ class _MyConnections extends State<MyConnections> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top:10,right: 210),
-                child: Text('Connections',
+                padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.3),
+                child: Text(AppStrings.connection,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -392,11 +396,11 @@ class _MyConnections extends State<MyConnections> {
                     itemBuilder: (context, index) {
                       return ListTile(
                         leading: Container(
-                          width: 62.63,
-                          height: 62.39,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.2,
                           child: CircleAvatar(
                             backgroundImage: AssetImage(items[index].leading),
-                            radius: 100,
+                            radius: MediaQuery.of(context).size.width*0.2,
                           ),
                         ),
                         title: Text(
@@ -406,10 +410,10 @@ class _MyConnections extends State<MyConnections> {
                             fontSize: 16,
                           ),
                         ),
-                        trailing: const Column(
+                        trailing:  Column(
                           children: [
                             Icon(Icons.perm_contact_cal,color: AppColors.contactIconClr),
-                            Text('India'),
+                            Text(AppStrings.india,),
                           ],
                         ),
                       );

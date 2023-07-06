@@ -4,6 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/main.dart';
 import 'package:seedapp/utils/app_colors.dart';
 
+import '../utils/app_strings.dart';
+import '../utils/images.dart';
+
 class ListItem {
   final String leading;
   final String title;
@@ -22,10 +25,10 @@ class Connections extends StatefulWidget {
 
 class _ConnectionsState extends State<Connections> {
   final List<ListItem> items = [
-    ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: true),
-    ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.albert, trainling: true),
+    ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
   ];
 
   int selectedIndex = -1;
@@ -49,7 +52,7 @@ class _ConnectionsState extends State<Connections> {
                       ),
                       );
                     },
-                    child: Image.asset('assets/images/back_arrow.png',
+                    child: Image.asset(AppImages.backArrowBlack,
                       width: 25,
                       height: 25,
                     ),
@@ -57,7 +60,7 @@ class _ConnectionsState extends State<Connections> {
                 ),
                  Padding(
                    padding:  EdgeInsets.only(top: _media.size.height * 0.08,left:_media.size.width * 0.2,),
-                   child: Text('Connections',
+                   child: Text(AppStrings.connection,
                     style: GoogleFonts.poppins(
                       fontSize: 21,
                       fontWeight: FontWeight.w700,
@@ -88,8 +91,8 @@ class _ConnectionsState extends State<Connections> {
                         },
                         child: ListTile(
                           leading: Container(
-                            width: 62.63,
-                            height: 62.39,
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            width: MediaQuery.of(context).size.width* 0.2,
                             child: CircleAvatar(
                               backgroundImage: AssetImage(items[index].leading),
                               radius: 100,
@@ -121,7 +124,7 @@ class _ConnectionsState extends State<Connections> {
                                              ),
                                              title:  Column(
                                                children: [
-                                                 Center(child: Text('Confirmation!',
+                                                 Center(child: Text(AppStrings.confirm,
                                                    style: GoogleFonts.poppins(
                                                      fontWeight: FontWeight.w700,
                                                      fontSize: 22,
@@ -130,7 +133,7 @@ class _ConnectionsState extends State<Connections> {
 
                                                  Padding(
                                                    padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.005,),
-                                                   child: Text('Are you sure you want to remove Albert Smith from this group',
+                                                   child: Text(AppStrings.Alertmsg,
                                                      style: GoogleFonts.poppins(
                                                        fontWeight: FontWeight.w700,
                                                        fontSize: 16,
@@ -164,7 +167,7 @@ class _ConnectionsState extends State<Connections> {
                                                Row(
                                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                                                  children: [
-                                                   TextButton(onPressed: (){}, child: Text('CANCEL',
+                                                   TextButton(onPressed: (){}, child: Text(AppStrings.cancel,
                                                      style: GoogleFonts.poppins(
                                                        fontWeight: FontWeight.w700,
                                                        fontSize: 16,
@@ -186,7 +189,7 @@ class _ConnectionsState extends State<Connections> {
                                                    //),
 
 
-                                                   TextButton(onPressed: (){}, child: Text('OK',
+                                                   TextButton(onPressed: (){}, child: Text(AppStrings.ok,
                                                      style: GoogleFonts.poppins(
                                                        fontWeight: FontWeight.w700,
                                                        fontSize: 16,
@@ -202,7 +205,7 @@ class _ConnectionsState extends State<Connections> {
                                      },);
 
                                     },
-                                    child: Text('Remove'),
+                                    child: Text(AppStrings.remove),
                             ),
                                 ],
                               )
@@ -216,7 +219,7 @@ class _ConnectionsState extends State<Connections> {
                                ),
                                child: Center(
                                 child: Text(
-                                'Group Admin',
+                                  AppStrings.grpadmin,
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w300,
                                   fontSize: 10,

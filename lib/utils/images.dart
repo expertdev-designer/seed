@@ -24,12 +24,17 @@ class AppImages{
   static const String dropdown= 'assets/images/dropdown.svg';
   static const String editIcon= 'assets/images/edit_icon.png';
   static const String groupIcon= 'assets/images/Group.png';
+  static const String groupsvg= 'assets/images/Group.svg';
   static const String crossCircle= 'assets/images/Group(1).png';
   static const String heart= 'assets/images/heart_icon.png';
   static const String profileImage4= 'assets/images/Oval.png';
   static const String profileIcon= 'assets/images/profile_icon.svg';
   static const String selectIcon= 'assets/images/Select.png';
+  static const String selectsvg= 'assets/images/Select.svg';
   static const String shareIcon= 'assets/images/share_icon.png';
+  static const String shareIconsvg= 'assets/images/share_icon.svg';
+  //static const String profileIcon='assets/images/profile_icon.svg';
   static const String deleteIconSvg= 'assets/images/Vector(2).png';
   static const String addPerson= 'assets/images/Vector.svg';
+  static const String camera= 'assets/images/Vector.png';
 }

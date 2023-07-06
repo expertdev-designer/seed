@@ -5,6 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/screens/connection_list.dart';
 import 'package:seedapp/data/group_name.dart';
 import 'package:seedapp/utils/app_colors.dart';
+import 'package:seedapp/utils/app_strings.dart';
+
+import '../utils/images.dart';
 
 
 class ListItem {
@@ -28,15 +31,15 @@ class _NewGroup extends State<NewGroup>{
    static int selectedIndex=-1;
 
   final List<ListItem> items = [
-    ListItem('assets/images/Photographer.png', 'You', trainling: true),
-    ListItem('assets/images/albertimage.png', 'Albert Smith', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Oswald Dean', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Tomes Joge', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Jack Tim', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
-    ListItem('assets/images/albertimage.png', 'Oswald Dean', trainling: false),
-    ListItem('assets/images/Photographer.png', 'Stehan Park', trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.you, trainling: true),
+    ListItem(AppImages.profileImage2, AppStrings.dean, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.tom, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.jack, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.tom, trainling: false),
+    ListItem(AppImages.profileImage2, AppStrings.stehan, trainling: false),
+    ListItem(AppImages.profileImage3, AppStrings.albert, trainling: false),
   ];
 
   @override
@@ -47,16 +50,16 @@ class _NewGroup extends State<NewGroup>{
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 57,left: 24),
+                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
                 child: InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>ConnectionList(),),);
                     },
-                    child: Image.asset('assets/images/back_arrow.png')),
+                    child: Image.asset(AppImages.backArrowBlack)),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 57,left: 91),
-                child: Text('New Group',
+                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.20),
+                child: Text(AppStrings.newgroup,
                   style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color:AppColors.textColorBlack,
                 ),
               ),
@@ -65,8 +68,8 @@ class _NewGroup extends State<NewGroup>{
           ),
 
           Padding(
-            padding: const EdgeInsets.only(top:10,right: 170),
-            child: Text('Add Connections',
+            padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.23),
+            child: Text(AppStrings.addCon,
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
@@ -88,11 +91,11 @@ class _NewGroup extends State<NewGroup>{
                      });
                    },
                    leading: Container(
-                     width: 62.63,
-                     height: 62.39,
+                     width: MediaQuery.of(context).size.width * 0.2,
+                     height: MediaQuery.of(context).size.height * 0.2,
                      child: CircleAvatar(
                        backgroundImage: AssetImage(items[index].leading),
-                       radius: 100,
+                       radius: MediaQuery.of(context).size.width*0.2,
                      ),
                    ),
                    title: Text(
@@ -121,7 +124,7 @@ class _NewGroup extends State<NewGroup>{
               ),
 
           Padding(
-            padding: const EdgeInsets.only(top: 15,bottom: 24),
+            padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,bottom:MediaQuery.of(context).size.height * 0.03,),
             child: ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>GroupName()));
             },
@@ -130,7 +133,7 @@ class _NewGroup extends State<NewGroup>{
                   fixedSize: Size(300, 50),
                   backgroundColor: AppColors.colorButton,
                   shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
-              ), child:  Text('Next',
+              ), child:  Text(AppStrings.next,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 16,

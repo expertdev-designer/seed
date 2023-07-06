@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/screens/my_connections.dart';
+import 'package:seedapp/utils/app_colors.dart';
+import 'package:seedapp/utils/app_strings.dart';
+import 'package:seedapp/utils/images.dart';
 
 class NewConnections extends StatelessWidget{
   @override
@@ -12,7 +15,7 @@ class NewConnections extends StatelessWidget{
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 65,left: 22),
+                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
                 child: InkWell(
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(
@@ -29,12 +32,12 @@ class NewConnections extends StatelessWidget{
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 57,left:70),
-                child: Text('New Connections',
+                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.15),
+                child: Text(AppStrings.newCon,
                   style: GoogleFonts.poppins(
                     fontSize: 21,
                     fontWeight: FontWeight.w700,
-                    color: Color(0xfff3C3C3C),
+                    color: AppColors.textColorBlack,
                   ),
                 ),
               ),
@@ -44,17 +47,17 @@ class NewConnections extends StatelessWidget{
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20,top: 20),
+                padding: EdgeInsets.only(left: MediaQuery.of(context).size.width* 0.05,top: MediaQuery.of(context).size.height* 0.02,),
                 child: CircleAvatar(
-                  radius: 32,
-                    child: Image.asset('assets/images/albertimage.png'),
+                  radius: MediaQuery.of(context).size.width*0.09,
+                    child: Image.asset(AppImages.profileImage2),
                 ),
               ),
               Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 140),
-                    child: Text('Denies Dean',
+                    padding:  EdgeInsets.only(right: MediaQuery.of(context).size.width*0.38),
+                    child: Text(AppStrings.dennis,
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -63,19 +66,19 @@ class NewConnections extends StatelessWidget{
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 7,),
+                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.01,),
                     child: Row(
                       children: [
                         Container(
-                          width: 123.5,
-                          height: 32.5,
+                          width: MediaQuery.of(context).size.width*0.35,
+                          height: MediaQuery.of(context).size.width*0.09,
 
                           decoration:BoxDecoration(
-                            color: Color(0xfff01C601),
+                            color: AppColors.grey,
                             borderRadius: BorderRadius.circular(4.2),
                           ),
                           child: Center(
-                            child: Text('Accept',
+                            child: Text(AppStrings.accept,
                               style: GoogleFonts.poppins(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -86,20 +89,20 @@ class NewConnections extends StatelessWidget{
                         ),
 
                         Padding(
-                          padding: const EdgeInsets.only(left: 3),
+                          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.01,),
                           child: Container(
-                            width: 123.5,
-                            height: 32.5,
+                            width: MediaQuery.of(context).size.width*0.35,
+                            height: MediaQuery.of(context).size.width*0.09,
 
                             decoration:BoxDecoration(
-                              color: Color(0xfffF5F5F5),
+                              color: AppColors.rejectcolor,
                               borderRadius: BorderRadius.circular(4.2),
                               border: Border.all(
                                 color: Colors.grey,
                               ),
                             ),
                             child: Center(
-                              child: Text('Reject',
+                              child: Text(AppStrings.reject,
                                 style: GoogleFonts.poppins(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w600,

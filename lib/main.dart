@@ -6,6 +6,9 @@ import 'package:seedapp/models/connections.dart';
 import 'package:seedapp/screens/my_connections.dart';
 import 'package:seedapp/data/schedule.dart';
 import 'package:seedapp/screens/seed_detail.dart';
+import 'package:seedapp/utils/app_colors.dart';
+import 'package:seedapp/utils/app_strings.dart';
+import 'package:seedapp/utils/images.dart';
 
 
 void main() {
@@ -45,18 +48,18 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   final  List<String> images=[
-    'assets/images/1.png',
-    'assets/images/7.png',
-    'assets/images/13.png',
-    'assets/images/2.png',
-    'assets/images/8.png',
-    'assets/images/14.png',
-    'assets/images/3.png',
-    'assets/images/9.png',
-    'assets/images/15.png',
-    'assets/images/4.png',
-    'assets/images/10.png',
-    'assets/images/16.png',
+    AppImages.image1,
+    AppImages.image2,
+    AppImages.image3,
+    AppImages.image4,
+    AppImages.image5,
+    AppImages.image6,
+    AppImages.image7,
+    AppImages.image8,
+    AppImages.image9,
+    AppImages.image10,
+    AppImages.image11,
+    AppImages.image12,
   ];
 
 
@@ -78,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // ),
             body: Stack(
               children: <Widget>[
-                Image.asset('assets/images/top.png',
+                Image.asset(AppImages.topImage,
                       width: _media.size.width*1.0,
                       height: _media.size.height*0.3,
                   fit: BoxFit.cover,
@@ -140,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             ConnectionList(),),);
                                     },
                                     child: Image.asset(
-                                      'assets/images/fill.png', width: 20,
+                                      AppImages.seedLogo, width: 20,
                                       height: 20,)),
                                 //child:SvgPicture.asset('assets/images/Fill22.svg'),),
                               ),
@@ -163,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     );
                                   },
                                   child: Image.asset(
-                                      'assets/images/delete_icon.png')),
+                                      AppImages.deleteIcon)),
                             ),
 
 
@@ -182,7 +185,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 //height: 90,
                                 //width: constraints.maxWidth * 0.2,
                                 //height: constraints.maxWidth * 0.2,
-                                child: Image.asset('assets/images/Bitmap.png'),
+                                child: Image.asset(AppImages.profileImage),
                               ),
                               Positioned(
                                 bottom: 0,
@@ -203,10 +206,10 @@ class _MyHomePageState extends State<MyHomePage> {
                                             //   alignment: Alignment.topCenter,
                                             child: Container(
                                               width: double.infinity,
-                                              color: Color(0xfff01C401),
+                                              color: AppColors.colorButton,
 
                                               child: Text(
-                                                'Enter New Group Name',
+                                                AppStrings.entergroupname,
                                                 style: GoogleFonts.poppins(
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 16,
@@ -222,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               child: Container(
                                                 child: TextField(
                                                   decoration: InputDecoration(
-                                                    hintText: 'Group Name',
+                                                    hintText: AppStrings.grpname,
                                                     border: OutlineInputBorder(
                                                       borderRadius: BorderRadius
                                                           .circular(1),
@@ -249,7 +252,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                         Navigator.of(context)
                                                             .pop();
                                                       },
-                                                      child: Text('CANCEL'),
+                                                      child: Text(AppStrings.cancel),
                                                     ),
                                                     Container(width: 2,
                                                       height: 50,
@@ -259,7 +262,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                                         Navigator.of(context)
                                                             .pop();
                                                       },
-                                                      child: Text('SAVE'),
+                                                      child: Text(AppStrings.save),
                                                     ),
                                                   ],
                                                 ),
@@ -271,7 +274,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     );
                                   },
                                   child: Image.asset(
-                                    'assets/images/edit_icon.png', width: 28,
+                                    AppImages.editIcon, width: 28,
                                     height: 28,
                                   ),
                                 ),
@@ -290,7 +293,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           child: Row(
                             children: [
                               Text(
-                                'Mad Family',
+                                AppStrings.madfmly,
                                 style: GoogleFonts.poppins(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w500,
@@ -302,7 +305,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     .size
                                     .height * 0.005,),
                                 child: Image.asset(
-                                  'assets/images/edit_icon.png', width: 20,
+                                  AppImages.editIcon, width: 20,
                                   height: 20,),
                               ),
 
@@ -349,7 +352,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     builder: (context) => MyConnections()));
                               },
                               child: Text(
-                                'Total Seeds', style: GoogleFonts.poppins(
+                                AppStrings.totalseed, style: GoogleFonts.poppins(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w300,
                                   decoration: TextDecoration.underline
@@ -406,7 +409,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   ),
                                   );
                                 },
-                                child: Text('connections',
+                                child: Text(AppStrings.connection,
                                   style: GoogleFonts.poppins(fontSize: 15,
                                       fontWeight: FontWeight.w300,
                                       decoration: TextDecoration.underline),))
