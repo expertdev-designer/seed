@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:seedapp/data/group_name.dart';
 import 'package:seedapp/main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,6 +34,8 @@ class MyConnections extends StatefulWidget {
 
 
 class _MyConnections extends State<MyConnections> {
+
+
   final List<ListItem> items = [
     ListItem(AppImages.profileImage, AppStrings.albert, trainling: true),
     ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
@@ -45,6 +48,47 @@ class _MyConnections extends State<MyConnections> {
     ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
   ];
 
+  final List<ListItem> grp = [
+    ListItem(AppImages.profileImage, AppStrings.madfmly, trainling: true),
+    ListItem(AppImages.profileImage, AppStrings.justice, trainling: false),
+    ListItem(AppImages.profileImage, AppStrings.backbenc, trainling: false),
+    ListItem(AppImages.profileImage, AppStrings.dean, trainling: false),
+    ListItem(AppImages.profileImage, AppStrings.tom, trainling: false),
+  ];
+
+
+  final List<ListItem> broad = [
+    ListItem(AppImages.groupIcon, AppStrings.developer, trainling: true),
+    ListItem(AppImages.groupIcon, AppStrings.designer, trainling: false),
+    ListItem(AppImages.groupIcon, AppStrings.salesT, trainling: false),
+    ListItem(AppImages.groupIcon, AppStrings.developer, trainling: false),
+    ListItem(AppImages.groupIcon, AppStrings.designer, trainling: false),
+  ];
+
+  bool isImageToggled = false;
+
+  void _toggleImage() {
+    setState(() {
+      isImageToggled = !isImageToggled;
+    });
+  }
+  // void changeImage(){
+  //   setState(() {
+  //     items[index].isTapped
+  //         ?  Stack(
+  //       children: [
+  //
+  //         Positioned(
+  //           //child: Align(
+  //           //alignment: Alignment.center,
+  //           child:SvgPicture.asset(AppImages.selectsvg,width: 8,height: 8,color: AppColors.borderColor) ,
+  //
+  //           //  ),
+  //         ),
+  //       ],
+  //     )
+  //         : null;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -145,121 +189,74 @@ class _MyConnections extends State<MyConnections> {
                 ),
               ),
 
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>NewGroup(),),);
-                      },
-                      child: Column(
-                        children: [
-                          CircleAvatar(
-                            radius: 25,
-                            backgroundColor: AppColors.colorGreen,
-                            child: SvgPicture.asset(
-                              AppImages.groupsvg, // Replace with your SVG file path
-                              width: MediaQuery.of(context).size.width * 0.04,
-                              height: MediaQuery.of(context).size.height * 0.04,
-                            ),
-                          ),
+              Stack(
+                children:[
+                  ReusableRow(
+                    leading: AppImages.groupsvg,
+                    title: AppStrings.newgroup,
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>NewGroup()));
+                    },
+                    isImageToggled: isImageToggled,
+                    toggleImage: _toggleImage,
+                    textColor: AppColors.textColorLightGrey,
+                  ),
 
-                          Text(AppStrings.newgroup,
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 12,
-                              color: AppColors.textColorLightGrey,
-                            ),
-                          ),
-                        ],
+                  Padding(
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.23),
+                    child: Positioned(
+
+                      child: SizedBox(
+                        height: 80, // Set the height of the horizontal row
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: grp.length,
+                          itemBuilder: (context, index) {
+                            return ReusableRow(
+                              leading: grp[index].leading,
+                              title: grp[index].title,
+
+                              onTap: () {
+
+                                //grp[index]=broad[3];
+
+                              // grpIndex=index;
+                                grp[index].isTapped=!grp[index].isTapped;
+                                setState(() {
+                                  isImageToggled
+                                      ? grp[index].leading.contains(AppImages.profileImage)
+                                      : (AppImages.profileImage);
+
+
+
+                                  //     ?  Stack(
+                                  //   children: [
+                                  //
+                                  //     Positioned(
+                                  //       //child: Align(
+                                  //         //alignment: Alignment.center,
+                                  //         child:SvgPicture.asset(AppImages.selectsvg,width: 8,height: 8,color: AppColors.borderColor) ,
+                                  //
+                                  //     //  ),
+                                  //     ),
+                                  //   ],
+                                  // )
+                                  //     : null;
+                                  //Image.asset(AppImages.selectsvg);
+                                });
+                              },
+                              isImageToggled: isImageToggled,
+                              toggleImage: _toggleImage,
+                              textColor: isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
-
-                  Padding(
-                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundColor: AppColors.colorGreen,
-                          child: Container(
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            child: Image.asset(AppImages.profileImage),
-                          ),
-                        ),
-
-                        Text(AppStrings.madfmly,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: AppColors.textColorGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 25,
-                          // backgroundColor: Color(0xfff01B701),
-                          child: Image.asset(
-                            AppImages.profileImage, // Replace with your SVG file path
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                          ),
-                        ),
-
-                        Text(AppStrings.justice,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: AppColors.textColorGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  Padding(
-                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: Column(
-                      children: [
-                        InkWell(
-                          onTap:(){
-
-                          },
-                          child: CircleAvatar(
-                            radius: 25,
-                            // backgroundColor: Color(0xfff01B701),
-                            child: Image.asset(
-                              AppImages.profileImage, // Replace with your SVG file path
-                              width: MediaQuery.of(context).size.width * 0.2,
-                              height: MediaQuery.of(context).size.height * 0.2,
-                            ),
-                          ),
-                        ),
-
-                        Text(AppStrings.backbenc,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: AppColors.textColorGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
                 ],
               ),
+
 
               Padding(
                 padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.30),
@@ -272,110 +269,44 @@ class _MyConnections extends State<MyConnections> {
                 ),
               ),
 
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundColor: AppColors.colorGreen,
-                          child: Image.asset(
-                            AppImages.groupIcon, // Replace with your SVG file path
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                          ),
-                        ),
-
-                        Text(AppStrings.nBroad,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: AppColors.textColorLightGrey,
-                          ),
-                        ),
-                      ],
-                    ),
+              Stack(
+                children:[
+                  ReusableRow(
+                    leading: AppImages.groupIcon,
+                    title: AppStrings.broadcasts,
+                    onTap: () {},
+                    isImageToggled: isImageToggled,
+                    toggleImage: _toggleImage,
+                    textColor: AppColors.textColorLightGrey,
                   ),
 
                   Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundColor: AppColors.colorGreen,
-                          child: Image.asset(
-                            AppImages.groupIcon, // Replace with your SVG file path
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                          ),
-                        ),
+                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.23),
+                    child: Positioned(
 
-                        Text(AppStrings.developer,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: AppColors.textColorGrey,
-                          ),
+                      child: SizedBox(
+                        height: 80, // Set the height of the horizontal row
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: broad.length,
+                          itemBuilder: (context, index) {
+                            return ReusableRow(
+                              leading: broad[index].leading,
+                              title: broad[index].title,
+                              onTap: () {},
+                              isImageToggled: isImageToggled,
+                              toggleImage: _toggleImage,
+                              textColor: isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
+                            );
+                          },
                         ),
-                      ],
+                      ),
                     ),
                   ),
-
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundColor: AppColors.colorGreen,
-                          child: Image.asset(
-                            AppImages.groupIcon, // Replace with your SVG file path
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                          ),
-                        ),
-
-                        Text(AppStrings.designer,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: AppColors.textColorGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  Padding(
-                    padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04,top: MediaQuery.of(context).size.height * 0.01),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundColor: AppColors.colorGreen,
-                          child: Image.asset(
-                            AppImages.groupIcon, // Replace with your SVG file path
-                            width: MediaQuery.of(context).size.width * 0.2,
-                            height: MediaQuery.of(context).size.height * 0.2,
-                          ),
-                        ),
-
-                        Text(AppStrings.salesT,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: AppColors.textColorGrey,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
                 ],
               ),
+
+
 
               Padding(
                 padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.3),
@@ -433,7 +364,7 @@ class _MyConnections extends State<MyConnections> {
               ),
 
 
-              
+
 
             ],
           ),
@@ -444,4 +375,64 @@ class _MyConnections extends State<MyConnections> {
 
 
 
+}
+
+
+class ReusableRow extends StatelessWidget {
+  final String leading;
+  final String title;
+  final VoidCallback onTap;
+  final bool isImageToggled;
+  final VoidCallback toggleImage;
+  final Color textColor;
+
+
+
+  const ReusableRow({
+    required this.leading,
+    required this.title,
+    required this.onTap,
+    required this.isImageToggled,
+    required this.toggleImage,
+    required this.textColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Padding(
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04, top: MediaQuery.of(context).size.height * 0.01),
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 25,
+              backgroundColor: AppColors.colorGreen,
+              child: leading.contains(AppImages.profileImage)
+                  ? SvgPicture.asset(
+                leading,
+                width: MediaQuery.of(context).size.width * 0.04,
+                height: MediaQuery.of(context).size.height * 0.04,
+              )
+                  : Image.asset(
+                leading,
+                width: MediaQuery.of(context).size.width * 0.2,
+                height: MediaQuery.of(context).size.height * 0.2,
+              ),
+            ),
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+                color: textColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

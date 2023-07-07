@@ -2,19 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:seedapp/screens/connection_list.dart';
 import 'package:seedapp/screens/new_group.dart';
 import 'package:seedapp/utils/app_colors.dart';
 import 'package:seedapp/utils/app_strings.dart';
 import 'package:seedapp/utils/images.dart';
 
-class GroupName extends StatefulWidget {
-  const GroupName({super.key});
+import 'group_name.dart';
+
+class BroadcastName extends StatefulWidget {
+  const BroadcastName({super.key});
 
   @override
-  _GroupName createState() => _GroupName();
+  _BroadcastName createState() => _BroadcastName();
 }
 
-class _GroupName extends State<GroupName> {
+class _BroadcastName extends State<BroadcastName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +37,7 @@ class _GroupName extends State<GroupName> {
           Padding(
             padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
             child: Text(
-              AppStrings.connections8,
+              AppStrings.connections4,
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
@@ -54,29 +57,6 @@ class _GroupName extends State<GroupName> {
                 memberName: AppStrings.stehanpa,
               ),
               GroupMembersRow(
-                imagePath: AppImages.profileImage,
-                memberName: AppStrings.justice,
-              ),
-              GroupMembersRow(
-                imagePath: AppImages.profileImage2,
-                memberName: AppStrings.backbenc,
-              ),
-            ],
-          ),
-
-
-
-          Row(
-            children: [
-              GroupMembersRow(
-                imagePath: AppImages.profileImage2,
-                memberName: AppStrings.backbenc,
-              ),
-              GroupMembersRow(
-                imagePath: AppImages.profileImage,
-                memberName: AppStrings.justice,
-              ),
-              GroupMembersRow(
                 imagePath: AppImages.profileImage2,
                 memberName: AppStrings.albertsmi,
               ),
@@ -88,8 +68,7 @@ class _GroupName extends State<GroupName> {
           ),
 
 
-
-          SizedBox(height: MediaQuery.of(context).size.height * 0.4),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.5),
           Padding(
             padding:  EdgeInsets.only(
                 left: MediaQuery.of(context).size.height * 0.02,
@@ -100,7 +79,7 @@ class _GroupName extends State<GroupName> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => GroupName()),
+                  MaterialPageRoute(builder: (context) => ConnectionList()),
                 );
               },
               style: ElevatedButton.styleFrom(
@@ -146,10 +125,10 @@ class CustomAppBar extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(
             top: MediaQuery.of(context).size.height * 0.05,
-            left: MediaQuery.of(context).size.width * 0.25,
+            left: MediaQuery.of(context).size.width * 0.20,
           ),
           child: Text(
-            AppStrings.newgroup,
+            AppStrings.newBroadcast,
             style: GoogleFonts.poppins(
               fontSize: 21,
               fontWeight: FontWeight.w700,
@@ -171,7 +150,7 @@ class GroupNameField extends StatelessWidget {
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
           child: CircleAvatar(
             radius: 25,
-            child: Image.asset(AppImages.camera),
+            child: Image.asset(AppImages.groupIcon,width: 30,height: 30,),
           ),
         ),
         Padding(
@@ -179,14 +158,14 @@ class GroupNameField extends StatelessWidget {
           child: Container(
             width: 230,
             height: 100,
-            child: const TextField(
+            child:  TextField(
               decoration: InputDecoration(
-                labelText: 'Group Name',
-                labelStyle: TextStyle(color: AppColors.textColorLightGrey),
-                enabledBorder: UnderlineInputBorder(
+                labelText: AppStrings.braodcastname,
+                labelStyle: const TextStyle(color: AppColors.textColorLightGrey),
+                enabledBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: AppColors.colorGreen),
                 ),
-                focusedBorder: UnderlineInputBorder(
+                focusedBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: AppColors.colorGreen),
                 ),
               ),

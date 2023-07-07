@@ -45,6 +45,7 @@ class AppStrings {
   static String grpname='Group Name';
   static String connections='Connections:';
   static String connections8='Connections: 8';
+  static String connections4='Connections: 4';
   static String connection='Connections';
   static String albertsmi='Albert Smi..';
   static String stehanpa='Stehan Pa...';

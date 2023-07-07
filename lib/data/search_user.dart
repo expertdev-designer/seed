@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/utils/app_strings.dart';
 
 import '../screens/connection_list.dart';
+import '../utils/app_colors.dart';
 import '../utils/images.dart';
 
 class SearchList{
@@ -57,14 +58,14 @@ class _SearchUser extends State<SearchUser>{
                   ),
 
                   Padding(
-                    padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+                    padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.02),
                     child: Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
+                      width: MediaQuery.of(context).size.width * 0.75,
                       height: MediaQuery.of(context).size.height * 0.05,
                       child: TextField(
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: const Color(0xfffD8D8D8),
+                          fillColor:  AppColors.searchbarBackground,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(15.0),
                           ),
@@ -83,8 +84,8 @@ class _SearchUser extends State<SearchUser>{
                     //final subtitle = items[index].subtitle ?? '';
                     return ListTile(
                       leading: Container(
-                        width: 62.39,
-                        height: 62.29,
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.15,
                         child: CircleAvatar(
                           radius: 100,
                           backgroundImage:AssetImage(items[index].leading),),
