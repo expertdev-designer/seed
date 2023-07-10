@@ -383,7 +383,8 @@ class ConnectionList extends StatefulWidget {
                       fixedSize: Size(300, 50),
                       backgroundColor: AppColors.colorButton,
                       shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
-                  ), child:  Text(AppStrings.next,
+                  ),
+                  child:  Text(AppStrings.next,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,

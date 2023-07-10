@@ -8,6 +8,7 @@ import 'package:seedapp/utils/app_colors.dart';
 import 'package:seedapp/utils/app_strings.dart';
 
 import '../utils/images.dart';
+import 'my_connections.dart';
 
 
 class ListItem {
@@ -42,6 +43,17 @@ class _NewGroup extends State<NewGroup>{
     ListItem(AppImages.profileImage3, AppStrings.albert, trainling: false),
   ];
 
+   final List<ListItem> selected = [
+     ListItem(AppImages.profileImage2, AppStrings.stehan, trainling: false),
+     ListItem(AppImages.profileImage3, AppStrings.albert, trainling: false),
+     ListItem(AppImages.profileImage2, AppStrings.stehan, trainling: false),
+     ListItem(AppImages.profileImage3, AppStrings.albert, trainling: false),
+     ListItem(AppImages.profileImage2, AppStrings.stehan, trainling: false),
+     ListItem(AppImages.profileImage3, AppStrings.tom, trainling: false),
+     ListItem(AppImages.profileImage2, AppStrings.stehan, trainling: false),
+     ListItem(AppImages.profileImage3, AppStrings.albert, trainling: false),
+   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +65,7 @@ class _NewGroup extends State<NewGroup>{
                 padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
                 child: InkWell(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ConnectionList(),),);
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyConnections(),),);
                     },
                     child: Image.asset(AppImages.backArrowBlack)),
               ),
@@ -75,6 +87,38 @@ class _NewGroup extends State<NewGroup>{
                 fontSize: 16,
                 color:AppColors.textColorLightGrey,
               ),
+            ),
+          ),
+
+          Padding(
+            padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.0),
+
+            child: SizedBox(
+              height: 80, // Set the height of the horizontal row
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: selected.length,
+                itemBuilder: (context, index) {
+                  return Selected(
+                    leading: selected[index].leading,
+                    title: selected[index].title,
+                    onTap: () {},
+                    //isImageToggled: isImageToggled,
+                    //toggleImage: _toggleImage,
+                    textColor: AppColors.textColorLightGrey,
+                    //isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
+                  );
+                },
+              ),
+            ),
+          ),
+
+          Padding(
+            padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03),
+            child: Container(
+              width: MediaQuery.of(context).size.width*0.9,
+              height: 0.8,
+              color: Colors.grey,
             ),
           ),
 
@@ -149,3 +193,63 @@ class _NewGroup extends State<NewGroup>{
   }
 
 }
+
+class Selected extends StatelessWidget {
+  final String leading;
+  final String title;
+  final VoidCallback onTap;
+  // final bool isImageToggled;
+  //final VoidCallback toggleImage;
+  final Color textColor;
+
+
+
+  const Selected({
+    required this.leading,
+    required this.title,
+    required this.onTap,
+    // required this.isImageToggled,
+    //required this.toggleImage,
+    required this.textColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+
+
+    return Padding(
+      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04, top: MediaQuery.of(context).size.height * 0.01),
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 25,
+              backgroundColor: AppColors.colorGreen,
+              child: leading.contains(AppImages.profileImage)
+                  ? SvgPicture.asset(
+                leading,
+                width: MediaQuery.of(context).size.width * 0.04,
+                height: MediaQuery.of(context).size.height * 0.04,
+              )
+                  : Image.asset(
+                leading,
+                width: MediaQuery.of(context).size.width * 0.2,
+                height: MediaQuery.of(context).size.height * 0.2,
+              ),
+            ),
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+                color: textColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+

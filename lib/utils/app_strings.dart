@@ -64,7 +64,7 @@ class AppStrings {
   static String newBroadcast='New Broadcast';
   static String braodcastname='Broadcast Name';
   static String save='SAVE';
-  static String entergroupname='Enter Group Name';
+  static String entergroupname='Enter new group name';
   static String seeddetailtxt='Arctic fox cub curiously looking in to my camera. Was amazing to spend the last days in the remote areas markup trip';
   static String roy='Roy Mckenzie';
   static String vactiontxt='Vacation in Brazil';
