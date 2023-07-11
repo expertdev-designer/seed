@@ -52,6 +52,10 @@ class _NewBroadcasts extends State<NewBroadcasts>{
     ListItem(AppImages.profileImage3, AppStrings.albert, trainling: false),
   ];
 
+  int? checkIndex;
+  int? checkIndexBroadcast;
+  int? isChecked;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -143,7 +147,13 @@ class _NewBroadcasts extends State<NewBroadcasts>{
                         return Selected(
                           leading: selected[index].leading,
                           title: selected[index].title,
-                          onTap: () {},
+                          onTap: () {
+                            if (checkIndex == index)
+                              checkIndex = null;
+                            else
+                              checkIndex = index;
+                            setState(() {});
+                          },
                           //isImageToggled: isImageToggled,
                           //toggleImage: _toggleImage,
                           textColor: AppColors.textColorLightGrey,
@@ -245,6 +255,7 @@ class Selected extends StatelessWidget {
  // final bool isImageToggled;
   //final VoidCallback toggleImage;
   final Color textColor;
+  //int? isChecked;
 
 
 
@@ -282,6 +293,9 @@ class Selected extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.2,
               ),
             ),
+              //checkIndexBroadcast != null && isChecked == checkIndexBroadcast
+              //isChecked != null && isChecked == index && items[index].isSelected
+
             Text(
               title,
               style: GoogleFonts.poppins(

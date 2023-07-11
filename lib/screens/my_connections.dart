@@ -20,9 +20,10 @@ class ListItem {
   final String title;
   final bool trainling;
   bool isTapped;
+  bool isSelected;
 
   ListItem(this.leading, this.title,
-      {required this.trainling, this.isTapped = false});
+      {required this.trainling, this.isTapped = false , this.isSelected = false});
 }
 
 class MyConnections extends StatefulWidget {
@@ -63,6 +64,8 @@ class _MyConnections extends State<MyConnections> {
 
   bool isImageToggled = false;
   int? checkIndex;
+  int? checkIndexBroadcast;
+  bool isSameCheck = false;
 
   void _toggleImage() {
     setState(() {
@@ -228,8 +231,10 @@ class _MyConnections extends State<MyConnections> {
                             leading: grp[index].leading,
                             title: grp[index].title,
                             onTap: () {
-                              checkIndex = index;
-                              print("IsChechked $checkIndex $index ");
+                              if (checkIndex == index)
+                                checkIndex = null;
+                              else
+                                checkIndex = index;
                               setState(() {});
                             },
                             textColor: AppColors.textColorLightGrey,
@@ -259,7 +264,10 @@ class _MyConnections extends State<MyConnections> {
                     leading: AppImages.groupIcon,
                     title: AppStrings.broadcasts,
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>NewBroadcasts()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewBroadcasts()));
                     },
                     isImageToggled: isImageToggled,
                     toggleImage: _toggleImage,
@@ -274,14 +282,27 @@ class _MyConnections extends State<MyConnections> {
                         scrollDirection: Axis.horizontal,
                         itemCount: broad.length,
                         itemBuilder: (context, index) {
-                          return getConnectWidget(
+                          return getBroadCastWidget(
                             isChecked: index,
                             leading: broad[index].leading,
                             title: broad[index].title,
                             onTap: () {
-                              checkIndex = index;
-                              print("IsChechked $checkIndex $index ");
-                              setState(() {});
+                              // if (checkIndexBroadcast == index)
+                              //   checkIndexBroadcast = null;
+                              // else
+                              //   checkIndexBroadcast = index;
+                              // print("IsChecked $checkIndexBroadcast $index ");
+                              // setState(() {});
+
+                              if (checkIndexBroadcast == index) {
+                                checkIndexBroadcast = null;
+                              } else {
+                                checkIndexBroadcast = index;
+                              }
+                              setState(() {
+                                items[index].isTapped = !items[index].isTapped;
+                              });
+
                             },
                             textColor: AppColors.textColorLightGrey,
                           );
@@ -309,22 +330,96 @@ class _MyConnections extends State<MyConnections> {
                   // height: MediaQuery.of(context).size.height,
                   child: ListView.separated(
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: Container(
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage(items[index].leading),
-                            radius: MediaQuery.of(context).size.width * 0.2,
-                          ),
-                        ),
-                        title: Text(
-                          items[index].title,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16,
-                          ),
-                        ),
+                       return ListTile(
+                        // leading: Container(
+                        //   width: MediaQuery.of(context).size.width * 0.2,
+                        //   height: MediaQuery.of(context).size.height * 0.2,
+                        //   child: CircleAvatar(
+                        //     backgroundImage: AssetImage(items[index].leading),
+                        //     radius: MediaQuery.of(context).size.width * 0.2,
+                        //   ),
+                        // ),
+
+                         leading: GestureDetector(
+                           onTap: () {
+                             setState(() {
+                               items[index].isTapped = !items[index].isTapped;
+                             });
+                           },
+                           child: Container(
+                             width: 50,
+                             height: 50,
+                            child: CircleAvatar(
+                                backgroundImage: AssetImage(items[index].leading,
+                                  // width: MediaQuery.of(context).size.width * 0.04,
+                                  // height: MediaQuery.of(context).size.height * 0.04,
+
+                                ),
+                                radius: MediaQuery.of(context).size.width * 0.2,
+
+                              child: items[index].isTapped
+                                 ?  Stack(
+                               children: [
+                                 Positioned.fill(
+                                   child: Align(
+                                     alignment: Alignment.center,
+                                     child:SvgPicture.asset(AppImages.selectsvg,width: 40,height: 40,color: AppColors.white) ,
+
+                                   ),
+                                 ),
+                               ],
+                             )
+                                 : null,
+                           ),
+                         ),
+                         ),
+                         title: Text(
+                           items[index].title,
+                           style: GoogleFonts.poppins(
+                             fontWeight: FontWeight.w700,
+                             fontSize: 16,
+                           ),
+                         ),
+
+
+                         // leading: Stack(
+                         //   children: [
+                         //     Container(
+                         //       width: MediaQuery.of(context).size.width * 0.2,
+                         //       height: MediaQuery.of(context).size.height * 0.2,
+                         //       child: GestureDetector(
+                         //         onTap: () {
+                         //           setState(() {
+                         //             items[index].isTapped = !items[index].isTapped;
+                         //           });
+                         //         },
+                         //         child: CircleAvatar(
+                         //           backgroundImage: AssetImage(items[index].leading),
+                         //           radius: MediaQuery.of(context).size.width * 0.2,
+                         //         ),
+                         //       ),
+                         //     ),
+                         //     if (items[index].isSelected) // Display selection overlay if the item is selected
+                         //       Positioned.fill(
+                         //         child: Container(
+                         //           color: Colors.black.withOpacity(0.5),
+                         //           child: Icon(
+                         //             Icons.check,
+                         //             color: Colors.white,
+                         //           ),
+                         //         ),
+                         //       ),
+                         //   ],
+                         // ),
+
+
+                        // title: Text(
+                        //   items[index].title,
+                        //   style: GoogleFonts.poppins(
+                        //     fontWeight: FontWeight.w700,
+                        //     fontSize: 16,
+                        //   ),
+                        // ),
                         trailing: Column(
                           children: [
                             Icon(Icons.perm_contact_cal,
@@ -389,11 +484,83 @@ class _MyConnections extends State<MyConnections> {
                 left: 0,
                 bottom: 15,
                 right: 0,
-                child: SvgPicture.asset(
-                  AppImages.selectsvg,
-                  width: 10,
-                  height: 10,
-                  fit: BoxFit.contain,
+                child: CircleAvatar(
+                  radius:25,
+                  backgroundColor: AppColors.colorGreen.withOpacity(0.5),
+                  child: Container(
+                   // width: MediaQuery.of(context).size.width*0.8,
+                    //height: MediaQuery.of(context).size.height*0.8,
+                    width: 200,
+                    height: 200,
+                    child: SvgPicture.asset(
+                      AppImages.selectsvg,
+                      width: 30,
+                      height: 30,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ),
+              )
+                  : SizedBox()
+            ]),
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+                color: textColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget? getBroadCastWidget(
+      {required String leading,
+        required String title,
+        required VoidCallback onTap,
+        required Color textColor,
+        int? isChecked}) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, top: 10),
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          children: [
+            Stack(children: [
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: AppColors.colorGreen,
+                child: leading.contains(".svg")
+                    ? SvgPicture.asset(
+                  leading,
+                  width: 50,
+                  height: 50,
+                )
+                    : Image.asset(
+                  leading,
+                  width: 50,
+                  height: 50,
+                ),
+              ),
+              checkIndexBroadcast != null && isChecked == checkIndexBroadcast
+              //isChecked != null && isChecked == index && items[index].isSelected
+                  ? Positioned(
+                top: 15,
+                left: 0,
+                bottom: 15,
+                right: 0,
+                child: CircleAvatar(
+                  radius:50,
+                  backgroundColor: AppColors.colorGreen.withOpacity(0.5),
+                  child: SvgPicture.asset(
+                    AppImages.selectsvg,
+                    width: 40,
+                    height: 40,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               )
                   : SizedBox()
@@ -456,6 +623,7 @@ class ReusableRow extends StatelessWidget {
                   leading,
                   width: MediaQuery.of(context).size.width * 0.2,
                   height: MediaQuery.of(context).size.height * 0.2,
+
                 ),
               ),
               //isChecked == checkIndex
@@ -546,7 +714,7 @@ class ReusableRowForBroadCast extends StatelessWidget {
               //     fit: BoxFit.contain,
               //   ),
               // )
-                 // : SizedBox()
+              // : SizedBox()
             ]),
             Text(
               title,
