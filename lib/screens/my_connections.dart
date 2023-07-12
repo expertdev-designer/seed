@@ -300,7 +300,7 @@ class _MyConnections extends State<MyConnections> {
                                 checkIndexBroadcast = index;
                               }
                               setState(() {
-                                items[index].isTapped = !items[index].isTapped;
+                                //items[index].isTapped = !items[index].isTapped;
                               });
 
                             },
@@ -328,6 +328,8 @@ class _MyConnections extends State<MyConnections> {
               Expanded(
                 child: Container(
                   // height: MediaQuery.of(context).size.height,
+                  // color: Colors.green,
+                  // height: 300,
                   child: ListView.separated(
                     itemBuilder: (context, index) {
                        return ListTile(
@@ -363,7 +365,9 @@ class _MyConnections extends State<MyConnections> {
                                  Positioned.fill(
                                    child: Align(
                                      alignment: Alignment.center,
-                                     child:SvgPicture.asset(AppImages.selectsvg,width: 40,height: 40,color: AppColors.white) ,
+                                     child:Transform.scale(
+                                         scale:0.5,
+                                         child: SvgPicture.asset(AppImages.selectsvg,width: 40,height: 40,color: AppColors.borderColor)) ,
 
                                    ),
                                  ),

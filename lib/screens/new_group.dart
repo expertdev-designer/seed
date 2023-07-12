@@ -134,12 +134,52 @@ class _NewGroup extends State<NewGroup>{
                        selectedIndex = index;
                      });
                    },
-                   leading: Container(
-                     width: MediaQuery.of(context).size.width * 0.2,
-                     height: MediaQuery.of(context).size.height * 0.2,
-                     child: CircleAvatar(
-                       backgroundImage: AssetImage(items[index].leading),
-                       radius: MediaQuery.of(context).size.width*0.2,
+                   leading: GestureDetector(
+                     onTap: () {
+                       setState(() {
+                         items[index].isTapped = !items[index].isTapped;
+                       });
+                     },
+                     child: Container(
+                       width: 50,
+                       height: 50,
+                       child: CircleAvatar(
+                         backgroundImage: AssetImage(items[index].leading,
+                           // width: MediaQuery.of(context).size.width * 0.04,
+                           // height: MediaQuery.of(context).size.height * 0.04,
+
+                         ),
+                         radius: MediaQuery.of(context).size.width * 0.2,
+
+                         child: items[index].isTapped
+                             ?  Stack(
+                           children: [
+                             Positioned.fill(
+                               child: Align(
+                                   alignment: Alignment.center,
+                                   child: Container(
+                                     width: 50,
+                                     height: 50,
+                                     decoration: BoxDecoration(
+                                       color: AppColors.colorGreen.withOpacity(0.6),
+                                       borderRadius: BorderRadius.circular(50),
+                                     ),
+                                     child: Transform.scale(
+                                       scale: 0.5,
+                                       child: SvgPicture.asset(
+                                         AppImages.selectsvg,
+                                         width: 20, // Set the width of the SVG image
+                                         height: 20, // Set the height of the SVG image
+                                         color: Colors.white,
+                                       ),
+                                     ),
+                                   )
+                               ),
+                             ),
+                           ],
+                         )
+                             : null,
+                       ),
                      ),
                    ),
                    title: Text(

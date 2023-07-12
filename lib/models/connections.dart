@@ -108,130 +108,154 @@ class _ConnectionsState extends State<Connections> {
                           ),
 
                           subtitle: selectedIndex== index
-                          ?Container(
-                            width: MediaQuery.of(context).size.width*0.003,
-                            height: MediaQuery.of(context).size.height*0.03,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                showDialog(
-                                  context: context,
-                                  builder: (context){
-                                    return Dialog(
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(
-                                            5.0),
-                                      ),
-                                      child: Container(
-                                        height: 178,
-                                        child: Column(
-                                          children: [
-                                            Padding(
-                                              padding:  EdgeInsets.only(
-                                                top: MediaQuery.of(context).size.height*0.03,
-                                                left: MediaQuery.of(context).size.height*0.020,
-                                              ),
-                                              child: Text(
-                                                AppStrings.confirm,
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 20,
-                                                  fontWeight: FontWeight.w700,
-                                                  color: AppColors.textColorBlack,
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                top: MediaQuery.of(context).size.height*0.01,
-                                                left: MediaQuery.of(context).size.height*0.03,
-                                                right:MediaQuery.of(context).size.height*0.03,
-                                                bottom:MediaQuery.of(context).size.height*0.03,
-                                              ),
-                                              child: Text(
-                                                AppStrings.RmvConnection,
-                                                style: GoogleFonts.poppins(
-                                                  fontSize: 15,
-                                                  fontWeight: FontWeight.w500,
-                                                  color: AppColors.textColorGrey,
-                                                ),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ),
-                                            Container(
-                                              width: double.infinity,
-                                              height: 0.8,
-                                              color: Colors.grey,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                    top: MediaQuery.of(context).size.height*0.02,
-                                                    left: MediaQuery.of(context).size.height*0.05,
-                                                    bottom: MediaQuery.of(context).size.height*0.02,
-                                                    right: MediaQuery.of(context).size.height*0.02,
-                                                  ),
-                                                  child: Text(
-                                                    AppStrings.cancel,
-                                                    style: GoogleFonts.poppins(
-                                                      fontSize: 15,
-                                                      fontWeight: FontWeight.w500,
-                                                      color: AppColors.textColorRed,
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:  EdgeInsets.only(
-                                                    left: MediaQuery.of(context).size.height*0.04,
-                                                    right: MediaQuery.of(context).size.height*0.04,
-                                                  ),
-                                                  child: Container(
-                                                    width: MediaQuery.of(context).size.width*0.003,
-                                                    height: MediaQuery.of(context).size.height*0.067,
-                                                    color: Colors.grey,
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                    top: MediaQuery.of(context).size.height*0.02,
-                                                    left: MediaQuery.of(context).size.height*0.02,
-                                                    bottom: MediaQuery.of(context).size.height*0.02,
-                                                    right: MediaQuery.of(context).size.height*0.02,
-                                                  ),
-                                                  child: Text(
-                                                    AppStrings.ok,
-                                                    style: GoogleFonts.poppins(
-                                                      fontSize: 15,
-                                                      fontWeight: FontWeight.w500,
-                                                      color: AppColors.textColorBlue,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
+
+                          ?Padding(
+                            padding:  EdgeInsets.only(
+                            //left: MediaQuery.of(context).size.width*0.01,
+                              right: MediaQuery.of(context).size.width*0.18,
+                            ),
+                            child: Container(
+                              width: MediaQuery.of(context).size.width*0.05,
+                                  height: MediaQuery.of(context).size.width*0.09,
+
+                                  decoration:BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(4.2),
+                                    border: Border.all(color: Colors.black26),
+                                  ),
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context){
+                                      return Dialog(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              5.0),
                                         ),
-                                      ),
-                                    );
+                                        child: Container(
+                                          height: 178,
+                                          child: Column(
+                                            children: [
+                                              Padding(
+                                                padding:  EdgeInsets.only(
+                                                  top: MediaQuery.of(context).size.height*0.03,
+                                                  left: MediaQuery.of(context).size.height*0.020,
+                                                ),
+                                                child: Text(
+                                                  AppStrings.confirm,
+                                                  style: GoogleFonts.poppins(
+                                                    fontSize: 20,
+                                                    fontWeight: FontWeight.w700,
+                                                    color: AppColors.textColorBlack,
+                                                  ),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: MediaQuery.of(context).size.height*0.01,
+                                                  left: MediaQuery.of(context).size.height*0.03,
+                                                  right:MediaQuery.of(context).size.height*0.03,
+                                                  bottom:MediaQuery.of(context).size.height*0.03,
+                                                ),
+                                                child: Text(
+                                                  AppStrings.RmvConnection,
+                                                  style: GoogleFonts.poppins(
+                                                    fontSize: 15,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: AppColors.textColorGrey,
+                                                  ),
+                                                  textAlign: TextAlign.center,
+                                                ),
+                                              ),
+                                              Container(
+                                                width: double.infinity,
+                                                height: 0.8,
+                                                color: Colors.grey,
+                                              ),
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                      top: MediaQuery.of(context).size.height*0.02,
+                                                      left: MediaQuery.of(context).size.height*0.05,
+                                                      bottom: MediaQuery.of(context).size.height*0.02,
+                                                      right: MediaQuery.of(context).size.height*0.02,
+                                                    ),
+                                                    child: Text(
+                                                      AppStrings.cancel,
+                                                      style: GoogleFonts.poppins(
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w700,
+                                                        color: AppColors.textColorRed,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:  EdgeInsets.only(
+                                                      left: MediaQuery.of(context).size.height*0.04,
+                                                      right: MediaQuery.of(context).size.height*0.04,
+                                                    ),
+                                                    child: Container(
+                                                      width: MediaQuery.of(context).size.width*0.003,
+                                                      height: MediaQuery.of(context).size.height*0.067,
+                                                      color: Colors.grey,
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                      top: MediaQuery.of(context).size.height*0.02,
+                                                      left: MediaQuery.of(context).size.height*0.02,
+                                                      bottom: MediaQuery.of(context).size.height*0.02,
+                                                      right: MediaQuery.of(context).size.height*0.02,
+                                                    ),
+                                                    child: Text(
+                                                      AppStrings.ok,
+                                                      style: GoogleFonts.poppins(
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w700,
+                                                        color: AppColors.textColorBlue,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
 
-                                  },
-                                );
+                                    },
+                                  );
 
 
-                              },
-                                style: ElevatedButton.styleFrom(
-                                  fixedSize: const Size(100, 40), // Set the desired height and width
-                                  backgroundColor: Colors.white70,
-                                   //primary: Colors.blue, // Set the button background color
-                                   shape: RoundedRectangleBorder(
-                                     borderRadius: BorderRadius.circular(5), // Set the border radius
-                                   ),
-                                ),
-                              child: Text(
-                                AppStrings.remove,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w500,
-                                  color: AppColors.textColorGrey,
+                                },
+                                   style: ElevatedButton.styleFrom(
+                                     fixedSize: const Size(50, 20), // Set the desired height and width
+                                    backgroundColor: Colors.white,
+                                     //primary: Colors.blue, // Set the button background color
+                                     shape: RoundedRectangleBorder(
+                                       borderRadius: BorderRadius.circular(5), // Set the border radius
+                                     ),
+                                  ),
+
+                                // style: ButtonStyle(
+                                //   backgroundColor: MaterialStateProperty.all<Color>(Colors.white70),
+                                //   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                                //     RoundedRectangleBorder(
+                                //       borderRadius: BorderRadius.circular(5),
+                                //     ),
+                                //   ),
+                                //   minimumSize: MaterialStateProperty.all<Size>(Size(50, 20)),
+                                // ),
+
+                                child: Text(
+                                  AppStrings.remove,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.textColorGrey,
+                                  ),
                                 ),
                               ),
                             ),
@@ -258,7 +282,16 @@ class _ConnectionsState extends State<Connections> {
                               ),
                             ),
                           )
-                              : null,
+                              : Column(
+                            children: [
+                                 Icon(Icons.perm_contact_cal,
+                                color: AppColors.contactIconClr),
+                            Text(
+                              AppStrings.india,
+                            ),
+                            ],
+                              ),
+
                         ),
                       );
                     },

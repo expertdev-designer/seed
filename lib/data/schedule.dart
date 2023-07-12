@@ -132,38 +132,74 @@ class Schedule extends StatelessWidget{
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CircleAvatar(
-                    radius: MediaQuery.of(context).size.height*0.035,
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColors.colorGreen,
+                      ),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: CircleAvatar(
+                      radius: MediaQuery.of(context).size.height*0.035,
+                      backgroundColor: Colors.white,
 
-                    child: Text(AppStrings.d,style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      child: Text(AppStrings.d,style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
 
-                    ),),
+                      ),),
+                    ),
                   ),
 
-                  CircleAvatar(
-                    radius: MediaQuery.of(context).size.height*0.035,
-                    child: Text(AppStrings.w,style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColors.colorGreen,
+                      ),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: CircleAvatar(
+                      radius: MediaQuery.of(context).size.height*0.035,
+                      backgroundColor: Colors.white70,
+                      child: Text(AppStrings.w,style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),),
+                    ),
                   ),
 
-                  CircleAvatar(
-                    radius: MediaQuery.of(context).size.height*0.035,
-                    child: Text(AppStrings.m,style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColors.colorGreen,
+                      ),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: CircleAvatar(
+                      radius: MediaQuery.of(context).size.height*0.035,
+                      backgroundColor: Colors.white70,
+                      child: Text(AppStrings.m,style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),),
+                    ),
                   ),
 
-                  CircleAvatar(
-                    radius: MediaQuery.of(context).size.height*0.035,
-                    child: Text(AppStrings.y,style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: AppColors.colorGreen,
+                      ),
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                    child: CircleAvatar(
+                      radius: MediaQuery.of(context).size.height*0.035,
+                      backgroundColor: Colors.white70,
+                      child: Text(AppStrings.y,style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),),
+                    ),
                   ),
 
                 ],
