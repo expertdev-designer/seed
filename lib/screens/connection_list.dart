@@ -19,20 +19,18 @@ class ListItem {
   final bool trainling;
   bool isTapped;
 
-  ListItem(this.leading, this.title, {required this.trainling, this.isTapped=false});
+  ListItem(this.leading, this.title,
+      {required this.trainling, this.isTapped = false});
 }
-
 
 class ConnectionList extends StatefulWidget {
   const ConnectionList({super.key});
 
-
   @override
-    _ConnectionList createState() => _ConnectionList();
+  _ConnectionList createState() => _ConnectionList();
 }
 
-
-  class _ConnectionList extends State<ConnectionList> {
+class _ConnectionList extends State<ConnectionList> {
   final List<ListItem> items = [
     ListItem(AppImages.profileImage, AppStrings.albert, trainling: true),
     ListItem(AppImages.profileImage2, AppStrings.albert, trainling: false),
@@ -45,7 +43,6 @@ class ConnectionList extends StatefulWidget {
     ListItem(AppImages.profileImage3, AppStrings.stehan, trainling: false),
   ];
 
-
   final List<ListItem> grp = [
     ListItem(AppImages.profileImage, AppStrings.madfmly, trainling: true),
     ListItem(AppImages.profileImage, AppStrings.justice, trainling: false),
@@ -53,7 +50,6 @@ class ConnectionList extends StatefulWidget {
     ListItem(AppImages.profileImage, AppStrings.dean, trainling: false),
     ListItem(AppImages.profileImage, AppStrings.tom, trainling: false),
   ];
-
 
   final List<ListItem> broad = [
     ListItem(AppImages.groupIcon, AppStrings.developer, trainling: true),
@@ -72,30 +68,33 @@ class ConnectionList extends StatefulWidget {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
-
-    return  Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-
               Row(
                 children: [
                   Padding(
-                    padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.09,
+                        left: MediaQuery.of(context).size.height * 0.03),
                     child: InkWell(
-                      onTap: (){
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context)=>MyHomePage(),
-                        ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyHomePage(),
+                          ),
                         );
                       },
-                      child: Icon(Icons.arrow_back,),
+                      child: Icon(
+                        Icons.arrow_back,
+                      ),
 
                       // child: Image.asset('assets/images/back_arrow.png',
                       //   width: 25,
@@ -104,8 +103,11 @@ class ConnectionList extends StatefulWidget {
                     ),
                   ),
                   Padding(
-                    padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.20),
-                    child: Text(AppStrings.sharewith,
+                    padding: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.09,
+                        left: MediaQuery.of(context).size.width * 0.20),
+                    child: Text(
+                      AppStrings.sharewith,
                       style: GoogleFonts.poppins(
                         fontSize: 21,
                         fontWeight: FontWeight.w700,
@@ -115,31 +117,32 @@ class ConnectionList extends StatefulWidget {
                   ),
                 ],
               ),
-
               Padding(
-                padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
-                  child: Expanded(
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.9,
-                      height: MediaQuery.of(context).size.height * 0.05,
-
-                      child: TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          fillColor: AppColors.searchbarBackground,
-                          prefixIcon: Icon(Icons.search),
-                          border: OutlineInputBorder(
+                padding:
+                EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+                child: Expanded(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.height * 0.05,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: AppColors.searchbarBackground,
+                        prefixIcon: Icon(Icons.search),
+                        border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
+                        ),
                       ),
-              ),
-              ),
                     ),
                   ),
+                ),
               ),
-
               Padding(
-                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.35),
-                child: Text( AppStrings.group,
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.01,
+                    right: MediaQuery.of(context).size.height * 0.35),
+                child: Text(
+                  AppStrings.group,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -147,41 +150,37 @@ class ConnectionList extends StatefulWidget {
                   ),
                 ),
               ),
-
-
-
               Stack(
-                children:[
+                children: [
                   ReusableRow(
-                  leading: AppImages.groupsvg,
-                  title: AppStrings.newgroup,
-                  onTap: () {},
-                  isImageToggled: isImageToggled,
-                  toggleImage: _toggleImage,
-                  textColor: AppColors.textColorLightGrey,
-                ),
-
+                    leading: AppImages.groupsvg,
+                    title: AppStrings.newgroup,
+                    onTap: () {},
+                    isImageToggled: isImageToggled,
+                    toggleImage: _toggleImage,
+                    textColor: AppColors.textColorLightGrey,
+                  ),
                   Padding(
-                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.23),
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.23),
                     child: Positioned(
-
                       child: SizedBox(
                         height: 80, // Set the height of the horizontal row
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: grp.length,
                           itemBuilder: (context, index) {
-                            return ReusableRow(
+                            return getConnectWidget(
+                              isChecked: index,
                               leading: grp[index].leading,
                               title: grp[index].title,
                               onTap: () {
-                                setState(() {
-
-                                });
+                                grp[index].isTapped = !grp[index].isTapped;
+                                setState(() {});
                               },
-                              isImageToggled: isImageToggled,
-                              toggleImage: _toggleImage,
-                              textColor: isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
+                              textColor: isImageToggled
+                                  ? AppColors.textColorGrey
+                                  : AppColors.textColorLightGrey,
                             );
                           },
                         ),
@@ -190,14 +189,12 @@ class ConnectionList extends StatefulWidget {
                   ),
                 ],
               ),
-
-
-
-
-
               Padding(
-                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.30),
-                child: Text(AppStrings.broadcasts,
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.01,
+                    right: MediaQuery.of(context).size.height * 0.30),
+                child: Text(
+                  AppStrings.broadcasts,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -205,33 +202,43 @@ class ConnectionList extends StatefulWidget {
                   ),
                 ),
               ),
-
-
-
               Stack(
-                children:[
+                children: [
                   ReusableRow(
                     leading: AppImages.groupIcon,
                     title: AppStrings.broadcasts,
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>BroadcastName()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BroadcastName()));
                     },
                     isImageToggled: isImageToggled,
                     toggleImage: _toggleImage,
                     textColor: AppColors.textColorLightGrey,
                   ),
-
                   Padding(
-                    padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.23),
+                    padding: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.23),
                     child: Positioned(
-
                       child: SizedBox(
                         height: 80, // Set the height of the horizontal row
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: broad.length,
                           itemBuilder: (context, index) {
-                            return ReusableRow(
+                            return getBroadCastWidget(
+                              isChecked: index,
+                              leading: broad[index].leading,
+                              title: broad[index].title,
+                              onTap: () {
+                                broad[index].isTapped = !broad[index].isTapped;
+                                setState(() {});
+                              },
+                              textColor: AppColors.textColorGrey,
+                            );
+
+                            /*ReusableRow(
                               leading: broad[index].leading,
                               title: broad[index].title,
                               onTap: () {
@@ -259,7 +266,7 @@ class ConnectionList extends StatefulWidget {
                               isImageToggled: isImageToggled,
                               toggleImage: _toggleImage,
                               textColor: isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
-                            );
+                            );*/
                           },
                         ),
                       ),
@@ -267,10 +274,12 @@ class ConnectionList extends StatefulWidget {
                   ),
                 ],
               ),
-
               Padding(
-                padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.25),
-                child: Text(AppStrings.myCon,
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.01,
+                    right: MediaQuery.of(context).size.height * 0.25),
+                child: Text(
+                  AppStrings.myCon,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -278,27 +287,25 @@ class ConnectionList extends StatefulWidget {
                   ),
                 ),
               ),
-
               Expanded(
                 child: Container(
                   // height: MediaQuery.of(context).size.height,
                   child: ListView.separated(
-
                     itemBuilder: (context, index) {
                       return ListTile(
                         leading: Container(
                           width: MediaQuery.of(context).size.width * 0.2,
                           height: MediaQuery.of(context).size.height * 0.2,
                           child: CircleAvatar(
-                             backgroundImage: AssetImage(items[index].leading),
-                             radius: MediaQuery.of(context).size.width*0.2,
+                            backgroundImage: AssetImage(items[index].leading),
+                            radius: MediaQuery.of(context).size.width * 0.2,
                           ),
                         ),
                         title: Text(
                           items[index].title,
                           style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
                           ),
                         ),
                         trailing: GestureDetector(
@@ -322,26 +329,22 @@ class ConnectionList extends StatefulWidget {
                                 width: 2.0,
                               )),
 
-
                               //shape: BoxShape.rectangle,
                               //color: Colors.grey,
-                             //  Border.all(
-                             //    color: AppColors.textColorBlack,
-                             //    width: 2.0,
-                             //  ),
-                             // // shape:BoxShape.rectangle,
-                             //  color: Colors.grey,
-
+                              //  Border.all(
+                              //    color: AppColors.textColorBlack,
+                              //    width: 2.0,
+                              //  ),
+                              // // shape:BoxShape.rectangle,
+                              //  color: Colors.grey,
 
                               // image: const DecorationImage(
                               //   image: AssetImage('assets/images/top.png'),
                               //   fit: BoxFit.cover,
                               // ),
-
-
                             ),
                             child: items[index].isTapped
-                                ?  Stack(
+                                ? Stack(
                               children: [
                                 // BackdropFilter(
                                 //   filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
@@ -352,7 +355,11 @@ class ConnectionList extends StatefulWidget {
                                 Positioned.fill(
                                   child: Align(
                                     alignment: Alignment.center,
-                                    child:SvgPicture.asset(AppImages.selectsvg,width: 8,height: 8,color: AppColors.borderColor) ,
+                                    child: SvgPicture.asset(
+                                        AppImages.selectsvg,
+                                        width: 8,
+                                        height: 8,
+                                        color: AppColors.borderColor),
                                     // Icon(
                                     //   Icons.check_box,
                                     //   color: Colors.white,
@@ -366,53 +373,191 @@ class ConnectionList extends StatefulWidget {
                           ),
                         ),
                       );
-                      },
-                      separatorBuilder: (context, index) {
-                         return const Divider(
-                           indent: 20,
-                           endIndent: 20,
-                           height: 50,
-                           thickness: 1,
-                        );
-                      },
-                      itemCount: items.length,
-                   ),
-
+                    },
+                    separatorBuilder: (context, index) {
+                      return const Divider(
+                        indent: 20,
+                        endIndent: 20,
+                        height: 50,
+                        thickness: 1,
+                      );
+                    },
+                    itemCount: items.length,
+                  ),
                 ),
               ),
-
-
               Padding(
-                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,bottom:MediaQuery.of(context).size.height * 0.03,),
-                child: ElevatedButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchUser()));
-                },
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.01,
+                  bottom: MediaQuery.of(context).size.height * 0.03,
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => SearchUser()));
+                  },
                   style: ElevatedButton.styleFrom(
                     // padding: EdgeInsets.only(top: 1),
                       fixedSize: Size(300, 50),
                       backgroundColor: AppColors.colorButton,
-                      shape: RoundedRectangleBorder(borderRadius:BorderRadius.circular(5.0))
-                  ),
-                  child:  Text(AppStrings.next,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5.0))),
+                  child: Text(
+                    AppStrings.next,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 16,
-                      color:Colors.white,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
-
-    ],
+            ],
           ),
         ),
       ),
     );
   }
 
+  Widget? getConnectWidget(
+      {required String leading,
+        required String title,
+        required VoidCallback onTap,
+        required Color textColor,
+        int? isChecked}) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, top: 10),
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          children: [
+            Stack(children: [
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: AppColors.colorGreen,
+                child: leading.contains(".svg")
+                    ? SvgPicture.asset(
+                  leading,
+                  width: 50,
+                  height: 50,
+                )
+                    : Image.asset(
+                  leading,
+                  width: 50,
+                  height: 50,
+                ),
+              ),
+              isChecked! != null && grp[isChecked].isTapped
+              ? Positioned.fill(
+               child: Align(
+                alignment: Alignment.center,
+                   child: Container(
+                     width: 50,
+                     height: 50,
+                     decoration: BoxDecoration(
+                     color: AppColors.colorGreen.withOpacity(0.6),
+                       borderRadius: BorderRadius.circular(50),
+                     ),
+                     child: Transform.scale(
+                       scale: 0.5,
+                        child: SvgPicture.asset(
+                          AppImages.selectsvg,
+                            width: 20, // Set the width of the SVG image
+                            height: 20, // Set the height of the SVG image
+                            color: Colors.white,
+                     ),
+                    ),
+               )
+      ),
+    )
+                  : SizedBox()
+            ]),
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+                color: textColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
-
+  Widget? getBroadCastWidget(
+      {required String leading,
+        required String title,
+        required VoidCallback onTap,
+        required Color textColor,
+        int? isChecked}) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, top: 10),
+      child: InkWell(
+        onTap: onTap,
+        child: Column(
+          children: [
+            Stack(children: [
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: AppColors.colorGreen,
+                child: leading.contains(".svg")
+                    ? SvgPicture.asset(
+                  leading,
+                  width: 50,
+                  height: 50,
+                )
+                    : Image.asset(
+                  leading,
+                  width: 50,
+                  height: 50,
+                ),
+              ),
+              isChecked! != null && broad[isChecked].isTapped
+              //isChecked != null && isChecked == index && items[index].isSelected
+                  ? Positioned.fill(
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: AppColors.colorGreen.withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Transform.scale(
+                        scale: 0.5,
+                        child: SvgPicture.asset(
+                          AppImages.selectsvg,
+                          width: 20, // Set the width of the SVG image
+                          height: 20, // Set the height of the SVG image
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                ),
+              )
+                  : SizedBox()
+            ]),
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
+                color: textColor,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
+
+
+
+
 
 class ReusableRow extends StatelessWidget {
   final String leading;
@@ -423,8 +568,6 @@ class ReusableRow extends StatelessWidget {
   final Color textColor;
   final bool isChecked;
 
-
-
   const ReusableRow({
     required this.leading,
     required this.title,
@@ -432,35 +575,36 @@ class ReusableRow extends StatelessWidget {
     required this.isImageToggled,
     required this.toggleImage,
     required this.textColor,
-    this.isChecked=false,
+    this.isChecked = false,
   });
 
   @override
   Widget build(BuildContext context) {
-
-
     return Padding(
-      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04, top: MediaQuery.of(context).size.height * 0.01),
+      padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * 0.04,
+          top: MediaQuery.of(context).size.height * 0.01),
       child: InkWell(
         onTap: onTap,
         child: Column(
           children: [
             Stack(
-              children:[ CircleAvatar(
-                radius: 25,
-                backgroundColor: AppColors.colorGreen,
-                child: leading.contains('.svg')
-                    ? SvgPicture.asset(
-                  leading,
-                  width: MediaQuery.of(context).size.width * 0.04,
-                  height: MediaQuery.of(context).size.height * 0.04,
-                )
-                    : Image.asset(
-                  leading,
-                  width: MediaQuery.of(context).size.width * 0.2,
-                  height: MediaQuery.of(context).size.height * 0.2,
+              children: [
+                CircleAvatar(
+                  radius: 25,
+                  backgroundColor: AppColors.colorGreen,
+                  child: leading.contains('.svg')
+                      ? SvgPicture.asset(
+                    leading,
+                    width: MediaQuery.of(context).size.width * 0.04,
+                    height: MediaQuery.of(context).size.height * 0.04,
+                  )
+                      : Image.asset(
+                    leading,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    height: MediaQuery.of(context).size.height * 0.2,
+                  ),
                 ),
-              ),
 
                 //checkIndex != null && isChecked == checkIndex
                 isChecked != 0 && isChecked == 1
@@ -471,8 +615,9 @@ class ReusableRow extends StatelessWidget {
                   bottom: 15,
                   right: 0,
                   child: CircleAvatar(
-                    radius:50,
-                    backgroundColor: AppColors.colorGreen.withOpacity(0.5),
+                    radius: 50,
+                    backgroundColor:
+                    AppColors.colorGreen.withOpacity(0.5),
                     child: SvgPicture.asset(
                       AppImages.selectsvg,
                       width: 40,
@@ -482,8 +627,7 @@ class ReusableRow extends StatelessWidget {
                   ),
                 )
                     : SizedBox()
-
-        ],
+              ],
             ),
             Text(
               title,

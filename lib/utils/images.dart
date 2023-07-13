@@ -26,6 +26,7 @@ class AppImages{
   static const String groupIcon= 'assets/images/Group.png';
   static const String groupsvg= 'assets/images/Group.svg';
   static const String crossCircle= 'assets/images/Group(1).png';
+  static const String cross= 'assets/images/cross.svg';
   static const String heart= 'assets/images/heart_icon.png';
   static const String profileImage4= 'assets/images/Oval.png';
   static const String profileIcon= 'assets/images/profile_icon.svg';

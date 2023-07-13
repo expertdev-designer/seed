@@ -135,17 +135,30 @@ class _MyConnections extends State<MyConnections> {
                   ),
                   Column(
                     children: [
-                      Padding(
-                        padding: EdgeInsets.only(
-                            top: MediaQuery.of(context).size.height * 0.09,
-                            left: MediaQuery.of(context).size.width * 0.08),
-                        child: CircleAvatar(
-                          radius: MediaQuery.of(context).size.width * 0.02,
-                          backgroundColor: AppColors.colorGreen,
-                          child: Container(
-                            child: Text('1'),
+                      Stack(
+                        children:[ Padding(
+                          padding: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * 0.09,
+                              left: MediaQuery.of(context).size.width * 0.08),
+                          child: CircleAvatar(
+                            radius: MediaQuery.of(context).size.width * 0.02,
+                            backgroundColor: AppColors.colorGreen,
+                            child:Positioned(
+                              top: MediaQuery.of(context).size.height*0.1,
+                                child: Container(
+                                  child: Text('1',
+                                    style:GoogleFonts.poppins(
+                                      fontSize:12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                           )
+
                           ),
                         ),
+                       ],
                       ),
                       Padding(
                         padding: EdgeInsets.only(
@@ -154,6 +167,8 @@ class _MyConnections extends State<MyConnections> {
                           AppImages.addPerson,
                         ),
                       ),
+
+
                     ],
                   ),
                   Padding(
@@ -237,7 +252,7 @@ class _MyConnections extends State<MyConnections> {
                                 checkIndex = index;
                               setState(() {});
                             },
-                            textColor: AppColors.textColorLightGrey,
+                            textColor: AppColors.textColorGrey,
                           );
                         },
                       ),
@@ -304,7 +319,7 @@ class _MyConnections extends State<MyConnections> {
                               });
 
                             },
-                            textColor: AppColors.textColorLightGrey,
+                            textColor: AppColors.textColorGrey,
                           );
                         },
                       ),
@@ -483,26 +498,26 @@ class _MyConnections extends State<MyConnections> {
                 ),
               ),
               checkIndex != null && isChecked == checkIndex
-                  ? Positioned(
-                top: 15,
-                left: 0,
-                bottom: 15,
-                right: 0,
-                child: CircleAvatar(
-                  radius:25,
-                  backgroundColor: AppColors.colorGreen.withOpacity(0.5),
-                  child: Container(
-                   // width: MediaQuery.of(context).size.width*0.8,
-                    //height: MediaQuery.of(context).size.height*0.8,
-                    width: 200,
-                    height: 200,
-                    child: SvgPicture.asset(
-                      AppImages.selectsvg,
-                      width: 30,
-                      height: 30,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                  ? Positioned.fill(
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Container(
+                      width: 50,
+                      height: 50,
+                      decoration: BoxDecoration(
+                        color: AppColors.colorGreen.withOpacity(0.6),
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Transform.scale(
+                        scale: 0.5,
+                        child: SvgPicture.asset(
+                          AppImages.selectsvg,
+                          width: 20, // Set the width of the SVG image
+                          height: 20, // Set the height of the SVG image
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
                 ),
               )
                   : SizedBox()

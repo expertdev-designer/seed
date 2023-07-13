@@ -72,13 +72,16 @@ class _ConnectionsState extends State<Connections> {
             ),
 
 
-            // Rest of the code...
-
             Expanded(
               child: Padding(
-                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.005,),
+                padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.000,),
                 child: Container(
+                  color: Colors.green,
                   child: ListView.separated(
+
+                    // separatorBuilder:(BuildContext context,int index){
+                    //   return const Divider(height: 1,);
+                    // },
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
@@ -90,208 +93,195 @@ class _ConnectionsState extends State<Connections> {
                             }
                           });
                         },
-                        child: ListTile(
-                          leading: Container(
-                            height: MediaQuery.of(context).size.height * 0.2,
-                            width: MediaQuery.of(context).size.width* 0.2,
-                            child: CircleAvatar(
-                              backgroundImage: AssetImage(items[index].leading),
-                              radius: 100,
-                            ),
+                        child: Container(
+                          color: Colors.lightBlue,
+                          padding: EdgeInsets.symmetric(
+                              //vertical: 0.01,
+                              horizontal: 20,
                           ),
-                          title: Text(
-                            items[index].title,
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16,
-                            ),
-                          ),
-
-                          subtitle: selectedIndex== index
-
-                          ?Padding(
-                            padding:  EdgeInsets.only(
-                            //left: MediaQuery.of(context).size.width*0.01,
-                              right: MediaQuery.of(context).size.width*0.18,
-                            ),
-                            child: Container(
-                              width: MediaQuery.of(context).size.width*0.05,
-                                  height: MediaQuery.of(context).size.width*0.09,
-
-                                  decoration:BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(4.2),
-                                    border: Border.all(color: Colors.black26),
-                                  ),
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (context){
-                                      return Dialog(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              5.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: MediaQuery.of(context).size.height * 0.15,
+                                width: MediaQuery.of(context).size.width * 0.15,
+                                child: CircleAvatar(
+                                  backgroundImage: AssetImage(items[index].leading),
+                                  radius: 50,
+                                  //backgroundColor: Colors.lightBlue,
+                                ),
+                              ),
+                              SizedBox(width: 20),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      items[index].title,
+                                      style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    SizedBox(height: 1),
+                                    if (selectedIndex == index)
+                                      Container(
+                                        width: MediaQuery.of(context).size.width * 0.3,
+                                        height: MediaQuery.of(context).size.height * 0.05,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius: BorderRadius.circular(4.2),
+                                          border: Border.all(color: Colors.black26),
                                         ),
-                                        child: Container(
-                                          height: 178,
-                                          child: Column(
-                                            children: [
-                                              Padding(
-                                                padding:  EdgeInsets.only(
-                                                  top: MediaQuery.of(context).size.height*0.03,
-                                                  left: MediaQuery.of(context).size.height*0.020,
-                                                ),
-                                                child: Text(
-                                                  AppStrings.confirm,
-                                                  style: GoogleFonts.poppins(
-                                                    fontSize: 20,
-                                                    fontWeight: FontWeight.w700,
-                                                    color: AppColors.textColorBlack,
+                                        child: ElevatedButton(
+                                          onPressed: () {
+                                            showDialog(
+                                              context: context,
+                                              builder: (context) {
+                                                return Dialog(
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(5.0),
                                                   ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  top: MediaQuery.of(context).size.height*0.01,
-                                                  left: MediaQuery.of(context).size.height*0.03,
-                                                  right:MediaQuery.of(context).size.height*0.03,
-                                                  bottom:MediaQuery.of(context).size.height*0.03,
-                                                ),
-                                                child: Text(
-                                                  AppStrings.RmvConnection,
-                                                  style: GoogleFonts.poppins(
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: AppColors.textColorGrey,
+                                                  child: Container(
+                                                    height: 178,
+                                                    child: Column(
+                                                      children: [
+                                                        Padding(
+                                                          padding: EdgeInsets.only(
+                                                            top: MediaQuery.of(context).size.height * 0.03,
+                                                            left: MediaQuery.of(context).size.height * 0.020,
+                                                          ),
+                                                          child: Text(
+                                                            AppStrings.confirm,
+                                                            style: GoogleFonts.poppins(
+                                                              fontSize: 20,
+                                                              fontWeight: FontWeight.w700,
+                                                              color: AppColors.textColorBlack,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding: EdgeInsets.only(
+                                                            top: MediaQuery.of(context).size.height * 0.01,
+                                                            left: MediaQuery.of(context).size.height * 0.03,
+                                                            right: MediaQuery.of(context).size.height * 0.03,
+                                                            bottom: MediaQuery.of(context).size.height * 0.03,
+                                                          ),
+                                                          child: Text(
+                                                            AppStrings.RmvConnection,
+                                                            style: GoogleFonts.poppins(
+                                                              fontSize: 15,
+                                                              fontWeight: FontWeight.w500,
+                                                              color: AppColors.textColorGrey,
+                                                            ),
+                                                            textAlign: TextAlign.center,
+                                                          ),
+                                                        ),
+                                                        Container(
+                                                          width: double.infinity,
+                                                          height: 0.8,
+                                                          color: Colors.grey,
+                                                        ),
+                                                        Row(
+                                                          children: [
+                                                            Padding(
+                                                              padding: EdgeInsets.only(
+                                                                top: MediaQuery.of(context).size.height * 0.02,
+                                                                left: MediaQuery.of(context).size.height * 0.05,
+                                                                bottom: MediaQuery.of(context).size.height * 0.02,
+                                                                right: MediaQuery.of(context).size.height * 0.02,
+                                                              ),
+                                                              child: Text(
+                                                                AppStrings.cancel,
+                                                                style: GoogleFonts.poppins(
+                                                                  fontSize: 15,
+                                                                  fontWeight: FontWeight.w700,
+                                                                  color: AppColors.textColorRed,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding: EdgeInsets.only(
+                                                                left: MediaQuery.of(context).size.height * 0.04,
+                                                                right: MediaQuery.of(context).size.height * 0.04,
+                                                              ),
+                                                              child: Container(
+                                                                width: MediaQuery.of(context).size.width * 0.003,
+                                                                height: MediaQuery.of(context).size.height * 0.067,
+                                                                color: Colors.grey,
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding: EdgeInsets.only(
+                                                                top: MediaQuery.of(context).size.height * 0.02,
+                                                                left: MediaQuery.of(context).size.height * 0.02,
+                                                                bottom: MediaQuery.of(context).size.height * 0.02,
+                                                                right: MediaQuery.of(context).size.height * 0.02,
+                                                              ),
+                                                              child: Text(
+                                                                AppStrings.ok,
+                                                                style: GoogleFonts.poppins(
+                                                                  fontSize: 15,
+                                                                  fontWeight: FontWeight.w700,
+                                                                  color: AppColors.textColorBlue,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ],
+                                                    ),
                                                   ),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ),
-                                              Container(
-                                                width: double.infinity,
-                                                height: 0.8,
-                                                color: Colors.grey,
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: MediaQuery.of(context).size.height*0.02,
-                                                      left: MediaQuery.of(context).size.height*0.05,
-                                                      bottom: MediaQuery.of(context).size.height*0.02,
-                                                      right: MediaQuery.of(context).size.height*0.02,
-                                                    ),
-                                                    child: Text(
-                                                      AppStrings.cancel,
-                                                      style: GoogleFonts.poppins(
-                                                        fontSize: 15,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: AppColors.textColorRed,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding:  EdgeInsets.only(
-                                                      left: MediaQuery.of(context).size.height*0.04,
-                                                      right: MediaQuery.of(context).size.height*0.04,
-                                                    ),
-                                                    child: Container(
-                                                      width: MediaQuery.of(context).size.width*0.003,
-                                                      height: MediaQuery.of(context).size.height*0.067,
-                                                      color: Colors.grey,
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: MediaQuery.of(context).size.height*0.02,
-                                                      left: MediaQuery.of(context).size.height*0.02,
-                                                      bottom: MediaQuery.of(context).size.height*0.02,
-                                                      right: MediaQuery.of(context).size.height*0.02,
-                                                    ),
-                                                    child: Text(
-                                                      AppStrings.ok,
-                                                      style: GoogleFonts.poppins(
-                                                        fontSize: 15,
-                                                        fontWeight: FontWeight.w700,
-                                                        color: AppColors.textColorBlue,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
+                                                );
+                                              },
+                                            );
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                            fixedSize: const Size(50, 20),
+                                            backgroundColor: Colors.white,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius: BorderRadius.circular(5),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            AppStrings.remove,
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w500,
+                                              color: AppColors.textColorGrey,
+                                            ),
                                           ),
                                         ),
-                                      );
-
-                                    },
-                                  );
-
-
-                                },
-                                   style: ElevatedButton.styleFrom(
-                                     fixedSize: const Size(50, 20), // Set the desired height and width
-                                    backgroundColor: Colors.white,
-                                     //primary: Colors.blue, // Set the button background color
-                                     shape: RoundedRectangleBorder(
-                                       borderRadius: BorderRadius.circular(5), // Set the border radius
-                                     ),
-                                  ),
-
-                                // style: ButtonStyle(
-                                //   backgroundColor: MaterialStateProperty.all<Color>(Colors.white70),
-                                //   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                //     RoundedRectangleBorder(
-                                //       borderRadius: BorderRadius.circular(5),
-                                //     ),
-                                //   ),
-                                //   minimumSize: MaterialStateProperty.all<Size>(Size(50, 20)),
-                                // ),
-
-                                child: Text(
-                                  AppStrings.remove,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.textColorGrey,
-                                  ),
+                                      ),
+                                  ],
                                 ),
                               ),
-                            ),
-                          ) :null,
-
-
-
-
-                          trailing: items[index].trainling
-                              ? Container(
-                                width: 100,
-                                height: 20,
-                                decoration: BoxDecoration(
-                                color:  AppColors.lightGreen,
-                                borderRadius: BorderRadius.circular(20),
-                               ),
-                               child: Center(
-                                child: Text(
-                                  AppStrings.grpadmin,
-                                style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 10,
+                              if (items[index].trainling)
+                                Container(
+                                  width: 100,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.lightGreen,
+                                    borderRadius: BorderRadius.circular(20),
+                                  ),
+                                  child: Center(
+                                    child: Text(
+                                      AppStrings.grpadmin,
+                                      style: GoogleFonts.poppins(
+                                        fontWeight: FontWeight.w300,
+                                        fontSize: 10,
+                                      ),
+                                    ),
+                                  ),
                                 ),
-                              ),
-                            ),
-                          )
-                              : Column(
-                            children: [
-                                 Icon(Icons.perm_contact_cal,
-                                color: AppColors.contactIconClr),
-                            Text(
-                              AppStrings.india,
-                            ),
+                              if (!items[index].trainling)
+                                Column(
+                                  children: [
+                                    Icon(Icons.perm_contact_cal, color: AppColors.contactIconClr),
+                                    Text(AppStrings.india),
+                                  ],
+                                ),
                             ],
-                              ),
-
+                          ),
                         ),
                       );
                     },
@@ -299,7 +289,7 @@ class _ConnectionsState extends State<Connections> {
                       return const Divider(
                         indent: 20,
                         endIndent: 20,
-                        height: 50,
+                        height: 1,
                         thickness: 1,
                       );
                     },
@@ -313,4 +303,7 @@ class _ConnectionsState extends State<Connections> {
       ),
     );
   }
+
+
+
 }

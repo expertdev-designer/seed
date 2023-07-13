@@ -170,30 +170,15 @@ class _NewBroadcasts extends State<NewBroadcasts>{
                       scrollDirection: Axis.horizontal,
                       itemCount: selected.length,
                       itemBuilder: (context, index) {
-                        return Selected(
+                        return Items(
+                          isChecked: index,
                           leading: selected[index].leading,
                           title: selected[index].title,
-                          // onTap: () {
-                          //    if (checkIndex == index)
-                          //      checkIndex = null;
-                          //    else
-                          //      checkIndex = index;
-                          //   setState(() {
-                          //     selected[index].isTapped = !selected[index].isTapped;
-                          //   });
-                          // },
-
-                          //onTap: handleImageSelection,
-
                           onTap: () {
-                            handleImageSelection(index);
+                            selected[index].isTapped = !selected[index].isTapped;
+                            setState(() {});
                           },
-
-                          // isSelected: selected[index].isTapped,
-                          //isImageToggled: isImageToggled,
-                          //toggleImage: _toggleImage,
-                          textColor: AppColors.textColorLightGrey,
-                          //isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
+                          textColor: AppColors.textColorGrey,
                         );
                       },
                     ),
@@ -323,60 +308,59 @@ class _NewBroadcasts extends State<NewBroadcasts>{
     );
   }
 
-}
-
-class Selected extends StatelessWidget {
-  final String leading;
-  final String title;
-  final VoidCallback onTap;
-  final Color textColor;
-  final int isChecked;
-  final bool isSelected;
-
-
-
-  const Selected({
-    required this.leading,
-    required this.title,
-    required this.onTap,
-    required this.textColor,
-    this.isChecked=0,
-    this.isSelected=false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-
-
-
-
+  Widget? Items(
+      {required String leading,
+        required String title,
+        required VoidCallback onTap,
+        required Color textColor,
+        int? isChecked}) {
     return Padding(
-      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04, top: MediaQuery.of(context).size.height * 0.01),
+      padding: const EdgeInsets.only(left: 10, top: 10),
       child: InkWell(
         onTap: onTap,
         child: Column(
           children: [
-            Stack(
-              children:[ CircleAvatar(
+            Stack(children: [
+              CircleAvatar(
                 radius: 25,
                 backgroundColor: AppColors.colorGreen,
-                child: leading.contains(AppImages.profileImage)
+                child: leading.contains(".svg")
                     ? SvgPicture.asset(
                   leading,
-                  width: MediaQuery.of(context).size.width * 0.04,
-                  height: MediaQuery.of(context).size.height * 0.04,
+                  width: 50,
+                  height: 50,
                 )
                     : Image.asset(
                   leading,
-                  width: MediaQuery.of(context).size.width * 0.2,
-                  height: MediaQuery.of(context).size.height * 0.2,
+                  width: 50,
+                  height: 50,
                 ),
               ),
-        ],
-            ),
-              //checkIndexBroadcast != null && isChecked == checkIndexBroadcast
+              isChecked! != null && selected[isChecked].isTapped
               //isChecked != null && isChecked == index && items[index].isSelected
-
+                  ? Positioned(
+                top: 30,
+                left: 35,
+                child: Container(
+                  width: 15,
+                  height: 15,
+                  decoration: BoxDecoration(
+                    color: AppColors.colorGreen.withOpacity(0.6),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: Transform.scale(
+                    scale: 0.8,
+                    child: SvgPicture.asset(
+                      AppImages.cross,
+                      width: 20, // Set the width of the SVG image
+                      height: 20, // Set the height of the SVG image
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              )
+                  : SizedBox()
+            ]),
             Text(
               title,
               style: GoogleFonts.poppins(
@@ -390,4 +374,7 @@ class Selected extends StatelessWidget {
       ),
     );
   }
+
+
 }
+

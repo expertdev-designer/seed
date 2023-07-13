@@ -99,14 +99,15 @@ class _NewGroup extends State<NewGroup>{
                 scrollDirection: Axis.horizontal,
                 itemCount: selected.length,
                 itemBuilder: (context, index) {
-                  return Selected(
+                  return selectedItems(
+                    isChecked: index,
                     leading: selected[index].leading,
                     title: selected[index].title,
-                    onTap: () {},
-                    //isImageToggled: isImageToggled,
-                    //toggleImage: _toggleImage,
-                    textColor: AppColors.textColorLightGrey,
-                    //isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
+                    onTap: () {
+                      selected[index].isTapped = !selected[index].isTapped;
+                      setState(() {});
+                    },
+                    textColor: AppColors.textColorGrey,
                   );
                 },
               ),
@@ -232,7 +233,75 @@ class _NewGroup extends State<NewGroup>{
     );
   }
 
+   Widget? selectedItems(
+       {required String leading,
+         required String title,
+         required VoidCallback onTap,
+         required Color textColor,
+         int? isChecked}) {
+     return Padding(
+       padding: const EdgeInsets.only(left: 10, top: 10),
+       child: InkWell(
+         onTap: onTap,
+         child: Column(
+           children: [
+             Stack(children: [
+               CircleAvatar(
+                 radius: 25,
+                 backgroundColor: AppColors.colorGreen,
+                 child: leading.contains(".svg")
+                     ? SvgPicture.asset(
+                   leading,
+                   width: 50,
+                   height: 50,
+                 )
+                     : Image.asset(
+                   leading,
+                   width: 50,
+                   height: 50,
+                 ),
+               ),
+               isChecked! != null && selected[isChecked].isTapped
+               //isChecked != null && isChecked == index && items[index].isSelected
+                   ? Positioned(
+                 top: 30,
+                 left: 35,
+                 child: Container(
+                   width: 15,
+                   height: 15,
+                   decoration: BoxDecoration(
+                     color: AppColors.colorGreen.withOpacity(0.6),
+                     borderRadius: BorderRadius.circular(50),
+                   ),
+                   child: Transform.scale(
+                     scale: 0.8,
+                     child: SvgPicture.asset(
+                       AppImages.cross,
+                       width: 20, // Set the width of the SVG image
+                       height: 20, // Set the height of the SVG image
+                       color: Colors.white,
+                     ),
+                   ),
+                 ),
+               )
+                   : SizedBox()
+             ]),
+             Text(
+               title,
+               style: GoogleFonts.poppins(
+                 fontWeight: FontWeight.w600,
+                 fontSize: 12,
+                 color: textColor,
+               ),
+             ),
+           ],
+         ),
+       ),
+     );
+   }
 }
+
+
 
 class Selected extends StatelessWidget {
   final String leading;
