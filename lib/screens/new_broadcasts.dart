@@ -56,10 +56,12 @@ class _NewBroadcasts extends State<NewBroadcasts>{
   int? checkIndexBroadcast;
   int? isChecked;
 
+  List<int> selectedIndexes = [];
+
   void handleImageSelection(int index) {
     setState(() {
       // Toggle the selected state of the image
-      selected[index].isTapped = !selected[index].isTapped;
+      //selected[index].isTapped = !selected[index].isTapped;
       //selected[index].isTapped = !selected[index].isTapped;
       // Add or remove the item from the selected list based on its selected state
       // if (selected[index].isTapped) {
@@ -67,6 +69,15 @@ class _NewBroadcasts extends State<NewBroadcasts>{
       // } else {
       //   selected.remove(items[index]);
       // }
+
+
+          if (selectedIndexes.contains(index)) {
+            selectedIndexes.remove(index);
+          } else {
+            selectedIndexes.add(index);
+          }
+
+
     });
   }
 
@@ -320,6 +331,7 @@ class Selected extends StatelessWidget {
   final VoidCallback onTap;
   final Color textColor;
   final int isChecked;
+  final bool isSelected;
 
 
 
@@ -329,6 +341,7 @@ class Selected extends StatelessWidget {
     required this.onTap,
     required this.textColor,
     this.isChecked=0,
+    this.isSelected=false,
   });
 
   @override

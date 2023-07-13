@@ -64,6 +64,7 @@ class ConnectionList extends StatefulWidget {
   ];
 
   bool isImageToggled = true;
+  int? checkIndex;
 
   void _toggleImage() {
     setState(() {
@@ -175,20 +176,7 @@ class ConnectionList extends StatefulWidget {
                               title: grp[index].title,
                               onTap: () {
                                 setState(() {
-                                  items[index].isTapped
-                                      ?  Stack(
-                                    children: [
 
-                                      Positioned.fill(
-                                        child: Align(
-                                          alignment: Alignment.center,
-                                          child:SvgPicture.asset(AppImages.selectsvg,width: 8,height: 8,color: AppColors.borderColor) ,
-
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                      : null;
                                 });
                               },
                               isImageToggled: isImageToggled,
@@ -246,7 +234,28 @@ class ConnectionList extends StatefulWidget {
                             return ReusableRow(
                               leading: broad[index].leading,
                               title: broad[index].title,
-                              onTap: () {},
+                              onTap: () {
+                                print("tap");
+                                checkIndex = index;
+                                broad[index].isTapped = !broad[index].isTapped;
+                                //  broad[index].isTapped
+                                //     ?  Stack(
+                                //   children: [
+                                //
+                                //     Positioned.fill(
+                                //       child: Align(
+                                //         alignment: Alignment.center,
+                                //         child:SvgPicture.asset(AppImages.selectsvg,width: 8,height: 8,color: AppColors.borderColor) ,
+                                //
+                                //       ),
+                                //     ),
+                                //   ],
+                                // )
+                                //     : null;
+                                setState(() {
+                                  items[index].isTapped = !items[index].isTapped;
+                                });
+                              },
                               isImageToggled: isImageToggled,
                               toggleImage: _toggleImage,
                               textColor: isImageToggled ? AppColors.textColorGrey : AppColors.textColorLightGrey,
@@ -412,6 +421,7 @@ class ReusableRow extends StatelessWidget {
   final bool isImageToggled;
   final VoidCallback toggleImage;
   final Color textColor;
+  final bool isChecked;
 
 
 
@@ -422,6 +432,7 @@ class ReusableRow extends StatelessWidget {
     required this.isImageToggled,
     required this.toggleImage,
     required this.textColor,
+    this.isChecked=false,
   });
 
   @override
@@ -434,20 +445,45 @@ class ReusableRow extends StatelessWidget {
         onTap: onTap,
         child: Column(
           children: [
-            CircleAvatar(
-              radius: 25,
-              backgroundColor: AppColors.colorGreen,
-              child: leading.contains('.svg')
-                  ? SvgPicture.asset(
-                leading,
-                width: MediaQuery.of(context).size.width * 0.04,
-                height: MediaQuery.of(context).size.height * 0.04,
-              )
-                  : Image.asset(
-                leading,
-                width: MediaQuery.of(context).size.width * 0.2,
-                height: MediaQuery.of(context).size.height * 0.2,
+            Stack(
+              children:[ CircleAvatar(
+                radius: 25,
+                backgroundColor: AppColors.colorGreen,
+                child: leading.contains('.svg')
+                    ? SvgPicture.asset(
+                  leading,
+                  width: MediaQuery.of(context).size.width * 0.04,
+                  height: MediaQuery.of(context).size.height * 0.04,
+                )
+                    : Image.asset(
+                  leading,
+                  width: MediaQuery.of(context).size.width * 0.2,
+                  height: MediaQuery.of(context).size.height * 0.2,
+                ),
               ),
+
+                //checkIndex != null && isChecked == checkIndex
+                isChecked != 0 && isChecked == 1
+                //isChecked != null && isChecked == index && items[index].isSelected
+                    ? Positioned(
+                  top: 15,
+                  left: 0,
+                  bottom: 15,
+                  right: 0,
+                  child: CircleAvatar(
+                    radius:50,
+                    backgroundColor: AppColors.colorGreen.withOpacity(0.5),
+                    child: SvgPicture.asset(
+                      AppImages.selectsvg,
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                )
+                    : SizedBox()
+
+        ],
             ),
             Text(
               title,
