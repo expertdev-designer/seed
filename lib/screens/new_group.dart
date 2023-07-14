@@ -72,7 +72,7 @@ class _NewGroup extends State<NewGroup>{
               Padding(
                 padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.20),
                 child: Text(AppStrings.newgroup,
-                  style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color:AppColors.textColorBlack,
+                  style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w600,color:AppColors.textColorBlack,
                 ),
               ),
               ),
@@ -91,7 +91,7 @@ class _NewGroup extends State<NewGroup>{
           ),
 
           Padding(
-            padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.0),
+            padding:  EdgeInsets.only(left: MediaQuery.of(context).size.width*0.02),
 
             child: SizedBox(
               height: 80, // Set the height of the horizontal row
@@ -197,7 +197,7 @@ class _NewGroup extends State<NewGroup>{
                  return const Divider(
                    indent: 20,
                    endIndent: 20,
-                   height: 50,
+                   height: 30,
                    thickness: 1,
                  );
                },
@@ -291,7 +291,7 @@ class _NewGroup extends State<NewGroup>{
                style: GoogleFonts.poppins(
                  fontWeight: FontWeight.w600,
                  fontSize: 12,
-                 color: textColor,
+                 color: AppColors.textColorLightGrey,
                ),
              ),
            ],
@@ -307,8 +307,6 @@ class Selected extends StatelessWidget {
   final String leading;
   final String title;
   final VoidCallback onTap;
-  // final bool isImageToggled;
-  //final VoidCallback toggleImage;
   final Color textColor;
 
 
@@ -317,8 +315,6 @@ class Selected extends StatelessWidget {
     required this.leading,
     required this.title,
     required this.onTap,
-    // required this.isImageToggled,
-    //required this.toggleImage,
     required this.textColor,
   });
 
@@ -352,7 +348,7 @@ class Selected extends StatelessWidget {
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,
                 fontSize: 12,
-                color: textColor,
+                color: AppColors.textColorLightGrey,
               ),
             ),
           ],

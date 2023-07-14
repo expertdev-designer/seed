@@ -34,14 +34,14 @@ class Schedule extends StatelessWidget{
                 Padding(
                   padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left:MediaQuery.of(context).size.width * 0.25,),
                   child: Text(AppStrings.schedule,
-                    style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w700,color: AppColors.textColorBlack),
+                    style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w600,color: AppColors.textColorBlack),
                   ),
                 ),
               ],
             ),
             Padding(
               padding:  EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height*0.02,
+                  top: MediaQuery.of(context).size.height*0.03,
                   left: MediaQuery.of(context).size.width*0.06,
                   right: MediaQuery.of(context).size.width*0.06),
               child: TextField(
@@ -63,16 +63,20 @@ class Schedule extends StatelessWidget{
                 top: MediaQuery.of(context).size.height*0.02,
                 left: MediaQuery.of(context).size.width*0.06,
                 right: MediaQuery.of(context).size.width*0.06),
-              child: TextField(
-                maxLines: 5,
-                decoration: InputDecoration(
-                  hintText: AppStrings.desc,
-                  hintStyle: GoogleFonts.poppins(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600
-                  ),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(3)
+              child: Container(
+                child: TextField(
+                  maxLines: 7,
+                  decoration: InputDecoration(
+                    // filled: true,
+                    // fillColor: AppColors.textColorLightGrey,
+                    hintText: AppStrings.desc,
+                    hintStyle: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(3)
+                    ),
                   ),
                 ),
               ),
@@ -146,7 +150,7 @@ class Schedule extends StatelessWidget{
                       child: Text(AppStrings.d,style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
-
+                        color: AppColors.textColorBlack,
                       ),),
                     ),
                   ),
@@ -164,6 +168,7 @@ class Schedule extends StatelessWidget{
                       child: Text(AppStrings.w,style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
+                        color: AppColors.textColorBlack,
                       ),),
                     ),
                   ),
@@ -181,6 +186,7 @@ class Schedule extends StatelessWidget{
                       child: Text(AppStrings.m,style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
+                        color: AppColors.textColorBlack,
                       ),),
                     ),
                   ),
@@ -198,6 +204,7 @@ class Schedule extends StatelessWidget{
                       child: Text(AppStrings.y,style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
+                        color: AppColors.textColorBlack,
                       ),),
                     ),
                   ),

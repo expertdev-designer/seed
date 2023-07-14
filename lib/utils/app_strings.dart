@@ -3,6 +3,7 @@ class AppStrings {
   static String  AltDelete='Are you sure you want to delete this group?';
   static String DltPerson='Are you sure you want to remove yourself and delete the group?';
   static String RmvConnection='Are you sure you want to remove this connection?';
+  static String RmvConnect='Are you sure you want to remove this connection from this group??';
   static String albert='Ablert Smith';
   static String stehan='Stehan Park';
   static String dean='Oswal Dean';
@@ -24,6 +25,7 @@ class AppStrings {
   static String backbenc='Back Benc..';
   static String designer='Designer..';
   static String developer='Developer..';
+  static String dev='Developer';
   static String salesT='Sales Team';
   static String myCon='My Connections';
   static String confirm='Confirmation!';

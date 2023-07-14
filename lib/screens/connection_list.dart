@@ -140,7 +140,7 @@ class _ConnectionList extends State<ConnectionList> {
               Padding(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.35),
+                    right: MediaQuery.of(context).size.height * 0.36),
                 child: Text(
                   AppStrings.group,
                   style: GoogleFonts.poppins(
@@ -192,7 +192,7 @@ class _ConnectionList extends State<ConnectionList> {
               Padding(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.30),
+                    right: MediaQuery.of(context).size.height * 0.31),
                 child: Text(
                   AppStrings.broadcasts,
                   style: GoogleFonts.poppins(
@@ -277,7 +277,7 @@ class _ConnectionList extends State<ConnectionList> {
               Padding(
                 padding: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.25),
+                    right: MediaQuery.of(context).size.height * 0.26),
                 child: Text(
                   AppStrings.myCon,
                   style: GoogleFonts.poppins(
@@ -378,7 +378,7 @@ class _ConnectionList extends State<ConnectionList> {
                       return const Divider(
                         indent: 20,
                         endIndent: 20,
-                        height: 50,
+                        height: 30,
                         thickness: 1,
                       );
                     },
@@ -596,8 +596,8 @@ class ReusableRow extends StatelessWidget {
                   child: leading.contains('.svg')
                       ? SvgPicture.asset(
                     leading,
-                    width: MediaQuery.of(context).size.width * 0.04,
-                    height: MediaQuery.of(context).size.height * 0.04,
+                    width: MediaQuery.of(context).size.width * 0.032,
+                    height: MediaQuery.of(context).size.height * 0.032,
                   )
                       : Image.asset(
                     leading,

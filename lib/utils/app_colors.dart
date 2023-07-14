@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
  class AppColors{
   static const  colorGreen = Color(0xfff01B701);
-  //static const colorGreen=Color(0xfff01B701);
+  static const searchicon=Color(0xfff8E8E93);
   static const whitebg=Color(0xfffD8D8D8);
   static const  textColorGrey = Color(0xfff555555);
   static const textColorBlack = Color(0xfff3C3C3C);

@@ -38,6 +38,7 @@ class SeedDetail extends StatelessWidget{
                 ],
               ),
             ),
+            SizedBox(height: 10,),
 
             Row(
 
@@ -66,11 +67,14 @@ class SeedDetail extends StatelessWidget{
                           color: Colors.black,
                         ),
                       ),
-                      Text(AppStrings.hourago,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.grey,
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                        child: Text(AppStrings.hourago,
+                          style: GoogleFonts.poppins(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                     ],
@@ -106,6 +110,7 @@ class SeedDetail extends StatelessWidget{
 
               ],
             ),
+            SizedBox(height: 6,),
 
             Row(
               children: [
@@ -133,7 +138,7 @@ class SeedDetail extends StatelessWidget{
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
-                            color: AppColors.textColorBlack,
+                            color: AppColors.textColorLightGrey,
                           ),
                         ),
                       ),
@@ -154,12 +159,19 @@ class SeedDetail extends StatelessWidget{
                         ),
                         child: SvgPicture.asset(AppImages.download),
                       ),
-                      Text(AppStrings.datetxt,),
+                      Text(AppStrings.datetxt,
+                        style: GoogleFonts.poppins(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.textColorGrey,
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ],
             ),
+            SizedBox(height: 6,),
 
             Padding(
               padding: EdgeInsets.only(
@@ -199,7 +211,7 @@ class SeedDetail extends StatelessWidget{
                 style: GoogleFonts.poppins(
                   fontSize: 12,
                   fontWeight: FontWeight.w600,
-                  color: AppColors.textColorBlack,
+                  color: AppColors.textColorGrey,
                 ),
               ),
             ),

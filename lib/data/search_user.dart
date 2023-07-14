@@ -29,8 +29,8 @@ class _SearchUser extends State<SearchUser>{
 
   final List<SearchList> items=[
     SearchList(AppImages.profileImage, AppStrings.madfmly,AppStrings.grp, true),
-    SearchList(AppImages.profileImage2, AppStrings.john,AppStrings.grp, true),
-    SearchList(AppImages.profileImage3, AppStrings.developer,AppStrings.grp, true),
+    SearchList(AppImages.profileImage2, AppStrings.john,AppStrings.connection, true),
+    SearchList(AppImages.profileImage3, AppStrings.developer,AppStrings.dev, true),
   ];
   @override
   Widget build(BuildContext context) {
@@ -102,6 +102,13 @@ class _SearchUser extends State<SearchUser>{
                      //  ),
 
                       //subtitle: Text(subtitle),
+                      subtitle: Text(items[index].subtitle,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: AppColors.textColorLightGrey,
+                        ),
+                      ),
 
                       trailing: const Icon(
                           Icons.arrow_forward,
@@ -112,7 +119,7 @@ class _SearchUser extends State<SearchUser>{
                         return const Divider(
                           indent: 20,
                           endIndent: 20,
-                          height: 50,
+                          height: 10,
                           thickness: 1,
                         );
                      }, itemCount: items.length),
@@ -120,13 +127,13 @@ class _SearchUser extends State<SearchUser>{
               ),
 
                Expanded(
-                 flex: 2,
+                flex:3,
                  child: Column(
                    children: [
                      Container(
                        width: 326,
                        height: 1,
-                       color: Color(0xfffD8D8D8),
+                       color: AppColors.whitebg,
                      ),
 
                      Padding(
@@ -134,7 +141,7 @@ class _SearchUser extends State<SearchUser>{
                        child: Container(
                          child:  Row(
                            children: [
-                             Icon(Icons.search,size: 30,color: Color(0xfff8E8E93)),
+                             Icon(Icons.search,size: 30,color:AppColors.searchicon,),
                              Padding(
                                padding: const EdgeInsets.only(left: 20),
                                child: Text('John William',
@@ -151,7 +158,7 @@ class _SearchUser extends State<SearchUser>{
                        child: Container(
                            child:  Row(
                              children: [
-                               Icon(Icons.search,size: 30,color: Color(0xfff8E8E93)),
+                               Icon(Icons.search,size: 30,color: AppColors.searchicon,),
                                Padding(
                                  padding: const EdgeInsets.only(left: 20),
                                  child: Text('John William',
