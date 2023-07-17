@@ -204,7 +204,15 @@ class _MyConnections extends State<MyConnections> {
                       filled: true,
                       fillColor: AppColors.searchbarBackground,
                       prefixIcon: Icon(Icons.search),
-                      border: OutlineInputBorder(
+                      // border: OutlineInputBorder(
+                      //   borderRadius: BorderRadius.circular(10.0),
+                      // ),
+                      focusedBorder:  OutlineInputBorder(
+                        borderSide: BorderSide(color:AppColors.textColorGrey,),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      enabledBorder:  OutlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.textColorLightGrey,),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                     ),
@@ -414,6 +422,7 @@ class _MyConnections extends State<MyConnections> {
                                  ),
                                ),
 
+                               // if (selectedIndex == index)
                                if (selectedIndex == index)
                                  Padding(
                                    padding: const EdgeInsets.only(right: 50),

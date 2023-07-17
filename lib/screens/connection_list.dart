@@ -118,8 +118,7 @@ class _ConnectionList extends State<ConnectionList> {
                 ],
               ),
               Padding(
-                padding:
-                EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+                padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
                 child: Expanded(
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.9,
@@ -129,7 +128,12 @@ class _ConnectionList extends State<ConnectionList> {
                         filled: true,
                         fillColor: AppColors.searchbarBackground,
                         prefixIcon: Icon(Icons.search),
-                        border: OutlineInputBorder(
+                        focusedBorder:  OutlineInputBorder(
+                          borderSide: BorderSide(color:AppColors.textColorGrey,),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        enabledBorder:  OutlineInputBorder(
+                          borderSide: BorderSide(color: AppColors.textColorLightGrey,),
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                       ),
@@ -222,7 +226,7 @@ class _ConnectionList extends State<ConnectionList> {
                         left: MediaQuery.of(context).size.width * 0.23),
                     child: Positioned(
                       child: SizedBox(
-                        height: 80, // Set the height of the horizontal row
+                        height: 80,
                         child: ListView.builder(
                           scrollDirection: Axis.horizontal,
                           itemCount: broad.length,

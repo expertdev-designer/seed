@@ -66,8 +66,13 @@ class _SearchUser extends State<SearchUser>{
                         decoration: InputDecoration(
                           filled: true,
                           fillColor:  AppColors.searchbarBackground,
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
+                          focusedBorder:  OutlineInputBorder(
+                            borderSide: BorderSide(color:AppColors.textColorGrey,),
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          enabledBorder:  OutlineInputBorder(
+                            borderSide: BorderSide(color: AppColors.textColorLightGrey,),
+                            borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
                       ),

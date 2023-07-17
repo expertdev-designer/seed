@@ -31,11 +31,11 @@ class _BroadcastName extends State<BroadcastName> {
               );
             },
           ),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.002),
+          //SizedBox(height: MediaQuery.of(context).size.height * 0.002),
           GroupNameField(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+          //SizedBox(height: MediaQuery.of(context).size.height * 0.001),
           Padding(
-            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.02),
+            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.039),
             child: Text(
               AppStrings.connections4,
               style: GoogleFonts.poppins(
@@ -46,25 +46,28 @@ class _BroadcastName extends State<BroadcastName> {
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.002),
-          Row(
-            children: [
-              GroupMembersRow(
-                imagePath: AppImages.profileImage2,
-                memberName: AppStrings.albertsmi,
-              ),
-              GroupMembersRow(
-                imagePath: AppImages.profileImage3,
-                memberName: AppStrings.stehanpa,
-              ),
-              GroupMembersRow(
-                imagePath: AppImages.profileImage2,
-                memberName: AppStrings.albertsmi,
-              ),
-              GroupMembersRow(
-                imagePath: AppImages.profileImage3,
-                memberName: AppStrings.stehanpa,
-              ),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(left: 5,right: 5),
+            child: Row(
+              children: [
+                GroupMembersRow(
+                  imagePath: AppImages.profileImage2,
+                  memberName: AppStrings.albertsmi,
+                ),
+                GroupMembersRow(
+                  imagePath: AppImages.profileImage3,
+                  memberName: AppStrings.stehanpa,
+                ),
+                GroupMembersRow(
+                  imagePath: AppImages.profileImage2,
+                  memberName: AppStrings.albertsmi,
+                ),
+                GroupMembersRow(
+                  imagePath: AppImages.profileImage3,
+                  memberName: AppStrings.stehanpa,
+                ),
+              ],
+            ),
           ),
 
 
@@ -131,7 +134,7 @@ class CustomAppBar extends StatelessWidget {
             AppStrings.newBroadcast,
             style: GoogleFonts.poppins(
               fontSize: 21,
-              fontWeight: FontWeight.w700,
+              fontWeight: FontWeight.w600,
               color: AppColors.textColorBlack,
             ),
           ),
@@ -150,6 +153,7 @@ class GroupNameField extends StatelessWidget {
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
           child: CircleAvatar(
             radius: 25,
+            backgroundColor: AppColors.colorGreen,
             child: Image.asset(AppImages.groupIcon,width: 30,height: 30,),
           ),
         ),
@@ -207,7 +211,7 @@ class GroupMembersRow extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 12,
-                  color: AppColors.textColorGrey,
+                  color: AppColors.textColorLightGrey,
                 ),
               ),
             ],

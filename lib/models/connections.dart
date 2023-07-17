@@ -104,7 +104,7 @@ class _ConnectionsState extends State<Connections> {
                           },
                           child: Container(
                             //color: Colors.lightBlue,
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 10,
                                 horizontal: 20,
                             ),

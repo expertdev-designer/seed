@@ -36,7 +36,7 @@ class NewConnections extends StatelessWidget{
                 child: Text(AppStrings.newCon,
                   style: GoogleFonts.poppins(
                     fontSize: 21,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w600,
                     color: AppColors.textColorBlack,
                   ),
                 ),
