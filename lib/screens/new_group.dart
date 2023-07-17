@@ -56,38 +56,42 @@ class _NewGroup extends State<NewGroup>{
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Column(
         children: [
+          SizedBox(height: height*0.08,),
           Row(
             children: [
-              Padding(
-                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left: MediaQuery.of(context).size.height * 0.03),
-                child: InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyConnections(),),);
-                    },
-                    child: Image.asset(AppImages.backArrowBlack)),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.09,left:MediaQuery.of(context).size.width * 0.20),
-                child: Text(AppStrings.newgroup,
-                  style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w600,color:AppColors.textColorBlack,
-                ),
+              SizedBox(width: width*0.05,),
+              InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyConnections(),),);
+                  },
+                  child: Image.asset(AppImages.backArrowBlack)),
+              SizedBox(width: width*0.2,),
+              Text(AppStrings.newgroup,
+                style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w600,color:AppColors.textColorBlack,
               ),
               ),
             ],
           ),
+          SizedBox(height: height*0.02,),
 
-          Padding(
-            padding:  EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,right: MediaQuery.of(context).size.height * 0.23),
-            child: Text(AppStrings.addCon,
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color:AppColors.textColorLightGrey,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(width: width*0.04,),
+              Text(AppStrings.addCon,
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color:AppColors.textColorLightGrey,
+                ),
               ),
-            ),
+            ],
           ),
 
           Padding(
@@ -113,21 +117,21 @@ class _NewGroup extends State<NewGroup>{
               ),
             ),
           ),
+          SizedBox(height: height*0.03,),
 
-          Padding(
-            padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height*0.03),
-            child: Container(
-              width: MediaQuery.of(context).size.width*0.9,
-              height: 0.8,
-              color: Colors.grey,
-            ),
+          Container(
+            width: MediaQuery.of(context).size.width*0.9,
+            height: 0.5,
+            color: Colors.grey,
           ),
+          SizedBox(height: height*0.02,),
 
           Expanded(
             child: Container(
              // height: MediaQuery.of(context).size.height,
+              height: height*0.34,
              child: ListView.separated(
-
+               padding: EdgeInsets.zero,
                itemBuilder: (context, index) {
                  return ListTile(
                    onTap: () {
@@ -186,7 +190,7 @@ class _NewGroup extends State<NewGroup>{
                    title: Text(
                      items[index].title,
                      style: GoogleFonts.poppins(
-                       fontWeight: FontWeight.w700,
+                       fontWeight: FontWeight.w600,
                        fontSize: 16,
                      ),
                    ),
@@ -207,9 +211,12 @@ class _NewGroup extends State<NewGroup>{
 
             ),
               ),
+          SizedBox(height: height*0.01,),
 
           Padding(
-            padding: EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.01,bottom:MediaQuery.of(context).size.height * 0.03,),
+            padding: EdgeInsets.only(
+              bottom:MediaQuery.of(context).size.height * 0.03,
+            ),
             child: ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>GroupName()));
             },

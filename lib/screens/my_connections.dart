@@ -260,7 +260,7 @@ class _MyConnections extends State<MyConnections> {
                   ),
                 ],
               ),
-              SizedBox(height: height*0.02,),
+              SizedBox(height: height*0.01,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -295,7 +295,9 @@ class _MyConnections extends State<MyConnections> {
                         left: MediaQuery.of(context).size.width * 0.23),
                     child: SizedBox(
                       height: 80, // Set the height of the horizontal row
+                      // height: height*0.34,
                       child: ListView.builder(
+                        padding: EdgeInsets.zero,
                         scrollDirection: Axis.horizontal,
                         itemCount: broad.length,
                         itemBuilder: (context, index) {
@@ -329,7 +331,7 @@ class _MyConnections extends State<MyConnections> {
                   ),
                 ],
               ),
-              SizedBox(height: height*0.02,),
+              //SizedBox(height: height*0.02,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -344,12 +346,15 @@ class _MyConnections extends State<MyConnections> {
                   ),
                 ],
               ),
+              SizedBox(height: height*0.02,),
               Expanded(
                 child: Container(
                   // height: MediaQuery.of(context).size.height,
                   // color: Colors.green,
                   // height: 300,
+                  height: height*0.34,
                   child: ListView.separated(
+                    padding: EdgeInsets.zero,
                     itemBuilder: (context, index) {
                        return InkWell(
                          onTap: () {

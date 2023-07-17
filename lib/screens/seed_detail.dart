@@ -9,76 +9,64 @@ import '../utils/app_strings.dart';
 import '../utils/images.dart';
 
 class SeedDetail extends StatelessWidget{
+
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.height * 0.08,
-                left: MediaQuery.of(context).size.width* 0.05,
-              ),
+            SizedBox(height: height*0.08,),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Row(
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //SizedBox(width: width*0.05,),
                   InkWell(
                     onTap:(){
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>Schedule()));
                     },
                       child: Icon(Icons.arrow_back),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).size.height * 0.00,left: MediaQuery.of(context).size.width* 0.75,
-                    ),
-                    child: SvgPicture.asset(AppImages.shareIconsvg),
-                  ),
+                  SvgPicture.asset(AppImages.shareIconsvg),
                 ],
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: height*0.02,),
 
             Row(
 
               children: [
-                Padding(
-                  padding: EdgeInsets.only(
-                    //top: MediaQuery.of(context).size.height * 0.00,
-                    left: MediaQuery.of(context).size.width* 0.05,
-                  ),
-                  child: Image.asset(AppImages.profileImage2,
-                   // width: MediaQuery.of(context).size.width*0.2,
-                    //height: MediaQuery.of(context).size.height*0.2,
-                  ),
+                SizedBox(width: width*0.05,),
+                Image.asset(AppImages.profileImage2,
+                 // width: MediaQuery.of(context).size.width*0.2,
+                  //height: MediaQuery.of(context).size.height*0.2,
                 ),
-                Padding(
-                  padding:  EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.00,
-                    left: MediaQuery.of(context).size.width* 0.04,
-                  ),
-                  child: Column(
-                    children: [
-                      Text(AppStrings.dennis,
-                        style: GoogleFonts.poppins(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black,
-                        ),
+
+                SizedBox(height: height*0.0,),
+                Column(
+                  children: [
+                    SizedBox(width: width*0.35,),
+                    Text(AppStrings.dennis,
+                      style: GoogleFonts.poppins(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: Text(AppStrings.hourago,
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.grey,
-                          ),
-                        ),
+                    ),
+                    SizedBox(width: width*0.35,),
+                    Text(AppStrings.hourago,
+                      style: GoogleFonts.poppins(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
                 Padding(
                   padding:  EdgeInsets.only(

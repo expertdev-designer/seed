@@ -86,7 +86,9 @@ class _ConnectionsState extends State<Connections> {
             Expanded(
               child: Container(
                // color: Colors.green,
+                height: height*0.34,
                 child: ListView.separated(
+                  padding: EdgeInsets.zero,
                   itemBuilder: (context, index) {
                     return Column(
                       children: [

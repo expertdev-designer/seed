@@ -37,11 +37,12 @@ class _SearchUser extends State<SearchUser>{
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Stack(
+          children: [
+           Column(
             children: [
               SizedBox(height: height*0.08,),
               Row(
@@ -80,106 +81,103 @@ class _SearchUser extends State<SearchUser>{
 
                 ],
               ),
-
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: ListView.separated(itemBuilder: (context,index){
-                    //final subtitle = items[index].subtitle ?? '';
-                    return ListTile(
-                      leading: Container(
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        child: CircleAvatar(
-                          radius: 100,
-                          backgroundImage:AssetImage(items[index].leading),),
-                      ),
-                      title: Text(
-                          items[index].title,
-                        style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600,),
-                      ),
-
-                     // subtitle: Text('${items[index].subtitle!}',),
-
-                     //  subtitle: Text(
-                     //    items[index].subtitle,
-                     //  ),
-
-                      //subtitle: Text(subtitle),
-                      subtitle: Text(items[index].subtitle,
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: AppColors.textColorLightGrey,
-                        ),
-                      ),
-
-                      trailing: const Icon(
-                          Icons.arrow_forward,
-                      ),
-                    );
-                  },
-                      separatorBuilder: (context,index){
-                        return const Divider(
-                          indent: 20,
-                          endIndent: 20,
-                          height: 10,
-                          thickness: 1,
-                        );
-                     }, itemCount: items.length),
-                ),
+              SizedBox(
+                height: height * 0.01,
               ),
 
-               Expanded(
-                flex:3,
-                 child: Column(
-                   children: [
-                     Container(
-                       width: 326,
-                       height: 1,
-                       color: AppColors.whitebg,
-                     ),
 
-                     Padding(
-                       padding: const EdgeInsets.only(top: 20,left: 25),
-                       child: Container(
-                         child:  Row(
-                           children: [
-                             Icon(Icons.search,size: 30,color:AppColors.searchicon,),
-                             Padding(
-                               padding: const EdgeInsets.only(left: 20),
-                               child: Text('John William',
-                                 style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600,),
-                               ),
-                             ),
-                           ],
-                         )
-                       ),
-                     ),
+              Container(
+                height: height*0.32,
+                child: ListView.separated(
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context,index){
+                  //final subtitle = items[index].subtitle ?? '';
+                  return ListTile(
+                    leading: Container(
+                      width: MediaQuery.of(context).size.width * 0.2,
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      child: CircleAvatar(
+                        radius: 100,
+                        backgroundColor: AppColors.colorGreen,
+                        backgroundImage:AssetImage(items[index].leading),),
+                    ),
+                    title: Text(
+                        items[index].title,
+                      style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600,),
+                    ),
 
-                     Padding(
-                       padding: const EdgeInsets.only(top: 20,left: 25),
-                       child: Container(
-                           child:  Row(
-                             children: [
-                               Icon(Icons.search,size: 30,color: AppColors.searchicon,),
-                               Padding(
-                                 padding: const EdgeInsets.only(left: 20),
-                                 child: Text('John William',
-                                   style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600,),
-                                 ),
-                               ),
-                             ],
-                           )
-                       ),
-                     ),
+                   // subtitle: Text('${items[index].subtitle!}',),
 
-                   ],
-                 ),
+                   //  subtitle: Text(
+                   //    items[index].subtitle,
+                   //  ),
+
+                    //subtitle: Text(subtitle),
+                    subtitle: Text(items[index].subtitle,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        color: AppColors.textColorLightGrey,
+                      ),
+                    ),
+
+                    trailing: const Icon(
+                        Icons.arrow_forward,
+                    ),
+                  );
+                },
+                    separatorBuilder: (context,index){
+                      return const Divider(
+                        indent: 20,
+                        endIndent: 20,
+                        height: 10,
+                        thickness: 1,
+                      );
+                   }, itemCount: items.length),
+              ),
+
+               Column(
+                 children: [
+                   Container(
+                     width: 326,
+                     height: 1,
+                     color: AppColors.whitebg,
+                   ),
+                   SizedBox(height:height*0.02),
+
+                   Container(
+                     child:  Row(
+                       children: [
+                         SizedBox(width: width*0.08,),
+                         Icon(Icons.search,size: 30,color:AppColors.searchicon,),
+                         SizedBox(width: width*0.03,),
+                         Text('John William',
+                           style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600,),
+                         ),
+                       ],
+                     )
+                   ),
+                   SizedBox(height:height*0.02),
+
+                   Container(
+                       child:  Row(
+                         children: [
+                           SizedBox(width: width*0.08,),
+                           Icon(Icons.search,size: 30,color: AppColors.searchicon,),
+                           SizedBox(width: width*0.03,),
+                           Text('John William',
+                             style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600,),
+                           ),
+                         ],
+                       )
+                   ),
+
+                 ],
                ),
 
             ],
           ),
+          ],
         ),
       ),
     );

@@ -373,101 +373,106 @@ class _ConnectionList extends State<ConnectionList> {
                   ),
                 ],
               ),
+              SizedBox(height: height*0.02,),
               Expanded(
-                child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: Container(
-                        //color: Colors.green,
-                        width: MediaQuery.of(context).size.width * 0.2,
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        child: CircleAvatar(
-                          backgroundImage: AssetImage(items[index].leading),
-                          radius: MediaQuery.of(context).size.width * 0.2,
-                        ),
-                      ),
-                      title: Text(
-                        items[index].title,
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 16,
-                        ),
-                      ),
-                      trailing: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            items[index].isTapped = !items[index].isTapped;
-                          });
-                        },
-                        child: Container(
-                          width: 20,
-                          height: 20,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(2),
-                            border: items[index].isTapped
-                                ? Border.all(
-                              color: AppColors.borderColor,
-                              width: 2.0,
-                            )
-                                : const Border.fromBorderSide(BorderSide(
-                              color: AppColors.textColorBlack,
-                              width: 2.0,
-                            )),
-
-                            //shape: BoxShape.rectangle,
-                            //color: Colors.grey,
-                            //  Border.all(
-                            //    color: AppColors.textColorBlack,
-                            //    width: 2.0,
-                            //  ),
-                            // // shape:BoxShape.rectangle,
-                            //  color: Colors.grey,
-
-                            // image: const DecorationImage(
-                            //   image: AssetImage('assets/images/top.png'),
-                            //   fit: BoxFit.cover,
-                            // ),
+                child: Container(
+                  height: height*0.34,
+                  child: ListView.separated(
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        leading: Container(
+                          //color: Colors.green,
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          height: MediaQuery.of(context).size.height * 0.2,
+                          child: CircleAvatar(
+                            backgroundImage: AssetImage(items[index].leading),
+                            radius: MediaQuery.of(context).size.width * 0.2,
                           ),
-                          child: items[index].isTapped
-                              ? Stack(
-                            children: [
-                              // BackdropFilter(
-                              //   filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                              //   child: Container(
-                              //     color: Colors.grey.withOpacity(0.3),
-                              //   ),
-                              // ),
-                              Positioned.fill(
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: SvgPicture.asset(
-                                      AppImages.selectsvg,
-                                      width: 8,
-                                      height: 8,
-                                      color: AppColors.borderColor),
-                                  // Icon(
-                                  //   Icons.check_box,
-                                  //   color: Colors.white,
-                                  //   size: 18,
-                                  // ),
-                                ),
-                              ),
-                            ],
-                          )
-                              : null,
                         ),
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return const Divider(
-                      indent: 20,
-                      endIndent: 20,
-                      height: 30,
-                      thickness: 1,
-                    );
-                  },
-                  itemCount: items.length,
+                        title: Text(
+                          items[index].title,
+                          style: GoogleFonts.poppins(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 16,
+                          ),
+                        ),
+                        trailing: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              items[index].isTapped = !items[index].isTapped;
+                            });
+                          },
+                          child: Container(
+                            width: 20,
+                            height: 20,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(2),
+                              border: items[index].isTapped
+                                  ? Border.all(
+                                color: AppColors.borderColor,
+                                width: 2.0,
+                              )
+                                  : const Border.fromBorderSide(BorderSide(
+                                color: AppColors.textColorBlack,
+                                width: 2.0,
+                              )),
+
+                              //shape: BoxShape.rectangle,
+                              //color: Colors.grey,
+                              //  Border.all(
+                              //    color: AppColors.textColorBlack,
+                              //    width: 2.0,
+                              //  ),
+                              // // shape:BoxShape.rectangle,
+                              //  color: Colors.grey,
+
+                              // image: const DecorationImage(
+                              //   image: AssetImage('assets/images/top.png'),
+                              //   fit: BoxFit.cover,
+                              // ),
+                            ),
+                            child: items[index].isTapped
+                                ? Stack(
+                              children: [
+                                // BackdropFilter(
+                                //   filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                                //   child: Container(
+                                //     color: Colors.grey.withOpacity(0.3),
+                                //   ),
+                                // ),
+                                Positioned.fill(
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: SvgPicture.asset(
+                                        AppImages.selectsvg,
+                                        width: 8,
+                                        height: 8,
+                                        color: AppColors.borderColor),
+                                    // Icon(
+                                    //   Icons.check_box,
+                                    //   color: Colors.white,
+                                    //   size: 18,
+                                    // ),
+                                  ),
+                                ),
+                              ],
+                            )
+                                : null,
+                          ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const Divider(
+                        indent: 20,
+                        endIndent: 20,
+                        height: 30,
+                        thickness: 1,
+                      );
+                    },
+                    itemCount: items.length,
+                  ),
                 ),
               ),
               Padding(
