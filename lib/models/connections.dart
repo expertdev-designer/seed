@@ -346,7 +346,7 @@ class _ConnectionsState extends State<Connections> {
                                                                 ),
                                                                 child: Container(
                                                                   width: MediaQuery.of(context).size.width * 0.003,
-                                                                  height: MediaQuery.of(context).size.height * 0.072,
+                                                                  height: MediaQuery.of(context).size.height*0.073,
                                                                   color: Colors.grey,
                                                                 ),
                                                               ),

@@ -95,6 +95,10 @@ class _MyConnections extends State<MyConnections> {
 
   @override
   Widget build(BuildContext context) {
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -102,13 +106,14 @@ class _MyConnections extends State<MyConnections> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * 0.09,
-                        left: MediaQuery.of(context).size.height * 0.03),
-                    child: InkWell(
+              SizedBox(
+                height: height * 0.06,
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    InkWell(
                       onTap: () {
                         Navigator.push(
                           context,
@@ -121,12 +126,8 @@ class _MyConnections extends State<MyConnections> {
                         Icons.arrow_back,
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * 0.09,
-                        left: MediaQuery.of(context).size.width * 0.10),
-                    child: Text(
+                    SizedBox(width: width*0.1,),
+                    Text(
                       AppStrings.myCon,
                       style: GoogleFonts.poppins(
                         fontSize: 21,
@@ -134,15 +135,15 @@ class _MyConnections extends State<MyConnections> {
                         color: AppColors.textColorBlack,
                       ),
                     ),
-                  ),
-                  Column(
-                    children: [
-                      Stack(
+                    SizedBox(width: width*0.06,),
+                    Container(
+                      height: 30,
+                      child: Stack(
                         children:[
 
                           Positioned(
-                            bottom: 10,
-                            left: 30,
+                            bottom: 15,
+                            left: 6,
 
                             child: CircleAvatar(
                                 radius: MediaQuery.of(context).size.width * 0.02,
@@ -158,7 +159,7 @@ class _MyConnections extends State<MyConnections> {
                                 )
 
                             ),
-                  ),
+                      ),
 
 
 
@@ -167,70 +168,56 @@ class _MyConnections extends State<MyConnections> {
                               Navigator.push(context, MaterialPageRoute(builder: (context) => NewConnections()));
                             },
                             child: Padding(
-                              padding: EdgeInsets.only(
-                                  top: MediaQuery.of(context).size.height * 0.09,
-                                  left: MediaQuery.of(context).size.width * 0.07),
+                              padding: const EdgeInsets.only(top: 6),
                               child: SvgPicture.asset(
                                 AppImages.addPerson,
                               ),
-
                             ),
                           ),
                        ],
                       ),
-
-
-
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * 0.09,
-                        left: MediaQuery.of(context).size.width * 0.05),
-                    child: SvgPicture.asset(
+                    ),
+                    SizedBox(width: width*0.05,),
+                    SvgPicture.asset(
                       AppImages.circleAddSign,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: height*0.02,),
+              Container(
+                width: width * 0.9,
+                height: height * 0.05,
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: AppColors.searchbarBackground,
+                    prefixIcon: Icon(Icons.search),
+                    focusedBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(color:AppColors.textColorGrey,),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    enabledBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.textColorLightGrey,),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: height*0.02,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width:width*0.035),
+                  Text(
+                    AppStrings.group,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: AppColors.textColorLightGrey,
                     ),
                   ),
                 ],
-              ),
-              Padding(
-                padding:
-                EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  height: MediaQuery.of(context).size.height * 0.05,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: AppColors.searchbarBackground,
-                      prefixIcon: Icon(Icons.search),
-                      // border: OutlineInputBorder(
-                      //   borderRadius: BorderRadius.circular(10.0),
-                      // ),
-                      focusedBorder:  OutlineInputBorder(
-                        borderSide: BorderSide(color:AppColors.textColorGrey,),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      enabledBorder:  OutlineInputBorder(
-                        borderSide: BorderSide(color: AppColors.textColorLightGrey,),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.35),
-                child: Text(
-                  AppStrings.group,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    color: AppColors.textColorLightGrey,
-                  ),
-                ),
               ),
               Stack(
                 children: [
@@ -273,18 +260,20 @@ class _MyConnections extends State<MyConnections> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.32),
-                child: Text(
-                  AppStrings.broadcasts,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                    color: AppColors.textColorLightGrey,
+              SizedBox(height: height*0.02,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: width*0.035,),
+                  Text(
+                    AppStrings.broadcasts,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: AppColors.textColorLightGrey,
+                    ),
                   ),
-                ),
+                ],
               ),
               Stack(
                 children: [
@@ -340,18 +329,20 @@ class _MyConnections extends State<MyConnections> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.3),
-                child: Text(
-                  AppStrings.connection,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: AppColors.textColorLightGrey,
+              SizedBox(height: height*0.02,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: width*0.035,),
+                  Text(
+                    AppStrings.connection,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: AppColors.textColorLightGrey,
+                    ),
                   ),
-                ),
+                ],
               ),
               Expanded(
                 child: Container(
@@ -648,7 +639,7 @@ class _MyConnections extends State<MyConnections> {
           children: [
             Stack(children: [
               CircleAvatar(
-                radius: 25,
+                radius: 24,
                 backgroundColor: AppColors.colorGreen,
                 child: leading.contains(".svg")
                     ? SvgPicture.asset(
@@ -715,7 +706,7 @@ class _MyConnections extends State<MyConnections> {
           children: [
             Stack(children: [
               CircleAvatar(
-                radius: 25,
+                radius: 24,
                 backgroundColor: AppColors.colorGreen,
                 child: leading.contains(".svg")
                     ? SvgPicture.asset(
@@ -762,6 +753,7 @@ class _MyConnections extends State<MyConnections> {
       ),
     );
   }
+
 }
 
 class ReusableRow extends StatelessWidget {
@@ -914,3 +906,4 @@ class ReusableRowForBroadCast extends StatelessWidget {
     );
   }
 }
+

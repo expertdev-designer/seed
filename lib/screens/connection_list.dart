@@ -70,6 +70,10 @@ class _ConnectionList extends State<ConnectionList> {
 
   @override
   Widget build(BuildContext context) {
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -77,13 +81,16 @@ class _ConnectionList extends State<ConnectionList> {
           width: MediaQuery.of(context).size.width,
           child: Column(
             children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * 0.09,
-                        left: MediaQuery.of(context).size.height * 0.03),
-                    child: InkWell(
+
+              SizedBox(
+                height: height * 0.06,
+              ),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
                       onTap: () {
                         Navigator.push(
                           context,
@@ -92,119 +99,192 @@ class _ConnectionList extends State<ConnectionList> {
                           ),
                         );
                       },
-                      child: Icon(
-                        Icons.arrow_back,
-                      ),
+                      child: const Icon(Icons.arrow_back,
+                          size: 24, color: Colors.black),
+                    ),
+                    SizedBox(width: width*0.2,),
+                    Text(
+                             AppStrings.sharewith,
+                             style: GoogleFonts.poppins(
+                               fontSize: 21,
+                               fontWeight: FontWeight.w600,
+                               color: AppColors.textColorBlack,
+                             ),
+                           ),
+                  ],
+                ),
+              ),
 
-                      // child: Image.asset('assets/images/back_arrow.png',
-                      //   width: 25,
-                      //   height: 25,
-                      // ),
+              // Row(
+              //   children: [
+              //     Padding(
+              //       padding: EdgeInsets.only(
+              //           top: MediaQuery.of(context).size.height * 0.09,
+              //           left: MediaQuery.of(context).size.height * 0.03),
+              //       child: InkWell(
+              //         onTap: () {
+              //           Navigator.push(
+              //             context,
+              //             MaterialPageRoute(
+              //               builder: (context) => MyHomePage(),
+              //             ),
+              //           );
+              //         },
+              //         child: Icon(
+              //           Icons.arrow_back,
+              //         ),
+              //
+              //         // child: Image.asset('assets/images/back_arrow.png',
+              //         //   width: 25,
+              //         //   height: 25,
+              //         // ),
+              //       ),
+              //     ),
+              //     Padding(
+              //       padding: EdgeInsets.only(
+              //           top: MediaQuery.of(context).size.height * 0.09,
+              //           left: MediaQuery.of(context).size.width * 0.20),
+              //       child: Text(
+              //         AppStrings.sharewith,
+              //         style: GoogleFonts.poppins(
+              //           fontSize: 21,
+              //           fontWeight: FontWeight.w700,
+              //           color: AppColors.textColorBlack,
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              SizedBox(height: height*0.02,),
+              Container(
+                width: width * 0.9,
+                height: height * 0.05,
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: AppColors.searchbarBackground,
+                    prefixIcon: Icon(Icons.search),
+                    focusedBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(color:AppColors.textColorGrey,),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * 0.09,
-                        left: MediaQuery.of(context).size.width * 0.20),
-                    child: Text(
-                      AppStrings.sharewith,
-                      style: GoogleFonts.poppins(
-                        fontSize: 21,
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.textColorBlack,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
-                child: Expanded(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.05,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: AppColors.searchbarBackground,
-                        prefixIcon: Icon(Icons.search),
-                        focusedBorder:  OutlineInputBorder(
-                          borderSide: BorderSide(color:AppColors.textColorGrey,),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        enabledBorder:  OutlineInputBorder(
-                          borderSide: BorderSide(color: AppColors.textColorLightGrey,),
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
+                    enabledBorder:  OutlineInputBorder(
+                      borderSide: BorderSide(color: AppColors.textColorLightGrey,),
+                      borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.36),
-                child: Text(
-                  AppStrings.group,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: AppColors.textColorLightGrey,
-                  ),
-                ),
-              ),
-              Stack(
+              SizedBox(height: height*0.02,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  ReusableRow(
-                    leading: AppImages.groupsvg,
-                    title: AppStrings.newgroup,
-                    onTap: () {},
-                    isImageToggled: isImageToggled,
-                    toggleImage: _toggleImage,
-                    textColor: AppColors.textColorLightGrey,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.width * 0.23),
-                    child: Positioned(
-                      child: SizedBox(
-                        height: 80, // Set the height of the horizontal row
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: grp.length,
-                          itemBuilder: (context, index) {
-                            return getConnectWidget(
-                              isChecked: index,
-                              leading: grp[index].leading,
-                              title: grp[index].title,
-                              onTap: () {
-                                grp[index].isTapped = !grp[index].isTapped;
-                                setState(() {});
-                              },
-                              textColor: isImageToggled
-                                  ? AppColors.textColorGrey
-                                  : AppColors.textColorLightGrey,
-                            );
-                          },
-                        ),
-                      ),
+                  SizedBox(width:width*0.035),
+                  Text(
+                    AppStrings.group,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: AppColors.textColorLightGrey,
                     ),
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.31),
-                child: Text(
-                  AppStrings.broadcasts,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: AppColors.textColorLightGrey,
+
+          Stack(
+              children: [
+                ReusableRow(
+                  leading: AppImages.groupsvg,
+                  title: AppStrings.newgroup,
+                  onTap: () {},
+                  isImageToggled: isImageToggled,
+                  toggleImage: _toggleImage,
+                  textColor: AppColors.textColorLightGrey,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.23),
+                  child: Positioned(
+                    child: SizedBox(
+                      height: 80, // Set the height of the horizontal row
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: grp.length,
+                        itemBuilder: (context, index) {
+                          return getConnectWidget(
+                            isChecked: index,
+                            leading: grp[index].leading,
+                            title: grp[index].title,
+                            onTap: () {
+                              grp[index].isTapped = !grp[index].isTapped;
+                              setState(() {});
+                            },
+                            textColor: isImageToggled
+                                ? AppColors.textColorGrey
+                                : AppColors.textColorLightGrey,
+                          );
+                        },
+                      ),
+                    ),
                   ),
                 ),
+              ],
+            ),
+
+
+              // Stack(
+              //   children: [
+              //     ReusableRow(
+              //       leading: AppImages.groupsvg,
+              //       title: AppStrings.newgroup,
+              //       onTap: () {},
+              //       isImageToggled: isImageToggled,
+              //       toggleImage: _toggleImage,
+              //       textColor: AppColors.textColorLightGrey,
+              //     ),
+              //     Padding(
+              //       padding: EdgeInsets.only(
+              //           left: MediaQuery.of(context).size.width * 0.23),
+              //       child: Positioned(
+              //         child: SizedBox(
+              //           height: 80, // Set the height of the horizontal row
+              //           child: ListView.builder(
+              //             scrollDirection: Axis.horizontal,
+              //             itemCount: grp.length,
+              //             itemBuilder: (context, index) {
+              //               return getConnectWidget(
+              //                 isChecked: index,
+              //                 leading: grp[index].leading,
+              //                 title: grp[index].title,
+              //                 onTap: () {
+              //                   grp[index].isTapped = !grp[index].isTapped;
+              //                   setState(() {});
+              //                 },
+              //                 textColor: isImageToggled
+              //                     ? AppColors.textColorGrey
+              //                     : AppColors.textColorLightGrey,
+              //               );
+              //             },
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              SizedBox(height: height*0.02,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: width*0.035,),
+                  Text(
+                    AppStrings.broadcasts,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: AppColors.textColorLightGrey,
+                    ),
+                  ),
+                ],
               ),
               Stack(
                 children: [
@@ -278,116 +358,116 @@ class _ConnectionList extends State<ConnectionList> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.01,
-                    right: MediaQuery.of(context).size.height * 0.26),
-                child: Text(
-                  AppStrings.myCon,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: AppColors.textColorLightGrey,
+              SizedBox(height: height*0.02,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(width: width*0.035,),
+                  Text(
+                    AppStrings.myCon,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16,
+                      color: AppColors.textColorLightGrey,
+                    ),
                   ),
-                ),
+                ],
               ),
               Expanded(
-                child: Container(
-                  // height: MediaQuery.of(context).size.height,
-                  child: ListView.separated(
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: Container(
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.2,
-                          child: CircleAvatar(
-                            backgroundImage: AssetImage(items[index].leading),
-                            radius: MediaQuery.of(context).size.width * 0.2,
-                          ),
+                child: ListView.separated(
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: Container(
+                        //color: Colors.green,
+                        width: MediaQuery.of(context).size.width * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        child: CircleAvatar(
+                          backgroundImage: AssetImage(items[index].leading),
+                          radius: MediaQuery.of(context).size.width * 0.2,
                         ),
-                        title: Text(
-                          items[index].title,
-                          style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w700,
-                            fontSize: 16,
-                          ),
+                      ),
+                      title: Text(
+                        items[index].title,
+                        style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16,
                         ),
-                        trailing: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              items[index].isTapped = !items[index].isTapped;
-                            });
-                          },
-                          child: Container(
-                            width: 20,
-                            height: 20,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(2),
-                              border: items[index].isTapped
-                                  ? Border.all(
-                                color: AppColors.borderColor,
-                                width: 2.0,
-                              )
-                                  : const Border.fromBorderSide(BorderSide(
-                                color: AppColors.textColorBlack,
-                                width: 2.0,
-                              )),
-
-                              //shape: BoxShape.rectangle,
-                              //color: Colors.grey,
-                              //  Border.all(
-                              //    color: AppColors.textColorBlack,
-                              //    width: 2.0,
-                              //  ),
-                              // // shape:BoxShape.rectangle,
-                              //  color: Colors.grey,
-
-                              // image: const DecorationImage(
-                              //   image: AssetImage('assets/images/top.png'),
-                              //   fit: BoxFit.cover,
-                              // ),
-                            ),
-                            child: items[index].isTapped
-                                ? Stack(
-                              children: [
-                                // BackdropFilter(
-                                //   filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                                //   child: Container(
-                                //     color: Colors.grey.withOpacity(0.3),
-                                //   ),
-                                // ),
-                                Positioned.fill(
-                                  child: Align(
-                                    alignment: Alignment.center,
-                                    child: SvgPicture.asset(
-                                        AppImages.selectsvg,
-                                        width: 8,
-                                        height: 8,
-                                        color: AppColors.borderColor),
-                                    // Icon(
-                                    //   Icons.check_box,
-                                    //   color: Colors.white,
-                                    //   size: 18,
-                                    // ),
-                                  ),
-                                ),
-                              ],
+                      ),
+                      trailing: GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            items[index].isTapped = !items[index].isTapped;
+                          });
+                        },
+                        child: Container(
+                          width: 20,
+                          height: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(2),
+                            border: items[index].isTapped
+                                ? Border.all(
+                              color: AppColors.borderColor,
+                              width: 2.0,
                             )
-                                : null,
+                                : const Border.fromBorderSide(BorderSide(
+                              color: AppColors.textColorBlack,
+                              width: 2.0,
+                            )),
+
+                            //shape: BoxShape.rectangle,
+                            //color: Colors.grey,
+                            //  Border.all(
+                            //    color: AppColors.textColorBlack,
+                            //    width: 2.0,
+                            //  ),
+                            // // shape:BoxShape.rectangle,
+                            //  color: Colors.grey,
+
+                            // image: const DecorationImage(
+                            //   image: AssetImage('assets/images/top.png'),
+                            //   fit: BoxFit.cover,
+                            // ),
                           ),
+                          child: items[index].isTapped
+                              ? Stack(
+                            children: [
+                              // BackdropFilter(
+                              //   filter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                              //   child: Container(
+                              //     color: Colors.grey.withOpacity(0.3),
+                              //   ),
+                              // ),
+                              Positioned.fill(
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  child: SvgPicture.asset(
+                                      AppImages.selectsvg,
+                                      width: 8,
+                                      height: 8,
+                                      color: AppColors.borderColor),
+                                  // Icon(
+                                  //   Icons.check_box,
+                                  //   color: Colors.white,
+                                  //   size: 18,
+                                  // ),
+                                ),
+                              ),
+                            ],
+                          )
+                              : null,
                         ),
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const Divider(
-                        indent: 20,
-                        endIndent: 20,
-                        height: 30,
-                        thickness: 1,
-                      );
-                    },
-                    itemCount: items.length,
-                  ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return const Divider(
+                      indent: 20,
+                      endIndent: 20,
+                      height: 30,
+                      thickness: 1,
+                    );
+                  },
+                  itemCount: items.length,
                 ),
               ),
               Padding(
@@ -437,7 +517,7 @@ class _ConnectionList extends State<ConnectionList> {
           children: [
             Stack(children: [
               CircleAvatar(
-                radius: 25,
+                radius: 24,
                 backgroundColor: AppColors.colorGreen,
                 child: leading.contains(".svg")
                     ? SvgPicture.asset(
@@ -504,7 +584,7 @@ class _ConnectionList extends State<ConnectionList> {
           children: [
             Stack(children: [
               CircleAvatar(
-                radius: 25,
+                radius: 24,
                 backgroundColor: AppColors.colorGreen,
                 child: leading.contains(".svg")
                     ? SvgPicture.asset(
