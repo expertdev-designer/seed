@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var height = MediaQuery.of(context).size.height;
     Widget _topBackgroundCurve() {
       return Container(
-        height: height * 0.25,
+        height: height * 0.3,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: height * 0.06,
+                  height: height * 0.07,
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 20),
@@ -121,20 +121,23 @@ class _MyHomePageState extends State<MyHomePage> {
                                 height: 24,
                               )),
                           const SizedBox(
-                            width: 50,
+                            width: 30,
                           ),
-                          InkWell(
-                              onTap: () {
-                                showRemoveDialog();
-                              },
-                              child: Image.asset(AppImages.deleteIcon)),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: InkWell(
+                                onTap: () {
+                                  showRemoveDialog();
+                                },
+                                child: Image.asset(AppImages.deleteIcon)),
+                          ),
                         ],
                       ),
                     ],
                   ),
                 ),
                 SizedBox(
-                  height: height * 0.04,
+                  height: height * 0.06,
                 ),
                 Stack(
                   children: [
@@ -153,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ],
                 ),
                 SizedBox(
-                  height: height * 0.02,
+                  height: height * 0.01,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -440,7 +443,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   height: height * 0.03,
                 ),
                 Container(
-                  height: height*0.55,
+                  height: height*0.54,
                   child: GridView.builder(
                     // physics: NeverScrollableScrollPhysics(),
                     padding: EdgeInsets.zero,

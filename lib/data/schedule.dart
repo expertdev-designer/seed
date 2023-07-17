@@ -17,33 +17,32 @@ class Schedule extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: height*0.08,),
             Row(
               children: [
-                Padding(
-                  padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left: MediaQuery.of(context).size.width* 0.06,),
-                  child: InkWell(
-                    onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage(),),);
-                    },
-                      child: Image.asset(AppImages.backArrowBlack)),
-                ),
-                Padding(
-                  padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left:MediaQuery.of(context).size.width * 0.25,),
-                  child: Text(AppStrings.schedule,
-                    style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w600,color: AppColors.textColorBlack),
-                  ),
+                SizedBox(width: width*0.05,),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage(),),);
+                  },
+                    child: Image.asset(AppImages.backArrowBlack)),
+                SizedBox(width: width*0.25,),
+                Text(AppStrings.schedule,
+                  style: GoogleFonts.poppins(fontSize:21 ,fontWeight: FontWeight.w600,color: AppColors.textColorBlack),
                 ),
               ],
             ),
-            Padding(
-              padding:  EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height*0.03,
-                  left: MediaQuery.of(context).size.width*0.06,
-                  right: MediaQuery.of(context).size.width*0.06),
+            SizedBox(height: height*0.03,),
+            Container(
+              width: width*0.88,
               child: TextField(
                 decoration: InputDecoration(
                   hintText: AppStrings.titleseed,
@@ -57,34 +56,30 @@ class Schedule extends StatelessWidget{
                 ),
               ),
             ),
+            SizedBox(height: height*0.03,),
 
-            Padding(
-              padding:  EdgeInsets.only(
-                top: MediaQuery.of(context).size.height*0.02,
-                left: MediaQuery.of(context).size.width*0.06,
-                right: MediaQuery.of(context).size.width*0.06),
-              child: Container(
-                child: TextField(
-                  maxLines: 7,
-                  decoration: InputDecoration(
-                    // filled: true,
-                    // fillColor: AppColors.textColorLightGrey,
-                    hintText: AppStrings.desc,
-                    hintStyle: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(3)
-                    ),
+            Container(
+              width: width*0.88,
+              child: TextField(
+                maxLines: 7,
+                decoration: InputDecoration(
+                  // filled: true,
+                  // fillColor: AppColors.textColorLightGrey,
+                  hintText: AppStrings.desc,
+                  hintStyle: GoogleFonts.poppins(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(3)
                   ),
                 ),
               ),
             ),
+            SizedBox(height: height*0.03,),
             
             Padding(
               padding:  EdgeInsets.only(
-                  top:MediaQuery.of(context).size.height*0.025,
                   left: MediaQuery.of(context).size.width*0.4,
               ),
               child: Text(AppStrings.manageSeed,
@@ -96,13 +91,10 @@ class Schedule extends StatelessWidget{
                 ),
               ),
             ),
+            SizedBox(height: height*0.03,),
 
-            Padding(
-              padding:  EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height*0.02,
-                  left: MediaQuery.of(context).size.width*0.06,
-                  right: MediaQuery.of(context).size.width*0.06
-              ),
+            Container(
+              width: width*0.88,
               child: TextField(
                 decoration: InputDecoration(
                   hintText: AppStrings.seedtype,
@@ -116,10 +108,9 @@ class Schedule extends StatelessWidget{
                 ),
               ),
             ),
-
+            SizedBox(height: height*0.03,),
             Padding(
               padding:  EdgeInsets.only(
-                top:MediaQuery.of(context).size.height*0.025,
                 right: MediaQuery.of(context).size.width*0.35,
               ),
               child: Text(AppStrings.dateTime,
@@ -130,95 +121,88 @@ class Schedule extends StatelessWidget{
                 ),
               ),
             ),
-            
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.colorGreen,
-                      ),
-                      borderRadius: BorderRadius.circular(50),
+            SizedBox(height: height*0.03,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.colorGreen,
                     ),
-                    child: CircleAvatar(
-                      radius: MediaQuery.of(context).size.height*0.035,
-                      backgroundColor: Colors.white,
-
-                      child: Text(AppStrings.d,style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.textColorBlack,
-                      ),),
-                    ),
+                    borderRadius: BorderRadius.circular(50),
                   ),
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.height*0.035,
+                    backgroundColor: Colors.white,
 
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.colorGreen,
-                      ),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: CircleAvatar(
-                      radius: MediaQuery.of(context).size.height*0.035,
-                      backgroundColor: Colors.white70,
-                      child: Text(AppStrings.w,style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.textColorBlack,
-                      ),),
-                    ),
+                    child: Text(AppStrings.d,style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textColorBlack,
+                    ),),
                   ),
+                ),
 
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.colorGreen,
-                      ),
-                      borderRadius: BorderRadius.circular(50),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.colorGreen,
                     ),
-                    child: CircleAvatar(
-                      radius: MediaQuery.of(context).size.height*0.035,
-                      backgroundColor: Colors.white70,
-                      child: Text(AppStrings.m,style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.textColorBlack,
-                      ),),
-                    ),
+                    borderRadius: BorderRadius.circular(50),
                   ),
-
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.colorGreen,
-                      ),
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    child: CircleAvatar(
-                      radius: MediaQuery.of(context).size.height*0.035,
-                      backgroundColor: Colors.white70,
-                      child: Text(AppStrings.y,style: GoogleFonts.poppins(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w500,
-                        color: AppColors.textColorBlack,
-                      ),),
-                    ),
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.height*0.035,
+                    backgroundColor: Colors.white70,
+                    child: Text(AppStrings.w,style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textColorBlack,
+                    ),),
                   ),
+                ),
 
-                ],
-              ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.colorGreen,
+                    ),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.height*0.035,
+                    backgroundColor: Colors.white70,
+                    child: Text(AppStrings.m,style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textColorBlack,
+                    ),),
+                  ),
+                ),
+
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: AppColors.colorGreen,
+                    ),
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                  child: CircleAvatar(
+                    radius: MediaQuery.of(context).size.height*0.035,
+                    backgroundColor: Colors.white70,
+                    child: Text(AppStrings.y,style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textColorBlack,
+                    ),),
+                  ),
+                ),
+
+              ],
             ),
-
-            Padding(
-              padding:  EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height*0.02,
-                  left: MediaQuery.of(context).size.width*0.06,
-                  right: MediaQuery.of(context).size.width*0.06
-              ),
+            SizedBox(height: height*0.03,),
+            Container(
+              width: width*0.88,
               child: TextField(
                 decoration: InputDecoration(
                   hintText: AppStrings.mdy,
@@ -232,10 +216,9 @@ class Schedule extends StatelessWidget{
                 ),
               ),
             ),
-
+            SizedBox(height: height*0.03,),
             Padding(
               padding: EdgeInsets.only(
-                top:MediaQuery.of(context).size.height*0.025,
                 left: MediaQuery.of(context).size.width*0.3,
               ),
               child: Text(AppStrings.setRecurring,

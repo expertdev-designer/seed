@@ -39,15 +39,20 @@ class _ConnectionsState extends State<Connections> {
   @override
   Widget build(BuildContext context) {
     var _media = MediaQuery.of(context);
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Center(
         child: Column(
 
           children: [
+            SizedBox(height: height*0.07,),
             Row(
               children: [
                 Padding(
-                  padding:  EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08,left: MediaQuery.of(context).size.width* 0.06,),
+                  padding:  EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width* 0.06,
+                     ),
                   child: InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(
@@ -61,24 +66,18 @@ class _ConnectionsState extends State<Connections> {
                     ),
                   ),
                 ),
-                 Padding(
-                   padding:  EdgeInsets.only(top: _media.size.height * 0.08,left:_media.size.width * 0.2,),
-                   child: Text(AppStrings.connection,
-                    style: GoogleFonts.poppins(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600,
-                    ),
+                SizedBox(width: width*0.2,),
+                 Text(AppStrings.connection,
+                  style: GoogleFonts.poppins(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-                 ),
-                 Padding(
-                   padding:  EdgeInsets.only(
-                     top: _media.size.height * 0.08,left:_media.size.width * 0.17,
-                   ),
-                   child: SvgPicture.asset(AppImages.circleAddSign,
-                    width: 20,
-                    height: 20,
+                 SizedBox(width: width*0.15,),
+                 SvgPicture.asset(AppImages.circleAddSign,
+                  width: 20,
+                  height: 20,
                 ),
-                 ),
               ],
             ),
             //Text('hello'),
@@ -285,18 +284,14 @@ class _ConnectionsState extends State<Connections> {
                                                       width: MediaQuery.of(context).size.width * 0.3,
                                                       child: Column(
                                                         children: [
-                                                          Padding(
-                                                            padding: EdgeInsets.only(
-                                                              top: MediaQuery.of(context).size.height * 0.03,
-                                                              left: MediaQuery.of(context).size.height * 0.020,
-                                                            ),
-                                                            child: Text(
-                                                              AppStrings.confirm,
-                                                              style: GoogleFonts.poppins(
-                                                                fontSize: 20,
-                                                                fontWeight: FontWeight.w600,
-                                                                color: AppColors.textColorBlack,
-                                                              ),
+                                                          SizedBox(height: height*0.03,),
+                                                          SizedBox(width: width*0.02,),
+                                                          Text(
+                                                            AppStrings.confirm,
+                                                            style: GoogleFonts.poppins(
+                                                              fontSize: 20,
+                                                              fontWeight: FontWeight.w600,
+                                                              color: AppColors.textColorBlack,
                                                             ),
                                                           ),
                                                           Padding(
