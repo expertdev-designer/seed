@@ -27,7 +27,7 @@ class _BroadcastName extends State<BroadcastName> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => NewGroup()),
+                MaterialPageRoute(builder: (context) => ConnectionList()),
               );
             },
           ),

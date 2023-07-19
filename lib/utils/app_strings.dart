@@ -77,5 +77,5 @@ class AppStrings {
   static String chat='chat(4)';
   static String hi='Hi';
   static String india= 'India';
-  static String send='Send';
+  static String send='SEND';
 }

@@ -442,20 +442,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 SizedBox(
                   height: height * 0.03,
                 ),
-                Container(
-                  height: height*0.54,
-                  child: GridView.builder(
-                    // physics: NeverScrollableScrollPhysics(),
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) {
-                      return Image.asset(images[index]);
-                    },
-                    itemCount: images.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3, // Number of columns in the grid
-                      mainAxisSpacing: 4.0, // Spacing between rows
-                      crossAxisSpacing: 4.0, // Spacing between columns
-                      childAspectRatio: 1.0, // Aspect ratio of each grid item
+                Expanded(
+                  child: Container(
+                    height: height*0.54,
+                    child: GridView.builder(
+                      // physics: NeverScrollableScrollPhysics(),
+                      padding: EdgeInsets.zero,
+                      itemBuilder: (context, index) {
+                        return Image.asset(images[index]);
+                      },
+                      itemCount: images.length,
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3, // Number of columns in the grid
+                        mainAxisSpacing: 4.0, // Spacing between rows
+                        crossAxisSpacing: 4.0, // Spacing between columns
+                        childAspectRatio: 1.0, // Aspect ratio of each grid item
+                      ),
                     ),
                   ),
                 )

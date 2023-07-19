@@ -341,10 +341,12 @@ class _ConnectionsState extends State<Connections> {
                                                                   left: MediaQuery.of(context).size.height * 0.04,
                                                                   right: MediaQuery.of(context).size.height * 0.04,
                                                                 ),
-                                                                child: Container(
-                                                                  width: MediaQuery.of(context).size.width * 0.003,
-                                                                  height: MediaQuery.of(context).size.height*0.073,
-                                                                  color: Colors.grey,
+                                                                child: Center(
+                                                                  child: Container(
+                                                                    width: MediaQuery.of(context).size.width * 0.003,
+                                                                    height: MediaQuery.of(context).size.height*0.075,
+                                                                    color: Colors.grey,
+                                                                  ),
                                                                 ),
                                                               ),
                                                               Padding(
