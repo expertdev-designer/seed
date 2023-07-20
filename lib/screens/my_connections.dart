@@ -137,13 +137,26 @@ class _MyConnections extends State<MyConnections> {
                     ),
                     SizedBox(width: width*0.06,),
                     Container(
-                      height: 30,
+                      height: 32,
+                      width: 22,
                       child: Stack(
                         children:[
 
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => NewConnections()));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: SvgPicture.asset(
+                                AppImages.addPerson,
+                              ),
+                            ),
+                          ),
+
                           Positioned(
-                            bottom: 15,
-                            left: 6,
+                            bottom: 18,
+                            left: 7,
 
                             child: CircleAvatar(
                                 radius: MediaQuery.of(context).size.width * 0.02,
@@ -163,17 +176,7 @@ class _MyConnections extends State<MyConnections> {
 
 
 
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => NewConnections()));
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 6),
-                              child: SvgPicture.asset(
-                                AppImages.addPerson,
-                              ),
-                            ),
-                          ),
+
                        ],
                       ),
                     ),
@@ -279,7 +282,7 @@ class _MyConnections extends State<MyConnections> {
                 children: [
                   ReusableRow(
                     leading: AppImages.groupIcon,
-                    title: AppStrings.broadcasts,
+                    title: AppStrings.nBroad,
                     onTap: () {
                       Navigator.push(
                           context,

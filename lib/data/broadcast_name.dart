@@ -20,6 +20,10 @@ class BroadcastName extends StatefulWidget {
 class _BroadcastName extends State<BroadcastName> {
   @override
   Widget build(BuildContext context) {
+
+    var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: ListView(
         children: [
@@ -33,21 +37,24 @@ class _BroadcastName extends State<BroadcastName> {
           ),
           //SizedBox(height: MediaQuery.of(context).size.height * 0.002),
           GroupNameField(),
-          //SizedBox(height: MediaQuery.of(context).size.height * 0.001),
-          Padding(
-            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.039),
-            child: Text(
-              AppStrings.connections4,
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: AppColors.textColorLightGrey,
+          SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width * 0.04),
+              Text(
+                AppStrings.connections4,
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: AppColors.textColorLightGrey,
+                ),
               ),
-            ),
+            ],
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.002),
-          Padding(
-            padding: const EdgeInsets.only(left: 5,right: 5),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
                 GroupMembersRow(
@@ -76,26 +83,30 @@ class _BroadcastName extends State<BroadcastName> {
             padding:  EdgeInsets.only(
                 left: MediaQuery.of(context).size.height * 0.02,
                 right: MediaQuery.of(context).size.height * 0.02,
-                bottom: MediaQuery.of(context).size.height * 0.03
+               bottom: MediaQuery.of(context).size.height * 0.03
             ),
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ConnectionList()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                fixedSize: Size(250, 50),
-                backgroundColor: AppColors.colorButton,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-              ),
-              child: Text(
-                AppStrings.done,
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                  color: Colors.white,
+            child: Container(
+              // width: width*0.1,
+              // height: 60,
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ConnectionList()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(250, 50),
+                  backgroundColor: AppColors.colorButton,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                ),
+                child: Text(
+                  AppStrings.done,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -113,31 +124,26 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        InkWell(
-          onTap: onTap,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.05,
-              left: MediaQuery.of(context).size.width * 0.06,
+        SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+        Row(
+          children: [
+            SizedBox(width: MediaQuery.of(context).size.width * 0.06,),
+            InkWell(
+              onTap: onTap,
+              child: Image.asset(AppImages.backArrowBlack),
             ),
-            child: Image.asset(AppImages.backArrowBlack),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.height * 0.05,
-            left: MediaQuery.of(context).size.width * 0.20,
-          ),
-          child: Text(
-            AppStrings.newBroadcast,
-            style: GoogleFonts.poppins(
-              fontSize: 21,
-              fontWeight: FontWeight.w600,
-              color: AppColors.textColorBlack,
+            SizedBox(width: MediaQuery.of(context).size.width * 0.20,),
+            Text(
+              AppStrings.newBroadcast,
+              style: GoogleFonts.poppins(
+                fontSize: 21,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textColorBlack,
+              ),
             ),
-          ),
+          ],
         ),
       ],
     );
@@ -145,36 +151,43 @@ class CustomAppBar extends StatelessWidget {
 }
 
 class GroupNameField extends StatelessWidget {
+  //TextEditingController _textEditingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
-          child: CircleAvatar(
-            radius: 25,
-            backgroundColor: AppColors.colorGreen,
-            child: Image.asset(AppImages.groupIcon,width: 30,height: 30,),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07),
-          child: Container(
-            width: 230,
-            height: 100,
-            child:  TextField(
-              decoration: InputDecoration(
-                labelText: AppStrings.braodcastname,
-                labelStyle: const TextStyle(color: AppColors.textColorLightGrey),
-                enabledBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.colorGreen),
-                ),
-                focusedBorder: const UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.colorGreen),
+        SizedBox(height:  MediaQuery.of(context).size.width * 0.03,),
+        Row(
+          children: [
+            SizedBox(width:  MediaQuery.of(context).size.width * 0.05,),
+            CircleAvatar(
+              radius: 25,
+              backgroundColor: AppColors.colorGreen,
+              child: Image.asset(AppImages.groupIcon,width: 30,height: 30,),
+            ),
+            SizedBox(width:  MediaQuery.of(context).size.width * 0.07,),
+            //SizedBox(height: height*0.2,),
+            Container(
+              width: 230,
+              height: 50,
+              //color: Colors.amber,
+              child:  TextField(
+               // controller: _textEditingController,
+                decoration: InputDecoration(
+                  labelText: AppStrings.braodcastname,
+                  labelStyle: const TextStyle(color: AppColors.textColorLightGrey),
+                  isDense: true,
+                  contentPadding: EdgeInsets.symmetric(vertical: 0),
+                  enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.colorGreen),
+                  ),
+                  focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: AppColors.colorGreen),
+                  ),
                 ),
               ),
             ),
-          ),
+          ],
         ),
       ],
     );
@@ -189,33 +202,33 @@ class GroupMembersRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.height * 0.02,
-            left: MediaQuery.of(context).size.width * 0.03,
-          ),
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: MediaQuery.of(context).size.height * 0.035,
-                child: Image.asset(
-                  imagePath,
-                  width: MediaQuery.of(context).size.width * 2,
-                  height: MediaQuery.of(context).size.height * 2,
+        SizedBox(height:MediaQuery.of(context).size.height * 0.02,),
+        Row(
+          children: [
+            SizedBox(width:MediaQuery.of(context).size.width * 0.03,),
+            Column(
+              children: [
+                CircleAvatar(
+                  radius: MediaQuery.of(context).size.height * 0.035,
+                  child: Image.asset(
+                    imagePath,
+                    width: MediaQuery.of(context).size.width * 2,
+                    height: MediaQuery.of(context).size.height * 2,
+                  ),
                 ),
-              ),
-              Text(
-                memberName,
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 12,
-                  color: AppColors.textColorLightGrey,
+                Text(
+                  memberName,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                    color: AppColors.textColorLightGrey,
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ],
     );

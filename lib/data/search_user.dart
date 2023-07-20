@@ -30,7 +30,7 @@ class _SearchUser extends State<SearchUser>{
   final List<SearchList> items=[
     SearchList(AppImages.profileImage, AppStrings.madfmly,AppStrings.grp, true),
     SearchList(AppImages.profileImage2, AppStrings.john,AppStrings.connection, true),
-    SearchList(AppImages.profileImage3, AppStrings.developer,AppStrings.dev, true),
+    SearchList(AppImages.groupIcon, AppStrings.developerT,AppStrings.broadcast, true),
   ];
   @override
   Widget build(BuildContext context) {
@@ -92,10 +92,13 @@ class _SearchUser extends State<SearchUser>{
                     padding: EdgeInsets.zero,
                     itemBuilder: (context,index){
                   //final subtitle = items[index].subtitle ?? '';
+
                   return ListTile(
                     leading: Container(
-                      width: MediaQuery.of(context).size.width * 0.2,
-                      height: MediaQuery.of(context).size.height * 0.15,
+                      // width: MediaQuery.of(context).size.width * 0.2,
+                      // height: MediaQuery.of(context).size.height * 0.15,
+                      width: 60,
+                      height: 60,
                       child: CircleAvatar(
                         radius: 100,
                         backgroundColor: AppColors.colorGreen,

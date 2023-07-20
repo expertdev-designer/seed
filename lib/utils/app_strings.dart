@@ -71,10 +71,10 @@ class AppStrings {
   static String roy='Roy Mckenzie';
   static String vactiontxt='Vacation in Brazil';
   static String trip='Trip';
-  static String datetxt='Created: July 21,2021';
+  static String datetxt='Created: July 16,2021';
   static String hourago='5 hour ago';
   static String writehere='Write here...';
-  static String chat='chat(4)';
+  static String chat='Chat(4)';
   static String hi='Hi';
   static String india= 'India';
   static String send='SEND';

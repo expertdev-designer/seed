@@ -38,4 +38,6 @@ class AppImages{
   static const String deleteIconSvg= 'assets/images/Vector(2).png';
   static const String addPerson= 'assets/images/Vector.svg';
   static const String camera= 'assets/images/Vector.png';
+  static const String dropdownicon= 'assets/images/dropdownicon.png';
+  static const String dropdowniconsvg= 'assets/images/dropdownicon.svg';
 }

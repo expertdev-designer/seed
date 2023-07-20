@@ -290,7 +290,7 @@ class _ConnectionList extends State<ConnectionList> {
                 children: [
                   ReusableRow(
                     leading: AppImages.groupIcon,
-                    title: AppStrings.broadcasts,
+                    title: AppStrings.nBroad,
                     onTap: () {
                       Navigator.push(
                           context,
@@ -383,8 +383,10 @@ class _ConnectionList extends State<ConnectionList> {
                       return ListTile(
                         leading: Container(
                           //color: Colors.green,
-                          width: MediaQuery.of(context).size.width * 0.2,
-                          height: MediaQuery.of(context).size.height * 0.2,
+                          // width: MediaQuery.of(context).size.width * 0.2,
+                          // height: MediaQuery.of(context).size.height * 0.2,
+                          width: 50,
+                          height: 50,
                           child: CircleAvatar(
                             backgroundImage: AssetImage(items[index].leading),
                             radius: MediaQuery.of(context).size.width * 0.2,
@@ -393,7 +395,7 @@ class _ConnectionList extends State<ConnectionList> {
                         title: Text(
                           items[index].title,
                           style: GoogleFonts.poppins(
-                            fontWeight: FontWeight.w700,
+                            fontWeight: FontWeight.w600,
                             fontSize: 16,
                           ),
                         ),

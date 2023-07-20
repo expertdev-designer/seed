@@ -30,21 +30,24 @@ class _GroupName extends State<GroupName> {
           ),
           //SizedBox(height: MediaQuery.of(context).size.height * 0.001),
           GroupNameField(),
-          //SizedBox(height: MediaQuery.of(context).size.height * 0.001),
-          Padding(
-            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.04),
-            child: Text(
-              AppStrings.connections8,
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: AppColors.textColorLightGrey,
+          //SizedBox(width: MediaQuery.of(context).size.width * 0.04),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              SizedBox(width: MediaQuery.of(context).size.width * 0.04),
+              Text(
+                AppStrings.connections8,
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: AppColors.textColorLightGrey,
+                ),
               ),
-            ),
+            ],
           ),
           SizedBox(height: MediaQuery.of(context).size.height * 0.002),
-          Padding(
-            padding: const EdgeInsets.only(left: 5,right: 5),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
                 GroupMembersRow(
@@ -69,8 +72,8 @@ class _GroupName extends State<GroupName> {
 
 
 
-          Padding(
-            padding: const EdgeInsets.only(left: 5,right: 3),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Row(
               children: [
                 GroupMembersRow(
@@ -100,7 +103,7 @@ class _GroupName extends State<GroupName> {
             padding:  EdgeInsets.only(
                 left: MediaQuery.of(context).size.height * 0.03,
                 right: MediaQuery.of(context).size.height * 0.03,
-                bottom: MediaQuery.of(context).size.height * 0.03
+                bottom: MediaQuery.of(context).size.height * 0.02
             ),
             child: ElevatedButton(
               onPressed: () {
@@ -137,31 +140,26 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        InkWell(
-          onTap: onTap,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: MediaQuery.of(context).size.height * 0.05,
-              left: MediaQuery.of(context).size.width * 0.06,
+        SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+        Row(
+          children: [
+            SizedBox(width: MediaQuery.of(context).size.width * 0.06,),
+            InkWell(
+              onTap: onTap,
+              child: Image.asset(AppImages.backArrowBlack),
             ),
-            child: Image.asset(AppImages.backArrowBlack),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.height * 0.05,
-            left: MediaQuery.of(context).size.width * 0.25,
-          ),
-          child: Text(
-            AppStrings.newgroup,
-            style: GoogleFonts.poppins(
-              fontSize: 21,
-              fontWeight: FontWeight.w600,
-              color: AppColors.textColorBlack,
+            SizedBox(width: MediaQuery.of(context).size.width * 0.25,),
+            Text(
+              AppStrings.newgroup,
+              style: GoogleFonts.poppins(
+                fontSize: 21,
+                fontWeight: FontWeight.w600,
+                color: AppColors.textColorBlack,
+              ),
             ),
-          ),
+          ],
         ),
       ],
     );
@@ -173,6 +171,7 @@ class GroupNameField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
+        SizedBox(height:  MediaQuery.of(context).size.width * 0.2,),
         Padding(
           padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.05),
           child: CircleAvatar(
@@ -180,21 +179,21 @@ class GroupNameField extends StatelessWidget {
             child: Image.asset(AppImages.camera),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.07),
-          child: Container(
-            width: 230,
-            height: 100,
-            child: const TextField(
-              decoration: InputDecoration(
-                labelText: 'Group Name',
-                labelStyle: TextStyle(color: AppColors.textColorLightGrey),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.colorGreen),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: AppColors.colorGreen),
-                ),
+        SizedBox(width: MediaQuery.of(context).size.width * 0.07),
+        Container(
+          width: 230,
+          height: 50,
+          child: const TextField(
+            decoration: InputDecoration(
+              labelText: 'Group Name',
+              labelStyle: TextStyle(color: AppColors.textColorLightGrey),
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(vertical: 0),
+              enabledBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColors.colorGreen),
+              ),
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: AppColors.colorGreen),
               ),
             ),
           ),
@@ -212,33 +211,33 @@ class GroupMembersRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.height * 0.02,
-            left: MediaQuery.of(context).size.width * 0.03,
-          ),
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: MediaQuery.of(context).size.height * 0.035,
-                child: Image.asset(
-                  imagePath,
-                  width: MediaQuery.of(context).size.width * 2,
-                  height: MediaQuery.of(context).size.height * 2,
+        SizedBox(height: MediaQuery.of(context).size.height * 0.02, ),
+        Row(
+          children: [
+            SizedBox(width:  MediaQuery.of(context).size.width * 0.03,),
+            Column(
+              children: [
+                CircleAvatar(
+                  radius: MediaQuery.of(context).size.height * 0.035,
+                  child: Image.asset(
+                    imagePath,
+                    width: MediaQuery.of(context).size.width * 2,
+                    height: MediaQuery.of(context).size.height * 2,
+                  ),
                 ),
-              ),
-              Text(
-                memberName,
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 12,
-                  color: AppColors.textColorLightGrey,
+                Text(
+                  memberName,
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                    color: AppColors.textColorLightGrey,
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            ),
+          ],
         ),
       ],
     );

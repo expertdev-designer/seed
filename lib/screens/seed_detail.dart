@@ -75,9 +75,9 @@ class SeedDetail extends StatelessWidget{
                       ),
                     ],
                   ),
-                  SizedBox(width: width* 0.32,),
+                  SizedBox(width: width* 0.35,),
                   SvgPicture.asset(AppImages.profileIcon),
-                  SizedBox(width: width* 0.01,),
+                  SizedBox(width: width* 0.005,),
                   Padding(
                     padding: const EdgeInsets.only(top: 6),
                     child: Text(AppStrings.num14,
@@ -88,7 +88,9 @@ class SeedDetail extends StatelessWidget{
                       ),
                     ),
                   ),
-                   Icon(Icons.arrow_drop_down),
+
+                   SvgPicture.asset(AppImages.dropdowniconsvg),
+                   //Icon(Icons.arrow_drop_down),
 
                 ],
               ),
@@ -165,7 +167,10 @@ class SeedDetail extends StatelessWidget{
                   Positioned(
                     right: MediaQuery.of(context).size.height * 0.03,
                     bottom: MediaQuery.of(context).size.width* 0.07,
-                    child: Image.asset(AppImages.seedLogo,
+                    child: Transform.scale(
+                      scale: 1.5,
+                      child: Image.asset(AppImages.seedLogo,
+                      ),
                     ),),
               ],
               ),

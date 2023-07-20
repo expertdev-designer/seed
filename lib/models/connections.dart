@@ -106,19 +106,20 @@ class _ConnectionsState extends State<Connections> {
                           child: Container(
                             //color: Colors.lightBlue,
                             padding: const EdgeInsets.symmetric(
-                                vertical: 10,
+                                vertical: 20,
                                 horizontal: 20,
                             ),
                             child: Row(
                               children: [
                                 Container(
-                                  height: MediaQuery.of(context).size.height * 0.10,
-                                  width: MediaQuery.of(context).size.width * 0.15,
+                                  // height: MediaQuery.of(context).size.height * 0.10,
+                                  // width: MediaQuery.of(context).size.width * 0.15,
+                                  width: 60,
+                                  height: 60,
                                   child: CircleAvatar(
                                     backgroundImage: AssetImage(items[index].leading,
                                       // width: MediaQuery.of(context).size.width * 0.04,
                                       // height: MediaQuery.of(context).size.height * 0.04,
-
                                     ),
                                     radius: MediaQuery.of(context).size.width * 0.2,
                                     backgroundColor: Colors.lightBlue,
@@ -248,9 +249,11 @@ class _ConnectionsState extends State<Connections> {
                                                                     right: MediaQuery.of(context).size.height * 0.04,
                                                                   ),
                                                                   child: Container(
-                                                                    width: MediaQuery.of(context).size.width * 0.003,
-                                                                    height: MediaQuery.of(context).size.height * 0.072,
-                                                                    color: Colors.grey,
+                                                                    // width: MediaQuery.of(context).size.width * 0.003,
+                                                                    // height: MediaQuery.of(context).size.height * 0.072,
+                                                                    width: 0.8,
+                                                                    height:58.1,
+                                                                    color: AppColors.textColorLightGrey,
                                                                   ),
                                                                 ),
                                                                 Padding(
@@ -343,8 +346,10 @@ class _ConnectionsState extends State<Connections> {
                                                                 ),
                                                                 child: Center(
                                                                   child: Container(
-                                                                    width: MediaQuery.of(context).size.width * 0.003,
-                                                                    height: MediaQuery.of(context).size.height*0.075,
+                                                                    //width: MediaQuery.of(context).size.width * 0.003,
+                                                                    //height: MediaQuery.of(context).size.height*0.075,
+                                                                    width: 0.6,
+                                                                    height:58.1,
                                                                     color: Colors.grey,
                                                                   ),
                                                                 ),
@@ -399,7 +404,12 @@ class _ConnectionsState extends State<Connections> {
                                   Column(
                                     children: [
                                       Icon(Icons.perm_contact_cal, color: AppColors.contactIconClr),
-                                      Text(AppStrings.india),
+                                      Text(AppStrings.india,
+                                        style: GoogleFonts.poppins(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
                                     ],
                                   ),
                               ],
