@@ -6,9 +6,13 @@ import 'package:seedapp/models/connections.dart';
 import 'package:seedapp/screens/my_connections.dart';
 import 'package:seedapp/data/schedule.dart';
 import 'package:seedapp/screens/seed_detail.dart';
+import 'package:seedapp/screens/splash_screen.dart';
+import 'package:seedapp/test.dart';
 import 'package:seedapp/utils/app_colors.dart';
 import 'package:seedapp/utils/app_strings.dart';
 import 'package:seedapp/utils/images.dart';
+
+import 'models/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +24,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    // Show the splash screen for 3 seconds
+    // Future.delayed(Duration(seconds: 3), () {
+    //   Navigator.of(context).pushReplacement(
+    //     MaterialPageRoute(
+    //       builder: (_) =>LoginPage(),
+    //           //HomeScreen(),
+    //     ),
+    //   );
+    // });
+    //
+    // return MaterialApp(
+    //   home: Scaffold(
+    //     body: Center(
+    //       child: SvgPicture.asset(AppImages.logosvg),
+    //     ),
+    //   ),
+    // );
+
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -29,7 +52,8 @@ class MyApp extends StatelessWidget {
       ),
       home: //Schedule(),
       //  Connections(),
-      const MyHomePage(),
+      SplashScreen(),
+      //MyHomePage(),
     );
   }
 }
@@ -416,7 +440,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Connections(),
+                            builder: (context) =>//Connect(),
+                            Connections(),
                           ),
                         );
                       },

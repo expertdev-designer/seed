@@ -40,4 +40,14 @@ class AppImages{
   static const String camera= 'assets/images/Vector.png';
   static const String dropdownicon= 'assets/images/dropdownicon.png';
   static const String dropdowniconsvg= 'assets/images/dropdownicon.svg';
+  static const String bgimgsvg= 'assets/images/bgimg.svg';
+  static const String bgimg= 'assets/images/bgimg.png';
+  static const String logo= 'assets/images/fillogo.png';
+  static const String logosvg= 'assets/images/filllogosvg.svg';
+  static const String googlesvg= 'assets/images/google.svg';
+  static const String apple= 'assets/images/apple.svg';
+  static const String facebook= 'assets/images/facebook.svg';
+  static const String bgimagesvg= 'assets/images/bgimagesvg.svg';
+  static const String mailsvg= 'assets/images/mail.svg';
+  static const String email= 'assets/images/email.png';
 }

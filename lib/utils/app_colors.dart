@@ -19,4 +19,6 @@ import 'package:flutter/material.dart';
   static const darkGrey=Color(0xfff535353);
   static const contactIconClr=Color(0xfffE3E3E3);
   static const lightGreen=Color(0xfff5AE225);
+  static const facebook=Color(0xfff3B5998);
+  static const white=Color(0xfffFFFFF);
  }

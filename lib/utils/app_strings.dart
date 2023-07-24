@@ -78,4 +78,24 @@ class AppStrings {
   static String hi='Hi';
   static String india= 'India';
   static String send='SEND';
+  static String email='Email';
+  static String password='Password';
+  static String seed='Seed';
+  static String seedapp='Seed App';
+  static String forgotpwd='Forgot Password?';
+  static String signinwith='Sign in with';
+  static String bottomtext='Don’t have an account? Sign Up';
+  static String name='Name';
+  static String confirmpwd='Confirm Password';
+  static String country='Country';
+  static String dob='Date of Birth';
+  static String gender='Gender';
+  static String createac='Create Account';
+  static String signup='Sign Up';
+  static String agreementtext='I Agree to Terms & Conditions and Privacy Policy';
+  static String bottomtext2='Already have an account? Login';
+  static String verify='Verify Your Email';
+  static String checkemail='Check your email & click the link to activate your account';
+  static String resend='Resend Email';
+  static String entermailtext='Enter your email address and we’ll send you a link to reset your password';
 }
