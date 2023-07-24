@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/models/login_page.dart';
@@ -15,16 +16,47 @@ class SignupPage extends StatefulWidget {
 
 class _SignupPageState extends State<SignupPage> {
   String _email = '';
-
   String _password = '';
-
   String _confirmPassword = '';
+
+  final _formKey= GlobalKey<FormState>();
+  final emailController =TextEditingController();
+  final passwordController= TextEditingController();
 
   DateTime? _selectedDate;
 
-  void _submitForm() {
-    // Perform signup logic here
-    print('Signup successful!');
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void _submitForm() async {
+    if (_formKey.currentState!.validate()) {
+      try {
+        UserCredential userCredential =
+        await _auth.createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        );
+
+
+        if (userCredential.user != null && !userCredential.user!.emailVerified) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => VerifyEmail()),
+          );
+        } else {
+          print('Signup successful!');
+        }
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          print('The password provided is too weak.');
+        } else if (e.code == 'email-already-in-use') {
+          print('The account already exists for that email.');
+        } else {
+          print('Error: ${e.message}');
+        }
+      } catch (e) {
+        print('Error: $e');
+      }
+    }
   }
 
   void _onButtonPressed(BuildContext context) {
@@ -54,56 +86,58 @@ class _SignupPageState extends State<SignupPage> {
     var height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                AppImages.bgimg,
-                fit: BoxFit.fill,
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height,
-              ),
-            ),
-
-
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    height: height * 0.15,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => LoginPage(),
-                        ),
-                      );
-                    },
-                    child: const Icon(Icons.arrow_back,
-                        size: 24, color: Colors.white),
-                  ),
-                  SizedBox(width: width * 0.25,), //stack
-                  Text(
-                    AppStrings.signup,
-                    style: GoogleFonts.poppins(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            Container(
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Image.asset(
+              AppImages.bgimg,
+              fit: BoxFit.fill,
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.12),
+              height: MediaQuery.of(context).size.height,
+            ),
+          ),
+
+
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  height: height * 0.15,
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginPage(),
+                      ),
+                    );
+                  },
+                  child: const Icon(Icons.arrow_back,
+                      size: 24, color: Colors.white),
+                ),
+                SizedBox(width: width * 0.25,), //stack
+                Text(
+                  AppStrings.signup,
+                  style: GoogleFonts.poppins(
+                    fontSize: 21,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.12),
+            child: Form(
+              key:_formKey,
               child: Column(
                 children: [
                   SizedBox(width: 20),
@@ -114,11 +148,29 @@ class _SignupPageState extends State<SignupPage> {
                   const SizedBox(height: 20),
                   CustomTextField(
                     labelText: AppStrings.email,
+                    controller: emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter your email';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 20),
                   CustomTextField(
                     labelText: AppStrings.password,
                     obscureText: true,
+                    controller: passwordController,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Please enter a password';
+                      }
+                      if (value.length < 6) {
+                        return 'Password must be at least 6 characters';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 20),
                   CustomTextField(
@@ -181,7 +233,7 @@ class _SignupPageState extends State<SignupPage> {
                   SizedBox(height: 40),
                   CustomButton(
                     text: AppStrings.createac,
-                    onPressed: () => _onButtonPressed(context),
+                    onPressed: _submitForm,
                     color: AppColors.colorButton,
                     width: 300.0,
                     height: 50.0,
@@ -200,8 +252,8 @@ class _SignupPageState extends State<SignupPage> {
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -218,6 +270,7 @@ class _SignupPageState extends State<SignupPage> {
     VoidCallback? onTap,
     Icon? suffixIcon,
     bool? readOnly = false,
+    String? Function(String?)? validator,
   }) {
     return Container(
       width: 300,
@@ -245,6 +298,7 @@ class _SignupPageState extends State<SignupPage> {
           // Add suffixIcon
           contentPadding: contentPadding,
         ),
+        validator: validator,
       ),
     );
   }

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "336778932710",
+    "project_id": "seedapp-38720",
+    "storage_bucket": "seedapp-38720.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336778932710:android:fea63a79da725d25bd2627",
+        "android_client_info": {
+          "package_name": "com.elintminds.seedapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336778932710-4hf16o0gavk3r4oforqcrqshtumb0cru.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwdJ53AS1NlzUEagDlWZ1nrLobGWC7G_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336778932710-4hf16o0gavk3r4oforqcrqshtumb0cru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

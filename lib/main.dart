@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +7,7 @@ import 'package:seedapp/models/connections.dart';
 import 'package:seedapp/screens/my_connections.dart';
 import 'package:seedapp/data/schedule.dart';
 import 'package:seedapp/screens/seed_detail.dart';
+import 'package:seedapp/screens/signup.dart';
 import 'package:seedapp/screens/splash_screen.dart';
 import 'package:seedapp/test.dart';
 import 'package:seedapp/utils/app_colors.dart';
@@ -14,7 +16,9 @@ import 'package:seedapp/utils/images.dart';
 
 import 'models/login_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

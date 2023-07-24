@@ -1,5 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:seedapp/models/login_page.dart';
 
@@ -8,14 +8,42 @@ import '../utils/app_strings.dart';
 import '../utils/custom_button.dart';
 import '../utils/images.dart';
 
-class VerifyEmail extends StatelessWidget {
+class VerifyEmail extends StatefulWidget {
 
+  @override
+  State<VerifyEmail> createState() => _VerifyEmailState();
+}
 
+class _VerifyEmailState extends State<VerifyEmail> {
 
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void _onButtonPressed(BuildContext context) {
-    print("Button pressed!");
-    // Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+  void _onButtonPressed(BuildContext context) async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      await user.sendEmailVerification();
+
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Verification Email Sent'),
+            content: Text(
+              'An email has been sent to ${user.email}. Please check your email and follow the link to verify your account.',
+            ),
+            actions: <Widget>[
+              CustomButton(
+                text: AppStrings.ok,
+                onPressed: (){},
+                color: AppColors.colorButton,
+                width: 100.0,
+                height: 35.0,
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 
   @override
@@ -142,5 +170,4 @@ class VerifyEmail extends StatelessWidget {
       textAlign: textAlign ?? TextAlign.left,
     );
   }
-
 }
