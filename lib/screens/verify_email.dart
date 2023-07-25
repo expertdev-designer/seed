@@ -65,80 +65,93 @@ class _VerifyEmailState extends State<VerifyEmail> {
             ),
           ),
 
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  height: height * 0.15,
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => LoginPage(),
-                      ),
-                    );
-                  },
-                  child: const Icon(Icons.arrow_back,
-                      size: 24, color: Colors.white),
-                ),
-              ],
+          Positioned(
+            top:40,
+            left: 20,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => LoginPage(),
+                  ),
+                );
+              },
+              child: const Icon(Icons.arrow_back, size: 24, color: Colors.white),
             ),
           ),
 
-          Column(
-            children: [
-              SizedBox(height: height*0.15,),
-               AppText(
-               text: AppStrings.verify,
-               fontSize: 24,
-               fontWeight: FontWeight.normal,
-               color: Colors.white,
-                 textAlign: TextAlign.center,
-              ),
+          Positioned(
+            top: 130,
+            left: 0,
+            right: 0,
+            child: Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppText(
+                    text: AppStrings.verify,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    textAlign: TextAlign.center,
+                  ),
+                  Container(
+                    width: width * 0.9,
+                    padding: const EdgeInsets.only(left: 24, right: 24, top: 15),
+                    child: AppText(
+                      text: AppStrings.checkemail,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
 
-        Center(
-          child: Container(
-            width: width*0.9,
-            //color: Colors.blue,
-            padding: const EdgeInsets.only(left: 24,right: 24,top: 10),
+                ],
+              ),
+            ),
+          ),
+
+          Positioned(
+            top: 310,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: Image.asset(AppImages.email
+                ),
+              ),
+          ),
+
+          Positioned(
+            top: 540,
+            left: 30,
+            right: 30,
+            child: CustomButton(
+              text: AppStrings.done,
+              onPressed: () => _onButtonPressed(context),
+              color: AppColors.colorButton,
+              width: 300.0,
+              height: 50.0,
+            ),
+          ),
+
+          Positioned(
+            bottom: 25,
+            left: 0,
+            right: 0,
             child: AppText(
-              text: AppStrings.checkemail,
+              text: AppStrings.resend,
               fontSize: 15,
               fontWeight: FontWeight.normal,
-              color: Colors.white,
+              color: AppColors.white,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.white,
+              decorationStyle: TextDecorationStyle.solid,
+              decorationThickness: 2.0,
               textAlign: TextAlign.center,
             ),
-          ),
-        ),
-
-              //Image.asset(AppImages.email),
-              SizedBox(height: height*0.12,),
-              Image.asset(AppImages.email),
-              SizedBox(height: height*0.15),
-              CustomButton(
-                text: AppStrings.done,
-                onPressed: () => _onButtonPressed(context),
-                color: AppColors.colorButton,
-                width: 300.0,
-                height: 50.0,
-              ),
-              SizedBox(height: height*0.15),
-              AppText(
-                text: AppStrings.resend,
-                fontSize: 15,
-                fontWeight: FontWeight.normal,
-                color: AppColors.white,
-                decoration: TextDecoration.underline,
-                decorationColor: Colors.white,
-                decorationStyle: TextDecorationStyle.solid,
-                decorationThickness: 2.0,
-                textAlign: TextAlign.center,
-              ),
-            ],
           ),
         ],
       ),

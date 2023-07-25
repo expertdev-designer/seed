@@ -8,13 +8,15 @@ class CustomButton extends StatelessWidget {
   final Color color;
   final double width;
   final double height;
+  bool isLoading;
 
-  const CustomButton({
+   CustomButton({
     required this.text,
     required this.onPressed,
     required this.color,
     required this.width,
     required this.height,
+    this.isLoading=false
   });
 
   @override
@@ -33,7 +35,7 @@ class CustomButton extends StatelessWidget {
           ),
           primary: color,
         ),
-        child: Text(
+        child: isLoading? CircularProgressIndicator( strokeWidth: 4,color: Colors.white,):Text(
           text,
           style: GoogleFonts.poppins(
             color: Colors.white,

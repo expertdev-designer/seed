@@ -100,15 +100,12 @@ class _SignupPageState extends State<SignupPage> {
           ),
 
 
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SizedBox(
-                  height: height * 0.15,
-                ),
-                InkWell(
+          Stack(
+            children: [
+              Positioned(
+                top: 40,
+                left: 20,
+                child: InkWell(
                   onTap: () {
                     Navigator.push(
                       context,
@@ -117,25 +114,32 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     );
                   },
-                  child: const Icon(Icons.arrow_back,
-                      size: 24, color: Colors.white),
+                  child: const Icon(Icons.arrow_back, size: 24, color: Colors.white),
                 ),
-                SizedBox(width: width * 0.25,), //stack
-                Text(
-                  AppStrings.signup,
-                  style: GoogleFonts.poppins(
-                    fontSize: 21,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.white,
+              ),
+              Positioned(
+                top: 40,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: Text(
+                    AppStrings.signup,
+                    style: GoogleFonts.poppins(
+                      fontSize: 21,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.white,
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
 
-          Container(
-            width: MediaQuery.of(context).size.width,
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.12),
+
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 85,
             child: Form(
               key:_formKey,
               child: Column(
@@ -230,27 +234,35 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 40),
-                  CustomButton(
-                    text: AppStrings.createac,
-                    onPressed: _submitForm,
-                    color: AppColors.colorButton,
-                    width: 300.0,
-                    height: 50.0,
-                  ),
-                  SizedBox(height: 10),
-
-                  UnderlinedText(
-                    text: AppStrings.bottomtext2,
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      fontWeight: FontWeight.normal,
-                      color: AppColors.white,
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
                 ],
               ),
+            ),
+          ),
+
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 20,
+            child: Column(
+              children: [
+                CustomButton(
+                  text: AppStrings.createac,
+                  onPressed: _submitForm,
+                  color: AppColors.colorButton,
+                  width: 300.0,
+                  height: 50.0,
+                ),
+                SizedBox(height: 10),
+                UnderlinedText(
+                  text: AppStrings.bottomtext2,
+                  style: GoogleFonts.poppins(
+                    fontSize: 15,
+                    fontWeight: FontWeight.normal,
+                    color: AppColors.white,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ],
             ),
           ),
         ],
