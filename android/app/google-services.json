@@ -9,12 +9,57 @@
       "client_info": {
         "mobilesdk_app_id": "1:336778932710:android:fea63a79da725d25bd2627",
         "android_client_info": {
-          "package_name": "com.elintminds.seedapp"
+          "package_name": "com.emw.seedapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "336778932710-4hf16o0gavk3r4oforqcrqshtumb0cru.apps.googleusercontent.com",
+          "client_id": "336778932710-c014eiu6qtk0o8uf30qd5nn8ebpb1eup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.emw.seedapp",
+            "certificate_hash": "44d863785410886a7982fd74e2527a6fc15011b7"
+          }
+        },
+        {
+          "client_id": "336778932710-kvu6fp8e8aa24ud5hb9akh6nb3ati98j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwdJ53AS1NlzUEagDlWZ1nrLobGWC7G_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "336778932710-4hf16o0gavk3r4oforqcrqshtumb0cru.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:336778932710:android:e3a9c5f7c9237bdbbd2627",
+        "android_client_info": {
+          "package_name": "com.emw.seedapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "336778932710-ucuegkdlbb0uf88g41odjfumt36vlejb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.emw.seedapp",
+            "certificate_hash": "44d863785410886a7982fd74e2527a6fc15011b7"
+          }
+        },
+        {
+          "client_id": "336778932710-kvu6fp8e8aa24ud5hb9akh6nb3ati98j.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

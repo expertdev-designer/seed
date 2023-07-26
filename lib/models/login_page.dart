@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:loader_overlay/loader_overlay.dart';
 import 'package:seedapp/main.dart';
 import 'package:seedapp/screens/signup.dart';
 import 'package:seedapp/utils/app_colors.dart';
@@ -8,8 +9,15 @@ import 'package:seedapp/utils/app_strings.dart';
 import 'package:seedapp/utils/custom_button.dart';
 import 'package:seedapp/utils/images.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
+
+
+import '../data/authpage.dart';
 import '../screens/forgot_password.dart';
+import '../utils/toastmsg.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -23,6 +31,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
 
+  bool isLoading=false;
   void _onButtonPressed(BuildContext context) {
     print("Button pressed!");
     Navigator.push(
@@ -33,6 +42,9 @@ class _LoginPageState extends State<LoginPage> {
 
   void _loginUser() async {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        isLoading=true;
+      });
       try {
         UserCredential userCredential =
         await _auth.signInWithEmailAndPassword(
@@ -49,22 +61,77 @@ class _LoginPageState extends State<LoginPage> {
               MaterialPageRoute(builder: (context) => MyHomePage()),
             );
           } else {
-            print('Please verify your email.');
+            ToastUtils.showMessage('Please verify your email.');
           }
         } else {
-          print('No user found for that email.');
+          ToastUtils.showMessage('No user found for that email.');
         }
       } on FirebaseAuthException catch (e) {
         if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
+          ToastUtils.showMessage('Wrong password provided for that user.');
         } else {
-          print('Error: ${e.message}');
+          ToastUtils.showMessage('Error: ${e.message}');
         }
       } catch (e) {
-        print('Error: $e');
+        ToastUtils.showMessage('Error: $e');
       }
+
+      setState(() {
+        isLoading=false;
+      });
     }
   }
+
+  Future<void> signInWithGoogle(BuildContext context) async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      if (googleUser != null) {
+        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+        final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+        await FirebaseAuth.instance.signInWithCredential(credential);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MyHomePage()),
+        );
+      } else {
+        ToastUtils.showMessage('Google sign-up canceled');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'sign_in_failed') {
+        ToastUtils.showMessage('Google sign-in failed. Please try again.');
+      } else {
+        ToastUtils.showMessage('Error: ${e.message}');
+      }
+    } catch (e) {
+      ToastUtils.showMessage('Error: $e');
+    }
+  }
+
+
+
+  Future<void> signInWithFacebook() async {
+    try {
+      final LoginResult result = await FacebookAuth.instance.login();
+      if (result.status == LoginStatus.success) {
+        final AccessToken accessToken = result.accessToken!;
+        final AuthCredential credential = FacebookAuthProvider.credential(accessToken.token);
+        await FirebaseAuth.instance.signInWithCredential(credential);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => MyHomePage()),
+        );
+      } else {
+        ToastUtils.showMessage('facebook sign up cancel');
+      }
+    } catch (e) {
+      ToastUtils.showMessage('Error: $e');
+      print('Error: $e');
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
           Positioned(
             left: 0,
             right: 0,
-            top: 220,
+            top: 210,
             child: Form(
               key:_formKey,
               child: Column(
@@ -133,12 +200,20 @@ class _LoginPageState extends State<LoginPage> {
                     },
                   ),
                   SizedBox(height: 20),
+                  // CustomButton(
+                  //   text: 'Log In',
+                  //   onPressed: () => _loginUser(),
+                  //   color: AppColors.colorButton,
+                  //   width: 300.0,
+                  //   height: 50.0,
+                  // ),
                   CustomButton(
                     text: 'Log In',
-                    onPressed: () => _loginUser(),
-                    color: AppColors.colorButton,
-                    width: 300.0,
-                    height: 50.0,
+                    isLoading: isLoading,
+                    onPressed: _loginUser,
+                      color: AppColors.colorButton,
+                      width: 300.0,
+                      height: 50.0,
                   ),
                   SizedBox(height: 35),
                   Row(
@@ -162,8 +237,14 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
+
+
+        ],
+      ),
+        ),
+        ),
           Positioned(
-              top: 600,
+              top: 450,
               left: 0,
               right: 0,
               child: Column(
@@ -185,29 +266,35 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        width: 80,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: AppColors.facebook,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Transform.scale(
-                          scale: 0.3,
-                          child: SvgPicture.asset(AppImages.facebook),
+                      GestureDetector(
+                        onTap: () => signInWithFacebook(),
+                        child: Container(
+                          width: 80,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: AppColors.facebook,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Transform.scale(
+                            scale: 0.3,
+                            child: SvgPicture.asset(AppImages.facebook),
+                          ),
                         ),
                       ),
                       SizedBox(width: 20,),
-                      Container(
-                        width: 80,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          color: AppColors.white,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Transform.scale(
-                          scale: 0.3,
-                          child: SvgPicture.asset(AppImages.googlesvg),
+                      GestureDetector(
+                        onTap: () =>   signInWithGoogle(context),
+                        child: Container(
+                          width: 80,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: AppColors.white,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Transform.scale(
+                            scale: 0.3,
+                            child: SvgPicture.asset(AppImages.googlesvg),
+                          ),
                         ),
                       ),
                       SizedBox(width: 20,),
@@ -229,7 +316,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               )),
           Positioned(
-            bottom: 50,
+            bottom: 20,
             left: 0,
             right: 0,
             child: InkWell(
@@ -254,10 +341,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
           )
         ],
-      ),
-        ),
-        ),
-        ],
         ),
     );
   }
@@ -275,6 +358,8 @@ class _LoginPageState extends State<LoginPage> {
       child: TextFormField(
         style: TextStyle(color: Colors.white),
         obscureText: obscureText,
+        controller: controller,
+        keyboardType: keyboardType,
         decoration: InputDecoration(
           labelText: labelText,
           labelStyle: GoogleFonts.poppins(
@@ -319,7 +404,10 @@ class _LoginPageState extends State<LoginPage> {
       textAlign: textAlign ?? TextAlign.left,
     );
   }
+
+
 }
+
 
 
 

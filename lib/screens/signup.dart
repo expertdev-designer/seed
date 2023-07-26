@@ -25,10 +25,15 @@ class _SignupPageState extends State<SignupPage> {
 
   DateTime? _selectedDate;
 
+  bool isLoading=false;
+
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   void _submitForm() async {
     if (_formKey.currentState!.validate()) {
+      setState(() {
+        isLoading=true;
+      });
       try {
         UserCredential userCredential =
         await _auth.createUserWithEmailAndPassword(
@@ -56,6 +61,10 @@ class _SignupPageState extends State<SignupPage> {
       } catch (e) {
         print('Error: $e');
       }
+
+      setState(() {
+        isLoading=false;
+      });
     }
   }
 
@@ -103,7 +112,7 @@ class _SignupPageState extends State<SignupPage> {
           Stack(
             children: [
               Positioned(
-                top: 40,
+                top: 45,
                 left: 20,
                 child: InkWell(
                   onTap: () {
@@ -118,7 +127,7 @@ class _SignupPageState extends State<SignupPage> {
                 ),
               ),
               Positioned(
-                top: 40,
+                top: 45,
                 left: 0,
                 right: 0,
                 child: Center(
@@ -139,7 +148,7 @@ class _SignupPageState extends State<SignupPage> {
           Positioned(
             left: 0,
             right: 0,
-            top: 85,
+            top: 90,
             child: Form(
               key:_formKey,
               child: Column(
@@ -247,6 +256,7 @@ class _SignupPageState extends State<SignupPage> {
               children: [
                 CustomButton(
                   text: AppStrings.createac,
+                  isLoading: isLoading,
                   onPressed: _submitForm,
                   color: AppColors.colorButton,
                   width: 300.0,

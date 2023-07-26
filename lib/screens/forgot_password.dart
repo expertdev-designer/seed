@@ -91,22 +91,24 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     labelText: AppStrings.email,
                     obscureText: false,
                   ),
+                  SizedBox(height:35),
+                  CustomButton(
+                    text: AppStrings.done,
+                    onPressed: () => _onButtonPressed(context),
+                    color: AppColors.colorButton,
+                    width: 300.0,
+                    height: 50.0,
+                  ),
                 ],
               ),
             ),
           ),
-          Positioned(
-            left: 25,
-            right: 25,
-            top: 390,
-            child: CustomButton(
-              text: AppStrings.done,
-              onPressed: () => _onButtonPressed(context),
-              color: AppColors.colorButton,
-              width: 300.0,
-              height: 50.0,
-            ),
-          ),
+          // Positioned(
+          //   left: 0,
+          //   right: 0,
+          //   top: 390,
+          //
+          // ),
         ],
       ),
     );

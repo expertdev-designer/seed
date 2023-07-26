@@ -118,23 +118,21 @@ class _VerifyEmailState extends State<VerifyEmail> {
             top: 310,
               left: 0,
               right: 0,
-              child: Center(
-                child: Image.asset(AppImages.email
-                ),
+              child: Column(
+                children: [
+                  Image.asset(AppImages.email
+                  ),
+                  SizedBox(height: height*0.15,),
+                  CustomButton(
+                    text: AppStrings.done,
+                    onPressed: () => _onButtonPressed(context),
+                    color: AppColors.colorButton,
+                    width: 300.0,
+                    height: 50.0,
+                  ),
+                ],
               ),
-          ),
 
-          Positioned(
-            top: 540,
-            left: 30,
-            right: 30,
-            child: CustomButton(
-              text: AppStrings.done,
-              onPressed: () => _onButtonPressed(context),
-              color: AppColors.colorButton,
-              width: 300.0,
-              height: 50.0,
-            ),
           ),
 
           Positioned(
